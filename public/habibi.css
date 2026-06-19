@@ -1330,12 +1330,17 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
-  color: rgba(74, 99, 77, 0.7);
+  color: #4a634d;
 }
 
-.habibi-nav__link:hover,
+.habibi-nav__link:hover {
+  opacity: 0.75;
+}
+
 .habibi-nav__link--active {
-  color: #4a634d;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
 }
 
 .habibi-nav__link--cta {

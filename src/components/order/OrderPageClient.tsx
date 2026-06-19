@@ -385,6 +385,7 @@ export function OrderPageClient() {
     <div className="habibi-order">
       <OrderPageHeader tagline={o.tagline} trust={o.trust} />
 
+      <div className="habibi-order-body">
       <section
         ref={identRef}
         id="order-ident"
@@ -527,6 +528,7 @@ export function OrderPageClient() {
             </button>
           </div>
         </aside>
+      </div>
       </div>
 
       {itemCount > 0 && (

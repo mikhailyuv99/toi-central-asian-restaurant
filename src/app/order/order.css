@@ -72,7 +72,8 @@
 }
 
 .habibi-order-social .habibi-hero__social-disabled {
-  opacity: 0.4;
+  opacity: 1;
+  cursor: default;
 }
 
 .habibi-order-social__icon {
@@ -81,7 +82,7 @@
 
 /* —— Customer form —— */
 .habibi-order-ident {
-  margin: 0.85rem 1rem 0;
+  margin: 0.85rem 0 0;
   padding: 1rem;
   background: #f9f4e8;
   border: 1px solid rgba(74, 99, 77, 0.12);
@@ -167,9 +168,13 @@
   line-height: 1.35;
 }
 
+/* —— Page body (ident + menu + cart) —— */
+.habibi-order-body {
+  padding: 0 1rem 1.25rem;
+}
+
 /* —— Menu layout —— */
 .habibi-order-layout {
-  padding: 0.85rem 1rem 1.25rem;
   display: grid;
   gap: 0.85rem;
 }
@@ -184,13 +189,16 @@
   top: 0;
   z-index: 5;
   display: flex;
+  flex-wrap: nowrap;
   gap: 0.5rem;
   overflow-x: auto;
-  padding: 0.35rem 0 0.85rem;
-  margin: 0 -0.15rem;
+  overflow-y: hidden;
+  padding: 0.35rem 2.5rem 0.85rem 0;
+  margin: 0;
   background: linear-gradient(180deg, #fbf3e1 85%, rgba(251, 243, 225, 0));
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  scroll-padding-inline-end: 2rem;
 }
 
 .habibi-order-cats::-webkit-scrollbar {
@@ -625,24 +633,52 @@
     font-size: clamp(1.25rem, 4.5vw, 1.65rem);
   }
 
-  .habibi-order-ident {
-    max-width: 28rem;
+  .habibi-order-body {
+    max-width: 72rem;
     margin-inline: auto;
+    padding: 0 1.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 19.5rem;
+    gap: 1.5rem 2rem;
+    align-items: start;
+  }
+
+  .habibi-order-ident {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: none;
+    margin-inline: 0;
   }
 
   .habibi-order-layout {
-    max-width: 64rem;
-    margin-inline: auto;
-    grid-template-columns: minmax(0, 1fr) 17.5rem;
-    align-items: start;
-    gap: 1.5rem;
-    padding: 0 1.25rem 1.5rem;
+    display: contents;
+  }
+
+  .habibi-order-menu {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
   }
 
   .habibi-order-cart {
     display: block;
+    grid-column: 2;
+    grid-row: 1 / span 2;
     position: sticky;
-    top: 1rem;
+    top: 4.75rem;
+    align-self: start;
+  }
+
+  .habibi-order-cart__panel {
+    max-height: calc(100vh - 5.5rem);
+    overflow-y: auto;
+  }
+
+  .habibi-order-cats {
+    flex-wrap: wrap;
+    overflow: visible;
+    padding-right: 0;
+    padding-bottom: 0.65rem;
   }
 
   .habibi-order-cart-bar {

@@ -179,6 +179,7 @@ body {
 
 .habibi-hero__social-disabled {
   cursor: default;
+  opacity: 1;
 }
 
 .sr-only {

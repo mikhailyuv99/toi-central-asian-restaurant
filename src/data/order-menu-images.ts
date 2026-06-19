@@ -4,6 +4,7 @@
  */
 
 const DISH = (id: string) => `/photos/dishes/${id}.jpg`;
+const STOCK = (id: string) => `/photos/stock/${id}.jpg`;
 
 export const ORDER_ITEM_IMAGES: Record<string, string> = {
   // Appetizers
@@ -23,14 +24,14 @@ export const ORDER_ITEM_IMAGES: Record<string, string> = {
   "seafood-salad": "/photos/owner/seafood-salad.jpg",
   "napa-cabbage": DISH("napa-cabbage"),
   "homemade-potatoes": DISH("homemade-potatoes"),
-  "french-fries": DISH("french-fries"),
+  "french-fries": STOCK("french-fries"),
 
   // Soups
-  "lamb-soup": DISH("lamb-soup"),
-  "lentil-soup": DISH("lentil-soup"),
+  "lamb-soup": STOCK("lamb-soup"),
+  "lentil-soup": STOCK("lentil-soup"),
   "borscht-half": "/photos/owner/borscht.jpg",
   "borscht-full": "/photos/owner/borscht.jpg",
-  "couscous-chicken": DISH("couscous-chicken"),
+  "couscous-chicken": STOCK("couscous-chicken"),
 
   // Georgian mains
   "steamed-salmon": "/photos/photo-19.jpg",
@@ -49,7 +50,7 @@ export const ORDER_ITEM_IMAGES: Record<string, string> = {
   "piroshki-potato": DISH("piroshki-potato"),
   "piroshki-chicken": DISH("piroshki-chicken"),
   "piroshki-cheese": DISH("piroshki-cheese"),
-  "falafel-wrap": DISH("falafel-wrap"),
+  "falafel-wrap": STOCK("falafel-wrap"),
   "zucchini-rolls": DISH("zucchini-rolls"),
 
   // Mandi & kabsa
@@ -65,21 +66,21 @@ export const ORDER_ITEM_IMAGES: Record<string, string> = {
 
   // Kebabs & grill
   "chicken-shish": DISH("chicken-shish"),
-  "lamb-kebab": DISH("lamb-kebab"),
+  "lamb-kebab": STOCK("lamb-kebab"),
   "chicken-kebab": DISH("chicken-kebab"),
-  "chicken-wings": DISH("chicken-wings"),
+  "chicken-wings": STOCK("chicken-wings"),
 
   // Wraps & bites
-  "gyros-wrap": DISH("gyros-wrap"),
-  "placinta-apple": DISH("placinta-apple"),
-  "placinta-potato": DISH("placinta-potato"),
-  "placinta-mozzarella": DISH("placinta-mozzarella"),
-  "placinta-cottage": DISH("placinta-cottage"),
+  "gyros-wrap": STOCK("gyros-wrap"),
+  "placinta-apple": STOCK("placinta-apple"),
+  "placinta-potato": STOCK("placinta-potato"),
+  "placinta-mozzarella": STOCK("placinta-mozzarella"),
+  "placinta-cottage": STOCK("placinta-cottage"),
 
   // Drinks
-  "karak-chai": DISH("karak-chai"),
-  cappuccino: DISH("cappuccino"),
-  espresso: DISH("espresso"),
+  "karak-chai": STOCK("karak-chai"),
+  cappuccino: STOCK("cappuccino"),
+  espresso: STOCK("espresso"),
 };
 
 export function getOrderItemImage(itemId: string): string | null {
