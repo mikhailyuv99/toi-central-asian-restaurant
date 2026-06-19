@@ -198,7 +198,7 @@ export function OrderPageClient() {
           <p className="habibi-order-success__eyebrow">Habibi Direct</p>
           <h1 className="habibi-order-success__title">Your order has been sent!</h1>
           <p className="habibi-order-success__lead">
-            The team will confirm via WhatsApp shortly. It can take up to a minute to arrive.
+            The team has your order and will confirm shortly.
           </p>
           <button type="button" className="habibi-order-btn habibi-order-btn--primary" onClick={orderAgain}>
             Order again
