@@ -45,11 +45,10 @@ export function ContactForm() {
           onChange={(e) => setPhone(e.target.value)}
         />
       </label>
-      <label className="habibi-contact__field">
+      <label className="habibi-contact__field habibi-contact__field--message">
         <span>{t.maps.message}</span>
         <textarea
           name="message"
-          rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder={client.headline ?? ""}

@@ -1379,6 +1379,21 @@ body {
   .habibi-maps__inner {
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .habibi-maps__inner > .habibi-scroll-reveal {
+    display: flex;
+    min-height: 100%;
+  }
+
+  .habibi-maps__inner > .habibi-scroll-reveal .habibi-maps__col {
+    flex: 1;
+    width: 100%;
+  }
+
+  .habibi-maps__col .habibi-maps__card {
+    height: 100%;
   }
 }
 
@@ -1458,7 +1473,7 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.75rem;
 }
 
 .habibi-contact__field {
@@ -1500,12 +1515,16 @@ body {
   color: rgba(74, 99, 77, 0.55);
 }
 
-.habibi-contact .habibi-contact__field:last-of-type {
-  flex: 1;
+.habibi-contact .habibi-contact__field--message {
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
-.habibi-contact textarea {
-  min-height: 5.5rem;
+.habibi-contact .habibi-contact__field--message textarea {
+  flex: 1 1 auto;
+  min-height: 12rem;
+  height: 100%;
+  resize: none;
 }
 
 .habibi-lang {
