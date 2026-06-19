@@ -1,0 +1,203 @@
+{
+  "slug": "habibi-an-thuong",
+  "name": "Habibi Slavic and Arabic Food & Drink",
+  "category": "restaurant",
+  "address": "20 An Thượng 26, Ngũ Hành Sơn, Đà Nẵng 550000, Vietnam",
+  "phone": "+84 787 698 042",
+  "website": null,
+  "maps_url": "https://maps.app.goo.gl/XaoqtSR7bg2SEHkF7",
+  "hours": [
+    "Open daily · closes 11:30 PM"
+  ],
+  "hours_note": "Closing time from Google Maps. Call ahead if you're arriving early.",
+  "reserve_url": null,
+  "menu_url": null,
+  "rating": 4.6,
+  "review_count": 189,
+  "reviews": [
+    {
+      "author": "Rhonda Wright",
+      "text": "Really loved it. Everything was fresh and delicious. And the staff is top notch. Take note: The tea was served very hot. Be careful how you pick it up. Oh, I almost forgot because I brought it home for later. Insanely good Mango Cheesecake.",
+      "rating": 5
+    },
+    {
+      "author": "Claire Siembida",
+      "text": "Oh mon dieu ! La repas est délicieux !! Frais, fais maison🤤😍 le meilleur restaurant que j’ai fait au Vietnam ! Vous devez essayer cette adresse c’est incontournable !!",
+      "rating": 5
+    },
+    {
+      "author": "theAndrei71 theAndrei71",
+      "text": "Спасибо персоналу и поварам. Очень вкусно,атмосферно. Быстрое обслуживание,вкусные блюда. Очень рекомендую для русскоязычных туристов. Вежливый персонал. Ну и за чай отдельное спасибо.",
+      "rating": 5
+    },
+    {
+      "author": "Valentina Maksimenko",
+      "text": "I've been coming quite often for their shawarma — always great: lots of meat, super juicy, wrapped in perfectly crispy lavash.",
+      "rating": 5
+    },
+    {
+      "author": "Анна Згоба",
+      "text": "Вкусно!!! Оливье, фаршированные баклажаны, мне очень понравилось! Потрясающей красоты синий чай, восторг! Большое меню, есть из чего повыберать. Приятное место. 🥰",
+      "rating": 5
+    },
+    {
+      "author": "Stevie B",
+      "text": "WOW, My wife and I have passed by here a few times and today we stopped in for dinner... WOW!!! 👌 We were blown away!!! The staff is amazing!! 👏 The food is next level.",
+      "rating": 5
+    },
+    {
+      "author": "Don José",
+      "text": "Food was amazing and absolutely worth the price. Lovely place, worth visiting!",
+      "rating": 5
+    },
+    {
+      "author": "Арюна Дашиева",
+      "text": "Живем в Нячанге, приехали компанией отдохнуть в Дананг. Первый ужин состоялся в этом ресторане. Каждое блюдо очень вкусное, чувствуется, что готовят с душой. За три ужина тут",
+      "rating": 5
+    },
+    {
+      "author": "Afmin",
+      "text": "Замечателтное место. Вкусная еда, хороший сервис. Пришел сюда с друзьями. Поели фаршированный перец, вкуссный, как у бабушки. Обязательно сюда вернусь",
+      "rating": 5
+    },
+    {
+      "author": "LM",
+      "text": "Очень приятное место с уютной атмосферой и хорошим сервисом. Блюда понравились: всё вкусно, аккуратно подано, чувствуется качество продуктов. Отдельно хочется отметить персонал — вежливые, доброжелательные и внимательные к гостям. Осталось",
+      "rating": 5
+    },
+    {
+      "author": "Dmitrii",
+      "text": "Ресторан с невероятно вкусными и качественными блюдами. Питаемся здесь очень часто, попробовали почти все. Замечательная хозяйка, повара, официанты и вообще все сотрудники!",
+      "rating": 5
+    },
+    {
+      "author": "Дарья",
+      "text": "Потрясающее место. Очень вкусно готовят. Хинкали с рыбой были восхитительные😍🙌🏻. Очень часто заходим, делают все отлично 👍🏻",
+      "rating": 5
+    },
+    {
+      "author": "ЮЛИЯ Ковалевская",
+      "text": "Островок вкуса дома и изобилия. Рекомендую к посещению этот ресторан. Большой выбор, долго не могла определиться, что выбрать. Хотела всё и сразу. Решила, что вернусь ещё завтра.",
+      "rating": 5
+    },
+    {
+      "author": "Liudmyla Topor",
+      "text": "Как же я рада, что нашла это место! Здесь работает замечательная женщина из Молдавии, которая составляет меню и следит за качеством приготовления. Благодаря ей можно снова почувствовать настоящий",
+      "rating": 5
+    }
+  ],
+  "photos": [
+    "/photos/photo-21.jpg",
+    "/photos/photo-22.jpg",
+    "/photos/photo-6.jpg",
+    "/photos/photo-2.jpg",
+    "/photos/photo-8.jpg",
+    "/photos/photo-7.jpg",
+    "/photos/photo-4.jpg",
+    "/photos/photo-3.jpg",
+    "/photos/photo-13.jpg",
+    "/photos/photo-18.jpg"
+  ],
+  "menu": [
+    {
+      "category": "From the menu board",
+      "items": [
+        {
+          "name": "Lamb Shashlik",
+          "description": "Marinated lamb on a skewer, charred over open flame and served tableside onto flatbread with fresh salad.",
+          "price": "280,000₫",
+          "photo": "/photos/photo-2.jpg"
+        },
+        {
+          "name": "Kazan Kebab",
+          "description": "Tender meat and golden fried potatoes slow-cooked with onion and eggplant in a single clay pot. Cumin, coriander, bell pepper.",
+          "price": "190,000₫"
+        },
+        {
+          "name": "Steamed Salmon Filled",
+          "description": "Salmon with green salad, egg, and mayonnaise.",
+          "price": "150,000₫"
+        },
+        {
+          "name": "Stuffed Bell Pepper",
+          "description": "Minced meat mixed with basmati rice, onion, tomato, and black pepper.",
+          "price": "100,000₫ (1 pc) · 190,000₫ (2 pc)"
+        },
+        {
+          "name": "Khinkali",
+          "description": "Georgian pleated dumplings with meat and herbs, or chicken and mushroom, mushroom and cream, salmon and cream, spinach and cheese.",
+          "price": "60,000₫ / piece"
+        }
+      ]
+    },
+    {
+      "category": "Slavic & Georgian",
+      "items": [
+        {
+          "name": "Pelmeni",
+          "description": "Handmade boiled dumplings tossed in butter, served with sour cream."
+        },
+        {
+          "name": "Borscht",
+          "description": "Deep-red beet soup with cabbage, dill, sour cream, and bread on the side."
+        },
+        {
+          "name": "Khachapuri",
+          "description": "Stuffed Georgian flatbread, cheese-filled, oven-baked until the center is molten."
+        },
+        {
+          "name": "Cheburek",
+          "description": "Crisp fried turnover with seasoned filling, served with herb sauce."
+        },
+        {
+          "name": "Eggplant Rolls",
+          "description": "Grilled eggplant wrapped around garlic-herb cheese, finished with tomato and dill."
+        }
+      ]
+    },
+    {
+      "category": "Arabic & grill",
+      "items": [
+        {
+          "name": "Chicken Kebab Platter",
+          "description": "Charred chicken kebab with saffron rice, chopped salad, flatbread, and garlic sauce."
+        },
+        {
+          "name": "Meze Platter",
+          "description": "Hummus, baba ghanoush, tabbouleh, fresh salad, and warm flatbread."
+        },
+        {
+          "name": "Chicken Shawarma Wrap",
+          "description": "Marinated chicken wrapped with salad and sauce in soft flatbread."
+        },
+        {
+          "name": "Mixed Grill",
+          "description": "Kofta, grilled chicken, yellow rice, and flatbread on one plate."
+        }
+      ]
+    },
+    {
+      "category": "Salads",
+      "items": [
+        {
+          "name": "Olivier Salad",
+          "description": "Classic Russian potato salad with egg, peas, and pickles in a creamy dressing."
+        },
+        {
+          "name": "Seafood Salad",
+          "description": "Chilled seafood with fresh vegetables and herbs."
+        }
+      ]
+    }
+  ],
+  "services_or_menu": [],
+  "review_themes": [],
+  "owner_name": null,
+  "owner_story": null,
+  "faq": [],
+  "private_dining_note": null,
+  "social_url": null,
+  "logo_url": "/brand/logo.png",
+  "owner_provided_notes": "Halal Slavic and Arabic food on An Thượng 26. Neon-lit patio, hand-painted murals, and dishes from Georgia to the Levant.",
+  "headline": "Khinkali, shashlik, and mezze under the neon on An Thượng 26"
+}

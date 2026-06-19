@@ -1,0 +1,61 @@
+{
+  "business": {
+    "name": "Harbor & Haul",
+    "slug": "harbor-and-haul",
+    "category": "restaurant"
+  },
+  "archetype": {
+    "assigned": "EXPERIENCE DRIVEN",
+    "rationale": "Dinner-only service, harbor views, raw bar theater, and reviews center on the evening atmosphere and booking for sunset — the occasion is the product.",
+    "runner_up_rejected": {
+      "name": "MODERN PREMIUM",
+      "reason": "Experience and setting drive conversion more than menu efficiency; reservation is expected."
+    }
+  },
+  "positioning": {
+    "category": {
+      "value": "Seafood restaurant with harbor views",
+      "evidence": "owner_provided_notes, reviews"
+    },
+    "price_level": {
+      "value": "premium",
+      "evidence": "menu prices $24–42"
+    },
+    "customer_type": {
+      "value": "Couples and visitors planning a dinner occasion",
+      "evidence": "Chris M. review; dinner-only hours"
+    },
+    "main_selling_point": {
+      "value": "Raw bar and grilled catch with a working harbor view at sunset",
+      "evidence": "Dana W. and Chris M. reviews"
+    },
+    "competitive_advantage": {
+      "value": "Menu changes with the morning catch, not a static seafood list",
+      "evidence": "Priya S. review; owner notes"
+    }
+  },
+  "cta": {
+    "primary": { "label": "Book a table", "action": "url", "target": "reserve_url" },
+    "secondary": { "label": "View menu", "action": "scroll", "target": "#menu-highlights" },
+    "utility": ["Call", "Directions", "Reserve"]
+  },
+  "section_order": [
+    { "id": "hero", "purpose": "Evening identity and booking", "layout_pattern": "B", "density": "medium" },
+    { "id": "menu-highlights", "purpose": "Catch-driven dishes", "layout_pattern": "C", "density": "medium" },
+    { "id": "atmosphere", "purpose": "Harbor and raw bar", "layout_pattern": "H", "density": "open" },
+    { "id": "social-proof", "purpose": "Review proof", "layout_pattern": "E", "density": "medium" },
+    { "id": "private-dining", "purpose": "Group harbor room", "layout_pattern": "I", "density": "open" },
+    { "id": "visit", "purpose": "Hours and location", "layout_pattern": "G", "density": "tight" },
+    { "id": "footer", "purpose": "Essentials", "layout_pattern": "J", "density": "tight" }
+  ],
+  "design_direction": {
+    "tone": "Immersive evening — let the harbor and the catch lead",
+    "typography": { "headings": "Cormorant", "body": "Outfit" },
+    "color": "Deep harbor blue and weathered wood tones",
+    "layout_rhythm": "Atmosphere-forward, menu supports the occasion",
+    "imagery_priority": "Harbor view and raw bar over plated food alone",
+    "do_not": ["Lunch-rush pacing", "Bright casual seafood clichés"]
+  },
+  "gaps": [],
+  "confidence": "high"
+}

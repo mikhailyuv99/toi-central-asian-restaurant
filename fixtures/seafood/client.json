@@ -1,0 +1,91 @@
+{
+  "slug": "harbor-and-haul",
+  "name": "Harbor & Haul",
+  "category": "restaurant",
+  "address": "18 Fisherman's Wharf, San Francisco, CA 94133, USA",
+  "phone": "+1 415 555 0182",
+  "website": "https://harborandhaul.example.com",
+  "maps_url": "https://maps.google.com/?q=Harbor+and+Haul+San+Francisco",
+  "hours": [
+    "Monday: 5:00 PM – 10:00 PM",
+    "Tuesday: 5:00 PM – 10:00 PM",
+    "Wednesday: 5:00 PM – 10:00 PM",
+    "Thursday: 5:00 PM – 10:00 PM",
+    "Friday: 5:00 PM – 11:00 PM",
+    "Saturday: 4:00 PM – 11:00 PM",
+    "Sunday: 4:00 PM – 9:00 PM"
+  ],
+  "hours_note": "Dinner only. Last seating 90 minutes before close.",
+  "reserve_url": "https://harborandhaul.example.com/reserve",
+  "menu_url": null,
+  "rating": 4.6,
+  "review_count": 892,
+  "reviews": [
+    {
+      "author": "Dana W.",
+      "text": "Sat at the raw bar and watched them shuck oysters from Tomales Bay. The grilled whole branzino was the highlight — simple, perfect.",
+      "rating": 5
+    },
+    {
+      "author": "Chris M.",
+      "text": "Book for sunset if you want the harbor view. Cocktails are strong; food is worth the reservation.",
+      "rating": 5
+    },
+    {
+      "author": "Priya S.",
+      "text": "Dungeness crab season menu changes weekly. Ask what came in that morning.",
+      "rating": 4
+    }
+  ],
+  "photos": [
+    "/photos/photo-1.svg",
+    "/photos/photo-2.svg",
+    "/photos/photo-3.svg",
+    "/photos/photo-4.svg",
+    "/photos/photo-5.svg",
+    "/photos/photo-6.svg"
+  ],
+  "menu": [
+    {
+      "category": "From the water",
+      "items": [
+        {
+          "name": "Tomales Bay oysters",
+          "description": "Half dozen, mignonette and horseradish",
+          "price": "$24",
+          "photo": "/photos/photo-2.svg"
+        },
+        {
+          "name": "Grilled whole branzino",
+          "description": "Lemon, herbs, olive oil",
+          "price": "$38"
+        },
+        {
+          "name": "Dungeness crab",
+          "description": "Market price — ask your server",
+          "price": "MP"
+        }
+      ]
+    },
+    {
+      "category": "To share",
+      "items": [
+        {
+          "name": "Seafood stew",
+          "description": "Daily catch, fennel, saffron broth",
+          "price": "$42"
+        }
+      ]
+    }
+  ],
+  "services_or_menu": [],
+  "review_themes": [],
+  "owner_name": null,
+  "owner_story": null,
+  "faq": [],
+  "private_dining_note": "Harbor-view private room for groups of 8–14. Set seafood menu, 48-hour notice.",
+  "social_url": null,
+  "logo_url": null,
+  "owner_provided_notes": "Dinner-only seafood with harbor views. Menu follows the catch.",
+  "headline": "Tonight's catch, harbor view"
+}

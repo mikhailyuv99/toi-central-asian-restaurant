@@ -1,0 +1,494 @@
+@import "tailwindcss";
+
+:root {
+  --brand-cream: #fbf3e1;
+  --brand: #4a634d;
+  --wood: #14100c;
+  --cream: #f4efe6;
+  --cream-dark: #e8e0d4;
+  --ink: #0c0a09;
+  --ink-soft: #1a1614;
+  --gold: #b8956b;
+  --gold-light: #d4b896;
+  --muted: #6b635c;
+  --rule: rgba(12, 10, 9, 0.12);
+}
+
+@theme inline {
+  --color-brand-cream: var(--brand-cream);
+  --color-brand: var(--brand);
+  --color-wood: var(--wood);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --font-serif: var(--font-heading);
+  --font-sans: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--brand-cream);
+}
+
+body {
+  background: var(--brand-cream);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--gold-light);
+  color: var(--ink);
+}
+
+.font-serif {
+  font-family: var(--font-heading), Georgia, serif;
+}
+
+.label-caps {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.gallery-scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-scroll > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+/* Habibi hero: plain CSS so layout survives if utilities fail */
+.habibi-hero {
+  min-height: 100svh;
+  background: #fbf3e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.habibi-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.habibi-hero__logo {
+  width: min(78vw, 320px);
+  height: auto;
+  display: block;
+}
+
+.habibi-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.habibi-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 1.75rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.habibi-hero__btn--primary {
+  background: #4a634d;
+  color: #fbf3e1;
+}
+
+.habibi-hero__btn--primary:hover {
+  background: #3f5542;
+}
+
+.habibi-hero__btn--secondary {
+  background: transparent;
+  border: 1px solid rgba(74, 99, 77, 0.4);
+  color: #4a634d;
+}
+
+.habibi-hero__btn--secondary:hover {
+  border-color: #4a634d;
+  background: rgba(74, 99, 77, 0.05);
+}
+
+.habibi-hero__social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.habibi-hero__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.habibi-hero__social-link:hover {
+  opacity: 0.65;
+}
+
+.habibi-hero__social-disabled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  cursor: default;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Menu page entrance */
+.menu-enter {
+  animation: menu-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-enter {
+    animation: none;
+  }
+
+  .habibi-reviews-track {
+    animation: none;
+  }
+}
+
+/* Inner pages */
+.habibi-page {
+  min-height: 100svh;
+  background: #fbf3e1;
+  color: #4a634d;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.habibi-page__inner {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.habibi-back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(74, 99, 77, 0.65);
+}
+
+.habibi-back:hover {
+  color: #4a634d;
+}
+
+.habibi-page__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.habibi-page__logo {
+  width: min(36vw, 120px);
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.habibi-page__eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(74, 99, 77, 0.55);
+}
+
+.habibi-page__title {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 400;
+  margin-top: 0.5rem;
+  line-height: 1.15;
+}
+
+.habibi-page__lead {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: rgba(74, 99, 77, 0.8);
+}
+
+.habibi-about-copy {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: rgba(74, 99, 77, 0.85);
+}
+
+.habibi-about-copy p + p {
+  margin-top: 1rem;
+}
+
+.habibi-about-hours {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(74, 99, 77, 0.6);
+}
+
+.habibi-section-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(74, 99, 77, 0.55);
+  margin-bottom: 1rem;
+}
+
+.habibi-gallery {
+  margin-top: 2.5rem;
+}
+
+.habibi-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.habibi-gallery__hero {
+  grid-column: 1 / -1;
+}
+
+.habibi-gallery__grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 4 / 3;
+  background: rgba(74, 99, 77, 0.06);
+}
+
+.habibi-gallery__hero img {
+  aspect-ratio: 16 / 9;
+}
+
+.habibi-reviews-section {
+  margin-top: 2.5rem;
+  overflow: hidden;
+}
+
+.habibi-reviews-empty {
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px solid rgba(74, 99, 77, 0.2);
+}
+
+.habibi-reviews-rating {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.5rem;
+}
+
+.habibi-reviews-maps-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #4a634d;
+}
+
+.habibi-reviews-track-wrap {
+  overflow: hidden;
+  margin: 0 -1.25rem;
+  padding: 0.25rem 0;
+}
+
+.habibi-reviews-track {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  animation: habibi-reviews-scroll 45s linear infinite;
+}
+
+.habibi-review-card {
+  flex-shrink: 0;
+  width: min(80vw, 18rem);
+  padding: 1.25rem;
+  background: rgba(74, 99, 77, 0.06);
+  border-left: 2px solid #4a634d;
+  margin: 0;
+}
+
+.habibi-review-stars {
+  color: #4a634d;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.habibi-review-text {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(74, 99, 77, 0.9);
+}
+
+.habibi-review-author {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(74, 99, 77, 0.6);
+}
+
+@keyframes habibi-reviews-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.habibi-menu-section {
+  margin-top: 2.5rem;
+}
+
+.habibi-menu-section__title {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(74, 99, 77, 0.2);
+  margin-bottom: 1rem;
+}
+
+.habibi-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.habibi-menu-item {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.habibi-menu-item__photo {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: rgba(74, 99, 77, 0.08);
+}
+
+.habibi-menu-item__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.habibi-menu-item__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 0.75rem;
+  align-items: baseline;
+}
+
+.habibi-menu-item__head h3 {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.0625rem;
+  font-weight: 500;
+}
+
+.habibi-menu-item__price {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.habibi-menu-item__desc {
+  margin-top: 0.35rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgba(74, 99, 77, 0.75);
+}
+
+.habibi-menu-item__note {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(74, 99, 77, 0.55);
+}
+
+@media (min-width: 640px) {
+  .habibi-menu-item {
+    grid-template-columns: 7rem 1fr;
+  }
+}

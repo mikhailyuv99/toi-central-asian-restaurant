@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://website-factory.dev/schemas/sit-down-restaurant/strategy.json",
+  "title": "Sit-Down Restaurant Website Strategy",
+  "description": "Strategy output from website-strategy agent, scoped to sit-down restaurant template sections.",
+  "type": "object",
+  "required": [
+    "business",
+    "archetype",
+    "positioning",
+    "cta",
+    "section_order",
+    "design_direction",
+    "gaps",
+    "confidence"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "business": {
+      "type": "object",
+      "required": ["name", "category"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": ["string", "null"] },
+        "category": { "const": "restaurant" }
+      }
+    },
+    "archetype": {
+      "type": "object",
+      "required": ["assigned", "rationale", "runner_up_rejected"],
+      "additionalProperties": false,
+      "properties": {
+        "assigned": {
+          "type": "string",
+          "enum": [
+            "LUXURY",
+            "LOCAL TRUST",
+            "MODERN PREMIUM",
+            "FAMILY BUSINESS",
+            "CRAFTSMAN",
+            "EXPERIENCE DRIVEN",
+            "HIGH VOLUME",
+            "COMMUNITY"
+          ]
+        },
+        "rationale": { "type": "string" },
+        "runner_up_rejected": {
+          "type": "object",
+          "required": ["name", "reason"],
+          "additionalProperties": false,
+          "properties": {
+            "name": { "type": "string" },
+            "reason": { "type": "string" }
+          }
+        }
+      }
+    },
+    "positioning": {
+      "type": "object",
+      "required": [
+        "category",
+        "price_level",
+        "customer_type",
+        "main_selling_point",
+        "competitive_advantage"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "type": "object",
+          "required": ["value", "evidence"],
+          "properties": { "value": { "type": "string" }, "evidence": { "type": "string" } }
+        },
+        "price_level": {
+          "type": "object",
+          "required": ["value", "evidence"],
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": ["budget", "mid", "premium", "luxury", "unknown"]
+            },
+            "evidence": { "type": "string" }
+          }
+        },
+        "customer_type": {
+          "type": "object",
+          "required": ["value", "evidence"],
+          "properties": { "value": { "type": "string" }, "evidence": { "type": "string" } }
+        },
+        "main_selling_point": {
+          "type": "object",
+          "required": ["value", "evidence"],
+          "properties": { "value": { "type": "string" }, "evidence": { "type": "string" } }
+        },
+        "competitive_advantage": {
+          "type": "object",
+          "required": ["value", "evidence"],
+          "properties": { "value": { "type": "string" }, "evidence": { "type": "string" } }
+        }
+      }
+    },
+    "cta": {
+      "type": "object",
+      "required": ["primary", "secondary", "utility"],
+      "additionalProperties": false,
+      "properties": {
+        "primary": { "$ref": "#/$defs/ctaAction" },
+        "secondary": { "$ref": "#/$defs/ctaAction" },
+        "utility": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "section_order": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "purpose", "layout_pattern", "density"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "hero",
+              "owner-story",
+              "menu-highlights",
+              "atmosphere",
+              "social-proof",
+              "faq",
+              "private-dining",
+              "visit",
+              "footer"
+            ]
+          },
+          "purpose": { "type": "string" },
+          "layout_pattern": {
+            "type": "string",
+            "enum": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+          },
+          "density": {
+            "type": "string",
+            "enum": ["tight", "medium", "open"]
+          }
+        }
+      }
+    },
+    "design_direction": {
+      "type": "object",
+      "required": [
+        "tone",
+        "typography",
+        "color",
+        "layout_rhythm",
+        "imagery_priority",
+        "do_not"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "tone": { "type": "string" },
+        "typography": {
+          "type": "object",
+          "required": ["headings", "body"],
+          "properties": {
+            "headings": { "type": "string" },
+            "body": { "type": "string" }
+          }
+        },
+        "color": { "type": "string" },
+        "layout_rhythm": { "type": "string" },
+        "imagery_priority": { "type": "string" },
+        "do_not": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    }
+  },
+  "$defs": {
+    "ctaAction": {
+      "type": "object",
+      "required": ["label", "action", "target"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "action": {
+          "type": "string",
+          "enum": ["tel", "directions", "url", "scroll", "none"]
+        },
+        "target": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

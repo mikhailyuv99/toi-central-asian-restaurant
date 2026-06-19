@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://website-factory.dev/schemas/sit-down-restaurant/template.config.json",
+  "title": "Sit-Down Restaurant Template Configuration",
+  "description": "Per-client expression layer. Controls modules, density, typography, and colors without changing section inventory.",
+  "type": "object",
+  "required": ["template", "version", "modules", "expression"],
+  "additionalProperties": false,
+  "properties": {
+    "template": { "const": "sit-down-restaurant" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "modules": {
+      "type": "object",
+      "required": [
+        "social_proof",
+        "owner_story",
+        "faq",
+        "private_dining",
+        "full_menu_link"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "social_proof": { "$ref": "#/$defs/moduleToggle" },
+        "owner_story": { "$ref": "#/$defs/moduleToggle" },
+        "faq": { "$ref": "#/$defs/moduleToggle" },
+        "private_dining": { "$ref": "#/$defs/moduleToggle" },
+        "full_menu_link": { "$ref": "#/$defs/moduleToggle" }
+      }
+    },
+    "expression": {
+      "type": "object",
+      "required": [
+        "hero_pattern",
+        "hours_in_hero",
+        "menu_highlights_mode",
+        "menu_highlights_max",
+        "typography",
+        "colors",
+        "density"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "hero_pattern": {
+          "type": "string",
+          "enum": ["auto", "A", "B"]
+        },
+        "hours_in_hero": {
+          "type": "string",
+          "enum": ["auto", "show", "hide"]
+        },
+        "menu_highlights_mode": {
+          "type": "string",
+          "enum": ["auto", "menu", "categories", "review-led", "sparse"]
+        },
+        "menu_highlights_max": {
+          "type": "string",
+          "enum": ["auto", "4", "6", "8"]
+        },
+        "typography": {
+          "type": "object",
+          "required": ["headings", "body"],
+          "additionalProperties": false,
+          "properties": {
+            "headings": { "type": "string" },
+            "body": { "type": "string" }
+          }
+        },
+        "colors": {
+          "type": "object",
+          "required": ["accent", "surface", "text"],
+          "additionalProperties": false,
+          "properties": {
+            "accent": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+            "accent_bright": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+            "surface": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+            "surface_muted": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+            "text": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+            "text_soft": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+            "dark": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+          }
+        },
+        "density": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "hero": { "$ref": "#/$defs/density" },
+            "menu_highlights": { "$ref": "#/$defs/density" },
+            "atmosphere": { "$ref": "#/$defs/density" },
+            "social_proof": { "$ref": "#/$defs/density" },
+            "visit": { "$ref": "#/$defs/density" }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "moduleToggle": {
+      "type": "string",
+      "enum": ["auto", "on", "off"]
+    },
+    "density": {
+      "type": "string",
+      "enum": ["tight", "medium", "open"]
+    }
+  }
+}

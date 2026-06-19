@@ -1,0 +1,33 @@
+{
+  "template": "sit-down-restaurant",
+  "version": "1.0.0",
+  "modules": {
+    "social_proof": "auto",
+    "owner_story": "auto",
+    "faq": "auto",
+    "private_dining": "auto",
+    "full_menu_link": "auto"
+  },
+  "expression": {
+    "hero_pattern": "auto",
+    "hours_in_hero": "hide",
+    "menu_highlights_mode": "auto",
+    "menu_highlights_max": "6",
+    "typography": { "headings": "cormorant", "body": "outfit" },
+    "colors": {
+      "accent": "#2e6b8a",
+      "accent_bright": "#4a8fad",
+      "surface": "#f4f7f8",
+      "surface_muted": "#e4eaed",
+      "text": "#0f1a20",
+      "text_soft": "#3d4f5a",
+      "dark": "#0f2d3d"
+    },
+    "density": {
+      "hero": "medium",
+      "menu_highlights": "medium",
+      "atmosphere": "open",
+      "visit": "tight"
+    }
+  }
+}

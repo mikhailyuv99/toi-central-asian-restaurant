@@ -1,0 +1,10 @@
+.next/
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+.playwright-google-profile/
+data/habibi-reviews-page.html

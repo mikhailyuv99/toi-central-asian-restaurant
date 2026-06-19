@@ -1,0 +1,61 @@
+{
+  "business": {
+    "name": "Trattoria del Corso",
+    "slug": "trattoria-del-corso",
+    "category": "restaurant"
+  },
+  "archetype": {
+    "assigned": "MODERN PREMIUM",
+    "rationale": "Mid-to-upper pricing with priced menu, terrace dining, and reviews focused on dish quality and proper Roman technique — contemporary trattoria, not neighborhood counter.",
+    "runner_up_rejected": {
+      "name": "LUXURY",
+      "reason": "€13–22 mains and walk-in lunch service; no tasting menu or reservation-only model."
+    }
+  },
+  "positioning": {
+    "category": {
+      "value": "Roman trattoria",
+      "evidence": "menu items, owner_provided_notes"
+    },
+    "price_level": {
+      "value": "premium",
+      "evidence": "menu prices €13–22"
+    },
+    "customer_type": {
+      "value": "Tourists and locals seeking proper Roman pasta",
+      "evidence": "reviews mention terrace and guanciale quality"
+    },
+    "main_selling_point": {
+      "value": "Tableside cacio e pepe and guanciale-based Roman pastas",
+      "evidence": "Elena R. review; menu"
+    },
+    "competitive_advantage": {
+      "value": "Terrace seating on Via del Corso with honest house wine",
+      "evidence": "reviews; owner notes"
+    }
+  },
+  "cta": {
+    "primary": { "label": "View menu", "action": "scroll", "target": "#menu-highlights" },
+    "secondary": { "label": "Get directions", "action": "directions", "target": null },
+    "utility": ["Call", "Directions", "Full menu PDF"]
+  },
+  "section_order": [
+    { "id": "hero", "purpose": "Identity and menu CTA", "layout_pattern": "B", "density": "medium" },
+    { "id": "menu-highlights", "purpose": "Priced primi and secondi", "layout_pattern": "C", "density": "tight" },
+    { "id": "atmosphere", "purpose": "Terrace and dining room", "layout_pattern": "H", "density": "open" },
+    { "id": "social-proof", "purpose": "Review confidence", "layout_pattern": "E", "density": "medium" },
+    { "id": "faq", "purpose": "Reservations and lunch", "layout_pattern": "F", "density": "tight" },
+    { "id": "visit", "purpose": "Location and hours", "layout_pattern": "G", "density": "tight" },
+    { "id": "footer", "purpose": "Essentials", "layout_pattern": "J", "density": "tight" }
+  ],
+  "design_direction": {
+    "tone": "Confident and efficient — quality pasta without ceremony",
+    "typography": { "headings": "Playfair Display", "body": "Source Sans 3" },
+    "color": "Deep green and burgundy from signage and wine labels",
+    "layout_rhythm": "Menu proof early, atmosphere second",
+    "imagery_priority": "Pasta and terrace over generic dining room",
+    "do_not": ["Luxury tasting-menu pacing", "Generic Italian cliché copy"]
+  },
+  "gaps": [],
+  "confidence": "high"
+}

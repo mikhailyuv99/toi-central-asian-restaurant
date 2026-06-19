@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://website-factory.dev/schemas/sit-down-restaurant/client.json",
+  "title": "Sit-Down Restaurant Client Data",
+  "description": "Business facts for the sit-down restaurant template. Never invent fields at build time.",
+  "type": "object",
+  "required": [
+    "slug",
+    "name",
+    "category",
+    "address",
+    "phone",
+    "maps_url",
+    "reviews",
+    "photos",
+    "services_or_menu",
+    "owner_provided_notes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "category": { "const": "restaurant" },
+    "address": { "type": "string", "minLength": 1 },
+    "phone": { "type": "string", "minLength": 1 },
+    "website": { "type": ["string", "null"], "format": "uri" },
+    "maps_url": { "type": "string", "format": "uri" },
+    "hours": {
+      "type": ["array", "null"],
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "hours_note": { "type": ["string", "null"] },
+    "reserve_url": { "type": ["string", "null"], "format": "uri" },
+    "menu_url": { "type": ["string", "null"], "format": "uri" },
+    "rating": { "type": ["number", "null"], "minimum": 0, "maximum": 5 },
+    "review_count": { "type": ["integer", "null"], "minimum": 0 },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["author", "text"],
+        "additionalProperties": false,
+        "properties": {
+          "author": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 },
+          "rating": { "type": ["number", "null"], "minimum": 1, "maximum": 5 }
+        }
+      }
+    },
+    "photos": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^/photos/" }
+    },
+    "menu": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "items"],
+        "additionalProperties": false,
+        "properties": {
+          "category": { "type": "string", "minLength": 1 },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name"],
+              "additionalProperties": false,
+              "properties": {
+                "name": { "type": "string", "minLength": 1 },
+                "description": { "type": "string" },
+                "price": { "type": "string" },
+                "photo": { "type": "string", "pattern": "^/photos/" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "services_or_menu": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "review_themes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "note"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "note": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "owner_name": { "type": ["string", "null"] },
+    "owner_story": { "type": ["string", "null"] },
+    "faq": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["question", "answer"],
+        "additionalProperties": false,
+        "properties": {
+          "question": { "type": "string", "minLength": 1 },
+          "answer": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "private_dining_note": { "type": ["string", "null"] },
+    "social_url": { "type": ["string", "null"], "format": "uri" },
+    "logo_url": { "type": ["string", "null"] },
+    "owner_provided_notes": { "type": "string" },
+    "headline": { "type": ["string", "null"] }
+  }
+}

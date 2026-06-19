@@ -1,0 +1,104 @@
+{
+  "business": {
+    "name": "Habibi Slavic and Arabic Food & Drink",
+    "slug": "habibi-an-thuong",
+    "category": "Sit-down fusion restaurant (Slavic and Arabic)"
+  },
+  "archetype": {
+    "assigned": "EXPERIENCE DRIVEN",
+    "rationale": "Unusual Slavic–Arabic fusion, neon patio, tableside shashlik, and hand-painted murals — the visit is the product.",
+    "runner_up_rejected": {
+      "name": "LOCAL TRUST",
+      "reason": "Limited scraped review text; lead with atmosphere and menu proof instead."
+    }
+  },
+  "positioning": {
+    "category": {
+      "value": "Halal Slavic and Arabic sit-down restaurant",
+      "evidence": "Business name, Arabic halal tagline on Maps, menu board and dish photos."
+    },
+    "price_level": {
+      "value": "mid-range",
+      "evidence": "Menu board prices from 60,000₫ (khinkali) to 280,000₫ (lamb shashlik)."
+    },
+    "customer_type": {
+      "value": "Tourists and expats on An Thượng 26, Đà Nẵng",
+      "evidence": "Address in Ngũ Hành Sơn dining district."
+    },
+    "main_selling_point": {
+      "value": "Two cuisines, one room — Georgian dumplings and Arabic mezze on the same table.",
+      "evidence": "Menu categories and mural decor spanning Slavic and Arabic themes."
+    },
+    "competitive_advantage": {
+      "value": "Rare Slavic–Arabic combination with a lit patio and tableside shashlik service.",
+      "evidence": "Fusion menu, photo-2 shashlik service, photo-22 and photo-6 murals."
+    }
+  },
+  "cta": {
+    "primary": {
+      "label": "Get directions",
+      "action": "directions",
+      "target": "https://maps.app.goo.gl/XaoqtSR7bg2SEHkF7"
+    },
+    "secondary": {
+      "label": "Call ahead",
+      "action": "tel",
+      "target": "+84 787 698 042"
+    },
+    "utility": ["Get directions", "Call +84 787 698 042", "View on Google Maps"]
+  },
+  "section_order": [
+    {
+      "id": "hero",
+      "purpose": "Name the fusion and show the neon storefront — not a stock overlay hero.",
+      "layout_pattern": "B",
+      "density": "open"
+    },
+    {
+      "id": "menu-highlights",
+      "purpose": "Full menu with prices from the printed board plus photo-confirmed dishes.",
+      "layout_pattern": "C",
+      "density": "medium"
+    },
+    {
+      "id": "atmosphere",
+      "purpose": "Murals, patio, and room — curated, not a 23-image dump.",
+      "layout_pattern": "H",
+      "density": "medium"
+    },
+    {
+      "id": "visit",
+      "purpose": "Address, hours, phone, directions.",
+      "layout_pattern": "G",
+      "density": "open"
+    },
+    {
+      "id": "footer",
+      "purpose": "Persistent contact.",
+      "layout_pattern": "J",
+      "density": "tight"
+    }
+  ],
+  "design_direction": {
+    "tone": "Sensory and direct — name the dishes, the neon, the skewer pulled tableside.",
+    "typography": {
+      "headings": "Cormorant — editorial dining room",
+      "body": "Source Sans 3 — readable menu on mobile"
+    },
+    "color": "Red and gold from the Habibi sign; warm cream surfaces; dark wood text — no purple gradient blobs.",
+    "layout_rhythm": "Asymmetric hero → categorized menu → fusion story → dish gallery → tight atmosphere → visit band.",
+    "imagery_priority": "Exterior neon (photo-21), murals (photo-22, photo-6), owner dish photography.",
+    "do_not": [
+      "Full-bleed purple patio hero with centered white text",
+      "Google Maps meta copy in FAQs",
+      "Invented prices for items not on the menu board"
+    ]
+  },
+  "gaps": [
+    "Full weekly opening hours — only closing time confirmed",
+    "Review count from Google Maps",
+    "Additional menu board pages beyond page one",
+    "Drinks list with prices"
+  ],
+  "confidence": "high"
+}
