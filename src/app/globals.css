@@ -156,14 +156,21 @@ body {
   gap: 1.25rem;
 }
 
-.habibi-hero__social-link {
+.habibi-hero__social-link,
+.habibi-hero__social-disabled {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 2.25rem;
   height: 2.25rem;
+  color: var(--brand);
   text-decoration: none;
   transition: opacity 0.15s ease;
+}
+
+.habibi-hero__social-link svg,
+.habibi-hero__social-disabled svg {
+  display: block;
 }
 
 .habibi-hero__social-link:hover {
@@ -171,11 +178,6 @@ body {
 }
 
 .habibi-hero__social-disabled {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
   cursor: default;
 }
 

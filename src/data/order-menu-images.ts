@@ -58,13 +58,13 @@ export const ORDER_ITEM_IMAGES: Record<string, string> = {
   "mandi-lamb": DISH("mandi-lamb"),
 
   // Arabic grill
-  "mix-grill-l": "/photos/photo-14.jpg",
-  "mix-grill-xl": "/photos/photo-14.jpg",
-  "lamb-shashlik": "/photos/photo-2.jpg",
+  "mix-grill-l": DISH("mix-grill-l"),
+  "mix-grill-xl": DISH("mix-grill-xl"),
+  "lamb-shashlik": DISH("lamb-shashlik"),
   "eggplant-kebab": DISH("eggplant-kebab"),
 
   // Kebabs & grill
-  "chicken-shish": "/photos/photo-3.jpg",
+  "chicken-shish": DISH("chicken-shish"),
   "lamb-kebab": DISH("lamb-kebab"),
   "chicken-kebab": DISH("chicken-kebab"),
   "chicken-wings": DISH("chicken-wings"),
@@ -77,7 +77,7 @@ export const ORDER_ITEM_IMAGES: Record<string, string> = {
   "placinta-cottage": DISH("placinta-cottage"),
 
   // Drinks
-  "karak-chai": "/photos/photo-18.jpg",
+  "karak-chai": DISH("karak-chai"),
   cappuccino: DISH("cappuccino"),
   espresso: DISH("espresso"),
 };

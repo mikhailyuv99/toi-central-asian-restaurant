@@ -63,19 +63,16 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 999px;
-  border: 1px solid rgba(74, 99, 77, 0.18);
-  background: rgba(255, 255, 255, 0.45);
-  transition: background 0.15s ease, border-color 0.15s ease;
+  color: #4a634d;
+  transition: opacity 0.15s ease;
 }
 
 .habibi-order-social .habibi-hero__social-link:hover {
-  background: rgba(255, 255, 255, 0.85);
-  border-color: rgba(74, 99, 77, 0.35);
+  opacity: 0.72;
 }
 
 .habibi-order-social .habibi-hero__social-disabled {
-  opacity: 0.45;
+  opacity: 0.4;
 }
 
 .habibi-order-social__icon {

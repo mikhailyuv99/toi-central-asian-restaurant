@@ -4,7 +4,7 @@ import { client } from "@/lib/client";
 import { GOOGLE_WRITE_REVIEW_URL } from "@/lib/google-reviews";
 import { social } from "@/lib/social";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
-import { InstagramIcon, SocialLink, WhatsAppIcon, ZaloIcon } from "./SocialIcons";
+import { FacebookIcon, InstagramIcon, SocialLink, TikTokIcon, WhatsAppIcon, ZaloIcon } from "./SocialIcons";
 
 const LOGO = "/brand/logo.png";
 
@@ -67,6 +67,12 @@ export function HeroClient() {
           </SocialLink>
           <SocialLink href={social.instagram ?? undefined} label="Instagram">
             <InstagramIcon />
+          </SocialLink>
+          <SocialLink href={social.facebook ?? undefined} label="Facebook">
+            <FacebookIcon />
+          </SocialLink>
+          <SocialLink href={social.tiktok ?? undefined} label="TikTok">
+            <TikTokIcon />
           </SocialLink>
         </div>
       </div>

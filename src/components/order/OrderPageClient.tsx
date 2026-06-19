@@ -6,10 +6,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { OrderPageHeader } from "@/components/order/OrderPageHeader";
 import { OrderSocialLinks } from "@/components/order/OrderSocialLinks";
 import {
-  ORDER_MENU,
   formatOrderPriceDisplay,
   type OrderMenuItem,
 } from "@/data/order-menu";
+import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { getLocalizedOrderMenu } from "@/lib/order-menu-localized";
 import {
   type OrderCustomer,
   loadOrderCustomer,
@@ -17,28 +18,44 @@ import {
 } from "@/lib/order-storage";
 import {
   PICKUP_OPTIONS,
-  cartLinesFromMap,
   cartSubtotal,
   type PickupTime,
 } from "@/lib/order-whatsapp";
 
 type Step = "menu" | "confirm" | "success";
 
+type CartLine = { item: OrderMenuItem; quantity: number };
+
+function cartLinesFromMenu(cart: Record<string, number>, menuById: Map<string, OrderMenuItem>): CartLine[] {
+  return Object.entries(cart)
+    .filter(([, qty]) => qty > 0)
+    .map(([id, quantity]) => {
+      const item = menuById.get(id);
+      if (!item) return null;
+      return { item, quantity };
+    })
+    .filter((line): line is CartLine => line !== null);
+}
+
 function QuantityControl({
   quantity,
   onIncrease,
   onDecrease,
+  decreaseLabel,
+  increaseLabel,
 }: {
   quantity: number;
   onIncrease: () => void;
   onDecrease: () => void;
+  decreaseLabel: string;
+  increaseLabel: string;
 }) {
   return (
     <div className="habibi-order-qty">
       <button
         type="button"
         className="habibi-order-qty__btn"
-        aria-label="Decrease quantity"
+        aria-label={decreaseLabel}
         disabled={quantity === 0}
         onClick={onDecrease}
       >
@@ -50,7 +67,7 @@ function QuantityControl({
       <button
         type="button"
         className="habibi-order-qty__btn"
-        aria-label="Increase quantity"
+        aria-label={increaseLabel}
         onClick={onIncrease}
       >
         +
@@ -64,11 +81,15 @@ function MenuItemCard({
   quantity,
   onIncrease,
   onDecrease,
+  decreaseLabel,
+  increaseLabel,
 }: {
   item: OrderMenuItem;
   quantity: number;
   onIncrease: () => void;
   onDecrease: () => void;
+  decreaseLabel: string;
+  increaseLabel: string;
 }) {
   return (
     <article className="habibi-order-item">
@@ -77,11 +98,12 @@ function MenuItemCard({
           <Image
             src={item.image}
             alt={item.name}
-            width={88}
-            height={88}
-            sizes="88px"
+            width={96}
+            height={96}
+            sizes="96px"
             className="habibi-order-item__img"
             loading="lazy"
+            quality={90}
           />
         </div>
       ) : null}
@@ -98,6 +120,8 @@ function MenuItemCard({
             quantity={quantity}
             onIncrease={onIncrease}
             onDecrease={onDecrease}
+            decreaseLabel={decreaseLabel}
+            increaseLabel={increaseLabel}
           />
         </div>
       </div>
@@ -106,6 +130,15 @@ function MenuItemCard({
 }
 
 export function OrderPageClient() {
+  const { t, lang } = useLanguage();
+  const o = t.order;
+
+  const orderMenu = useMemo(() => getLocalizedOrderMenu(lang, t), [lang, t]);
+  const menuById = useMemo(
+    () => new Map(orderMenu.flatMap((cat) => cat.items.map((item) => [item.id, item] as const))),
+    [orderMenu],
+  );
+
   const [hydrated, setHydrated] = useState(false);
   const [customer, setCustomer] = useState<OrderCustomer | null>(null);
   const [draftName, setDraftName] = useState("");
@@ -113,7 +146,7 @@ export function OrderPageClient() {
   const [cart, setCart] = useState<Record<string, number>>({});
   const [step, setStep] = useState<Step>("menu");
   const [pickup, setPickup] = useState<PickupTime>("ASAP");
-  const [activeCategory, setActiveCategory] = useState(ORDER_MENU[0]?.id ?? "");
+  const [activeCategory, setActiveCategory] = useState(orderMenu[0]?.id ?? "");
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
   const [identErrors, setIdentErrors] = useState({ name: false, phone: false });
@@ -130,8 +163,14 @@ export function OrderPageClient() {
     setHydrated(true);
   }, []);
 
+  useEffect(() => {
+    if (orderMenu[0]?.id) {
+      setActiveCategory((prev) => (orderMenu.some((c) => c.id === prev) ? prev : orderMenu[0].id));
+    }
+  }, [orderMenu]);
+
   const canOrder = Boolean(customer?.firstName && customer?.phone);
-  const lines = useMemo(() => cartLinesFromMap(cart), [cart]);
+  const lines = useMemo(() => cartLinesFromMenu(cart, menuById), [cart, menuById]);
   const subtotal = useMemo(() => cartSubtotal(cart), [cart]);
   const itemCount = lines.reduce((sum, line) => sum + line.quantity, 0);
 
@@ -222,15 +261,13 @@ export function OrderPageClient() {
       const data = (await response.json().catch(() => ({}))) as { error?: string };
 
       if (!response.ok) {
-        throw new Error(data.error ?? "Could not send your order. Please try again.");
+        throw new Error(data.error ?? o.sendError);
       }
 
       setStep("success");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
-      setSendError(
-        error instanceof Error ? error.message : "Could not send your order. Please try again.",
-      );
+      setSendError(error instanceof Error ? error.message : o.sendError);
     } finally {
       setSending(false);
     }
@@ -252,21 +289,17 @@ export function OrderPageClient() {
       <div className="habibi-order">
         <OrderPageHeader showSocial={false} />
         <main className="habibi-order-success">
-          <p className="habibi-order-success__eyebrow">Habibi Direct</p>
-          <h1 className="habibi-order-success__title">Your order has been sent!</h1>
-          <p className="habibi-order-success__lead">
-            The team has your order and will confirm shortly.
-          </p>
-          <p className="habibi-order-success__social-lead">
-            Thanks for ordering — follow us on social media for updates and daily specials.
-          </p>
+          <p className="habibi-order-success__eyebrow">{o.successEyebrow}</p>
+          <h1 className="habibi-order-success__title">{o.successTitle}</h1>
+          <p className="habibi-order-success__lead">{o.successLead}</p>
+          <p className="habibi-order-success__social-lead">{o.followSocial}</p>
           <OrderSocialLinks className="habibi-order-social--success" />
           <div className="habibi-order-success__actions">
             <Link href="/" className="habibi-order-btn habibi-order-btn--primary">
-              Visit our website
+              {o.visitSite}
             </Link>
             <button type="button" className="habibi-order-btn habibi-order-btn--ghost" onClick={orderAgain}>
-              Order again
+              {o.orderAgain}
             </button>
           </div>
         </main>
@@ -277,18 +310,18 @@ export function OrderPageClient() {
   if (step === "confirm") {
     return (
       <div className="habibi-order">
-        <OrderPageHeader tagline="Review your order" taglineAs="p" />
+        <OrderPageHeader tagline={o.reviewTagline} taglineAs="p" />
 
         <main className="habibi-order-confirm">
           <section className="habibi-order-panel">
-            <h2 className="habibi-order-panel__title">Customer</h2>
+            <h2 className="habibi-order-panel__title">{o.customer}</h2>
             <p className="habibi-order-confirm__line">
               {customer?.firstName} · {customer?.phone}
             </p>
           </section>
 
           <section className="habibi-order-panel">
-            <h2 className="habibi-order-panel__title">Pickup time</h2>
+            <h2 className="habibi-order-panel__title">{o.pickupTime}</h2>
             <div className="habibi-order-pickup">
               {PICKUP_OPTIONS.map((option) => (
                 <button
@@ -304,7 +337,7 @@ export function OrderPageClient() {
           </section>
 
           <section className="habibi-order-panel">
-            <h2 className="habibi-order-panel__title">Your order</h2>
+            <h2 className="habibi-order-panel__title">{o.yourOrder}</h2>
             <ul className="habibi-order-cart-list">
               {lines.map(({ item, quantity }) => (
                 <li key={item.id} className="habibi-order-cart-list__row">
@@ -316,7 +349,7 @@ export function OrderPageClient() {
               ))}
             </ul>
             <p className="habibi-order-cart-total">
-              Total <strong>{formatOrderPriceDisplay(subtotal)}</strong>
+              {o.subtotal} <strong>{formatOrderPriceDisplay(subtotal)}</strong>
             </p>
           </section>
 
@@ -332,7 +365,7 @@ export function OrderPageClient() {
               disabled={sending}
               onClick={() => setStep("menu")}
             >
-              Back to menu
+              {o.backToMenu}
             </button>
             <button
               type="button"
@@ -340,7 +373,7 @@ export function OrderPageClient() {
               disabled={sending}
               onClick={sendOrder}
             >
-              {sending ? "Sending order…" : "Confirm order"}
+              {sending ? o.sending : o.confirmOrder}
             </button>
           </div>
         </main>
@@ -350,10 +383,7 @@ export function OrderPageClient() {
 
   return (
     <div className="habibi-order">
-      <OrderPageHeader
-        tagline="Order directly & skip the queue"
-        trust="No app needed · Pickup only · Pay on arrival"
-      />
+      <OrderPageHeader tagline={o.tagline} trust={o.trust} />
 
       <section
         ref={identRef}
@@ -362,18 +392,16 @@ export function OrderPageClient() {
         aria-labelledby="order-ident-heading"
       >
         <h2 id="order-ident-heading" className="habibi-order-panel__title">
-          {canOrder ? "Your details" : "Before you order"}
+          {canOrder ? o.yourDetails : o.beforeOrder}
         </h2>
         {!canOrder && (
-          <p className="habibi-order-ident__required">
-            First name and phone are <strong>required</strong> before you can add items.
-          </p>
+          <p className="habibi-order-ident__required">{o.requiredHint}</p>
         )}
         <form className="habibi-order-ident__form" onSubmit={saveCustomer}>
           <label
             className={`habibi-order-field${identErrors.name ? " habibi-order-field--error" : ""}`}
           >
-            <span>First name *</span>
+            <span>{o.firstName}</span>
             <input
               ref={nameInputRef}
               type="text"
@@ -392,14 +420,14 @@ export function OrderPageClient() {
             />
             {identErrors.name && (
               <span id="order-name-error" className="habibi-order-field__error" role="alert">
-                Enter your first name to order.
+                {o.nameError}
               </span>
             )}
           </label>
           <label
             className={`habibi-order-field${identErrors.phone ? " habibi-order-field--error" : ""}`}
           >
-            <span>Phone (WhatsApp preferred) *</span>
+            <span>{o.phone}</span>
             <input
               type="tel"
               name="phone"
@@ -418,20 +446,20 @@ export function OrderPageClient() {
             />
             {identErrors.phone && (
               <span id="order-phone-error" className="habibi-order-field__error" role="alert">
-                Enter your phone so we can confirm your order.
+                {o.phoneError}
               </span>
             )}
           </label>
           <button type="submit" className="habibi-order-btn habibi-order-btn--secondary">
-            {canOrder ? "Update details" : "Save & start ordering"}
+            {canOrder ? o.updateDetails : o.saveStart}
           </button>
         </form>
       </section>
 
       <div className="habibi-order-layout">
         <div className="habibi-order-menu">
-          <nav className="habibi-order-cats" aria-label="Menu categories">
-            {ORDER_MENU.map((cat) => (
+          <nav className="habibi-order-cats" aria-label={o.menuCategories}>
+            {orderMenu.map((cat) => (
               <a
                 key={cat.id}
                 href={`#order-cat-${cat.id}`}
@@ -443,7 +471,7 @@ export function OrderPageClient() {
             ))}
           </nav>
 
-          {ORDER_MENU.map((cat) => (
+          {orderMenu.map((cat) => (
             <section
               key={cat.id}
               id={`order-cat-${cat.id}`}
@@ -459,6 +487,8 @@ export function OrderPageClient() {
                     quantity={cart[item.id] ?? 0}
                     onIncrease={() => increaseItem(item.id)}
                     onDecrease={() => decreaseItem(item.id)}
+                    decreaseLabel={o.decreaseQty}
+                    increaseLabel={o.increaseQty}
                   />
                 ))}
               </div>
@@ -466,11 +496,11 @@ export function OrderPageClient() {
           ))}
         </div>
 
-        <aside className="habibi-order-cart" aria-label="Your cart">
+        <aside className="habibi-order-cart" aria-label={o.cartLabel}>
           <div className="habibi-order-cart__panel">
-            <h2 className="habibi-order-cart__title">Your order</h2>
+            <h2 className="habibi-order-cart__title">{o.yourOrder}</h2>
             {lines.length === 0 ? (
-              <p className="habibi-order-cart__empty">Add items from the menu.</p>
+              <p className="habibi-order-cart__empty">{o.addItems}</p>
             ) : (
               <ul className="habibi-order-cart-list">
                 {lines.map(({ item, quantity }) => (
@@ -484,8 +514,8 @@ export function OrderPageClient() {
               </ul>
             )}
             <p className="habibi-order-cart-total">
-              Subtotal{" "}
-              <strong>{itemCount > 0 ? formatOrderPriceDisplay(subtotal) : "—"}</strong>
+              {o.subtotal}{" "}
+              <strong>{itemCount > 0 ? formatOrderPriceDisplay(subtotal) : formatOrderPriceDisplay(0)}</strong>
             </p>
             <button
               type="button"
@@ -493,7 +523,7 @@ export function OrderPageClient() {
               disabled={itemCount === 0}
               onClick={openConfirm}
             >
-              Place order
+              {o.placeOrder}
             </button>
           </div>
         </aside>
@@ -502,7 +532,7 @@ export function OrderPageClient() {
       {itemCount > 0 && (
         <div className="habibi-order-cart-bar" aria-hidden={false}>
           <div className="habibi-order-cart-bar__meta">
-            <span className="habibi-order-cart-bar__count">{itemCount} items</span>
+            <span className="habibi-order-cart-bar__count">{o.items(itemCount)}</span>
             <span className="habibi-order-cart-bar__total">{formatOrderPriceDisplay(subtotal)}</span>
           </div>
           <button
@@ -511,7 +541,7 @@ export function OrderPageClient() {
             disabled={itemCount === 0}
             onClick={openConfirm}
           >
-            Place order
+            {o.placeOrder}
           </button>
         </div>
       )}

@@ -28,7 +28,7 @@ type OrderMenuCategoryInput = {
   items: OrderMenuItemInput[];
 };
 
-const ORDER_MENU_RAW: OrderMenuCategoryInput[] = [
+export const ORDER_MENU_RAW: OrderMenuCategoryInput[] = [
   {
     id: "appetizers",
     title: "Appetizers",
@@ -192,7 +192,7 @@ const ORDER_MENU_RAW: OrderMenuCategoryInput[] = [
       {
         id: "khinkali",
         name: "Khinkali (per piece)",
-        description: "Georgian dumplings — ask for meat, chicken & mushroom, salmon, or spinach & cheese.",
+        description: "Georgian dumplings. Ask for meat, chicken & mushroom, salmon, or spinach & cheese.",
         priceVnd: k(60),
       },
     ],
