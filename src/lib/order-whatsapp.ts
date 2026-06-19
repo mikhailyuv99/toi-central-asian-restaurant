@@ -1,5 +1,7 @@
-import { phoneHref } from "@/lib/client";
 import { formatOrderVnd, ORDER_MENU_BY_ID, type OrderMenuItem } from "@/data/order-menu";
+
+/** Temporary test inbox — switch back to restaurant `phoneHref` before go-live. */
+const ORDER_WHATSAPP_DIGITS = "33677231846";
 
 export type PickupTime = "ASAP" | "15 min" | "30 min" | "45 min";
 
@@ -60,8 +62,7 @@ export function buildOrderWhatsAppMessage(
 }
 
 export function buildOrderWhatsAppUrl(message: string): string {
-  const digits = phoneHref.replace(/\D/g, "");
-  return `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${ORDER_WHATSAPP_DIGITS}?text=${encodeURIComponent(message)}`;
 }
 
 export function openOrderWhatsApp(url: string): void {
