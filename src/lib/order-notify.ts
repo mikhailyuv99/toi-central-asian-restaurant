@@ -74,10 +74,12 @@ async function sendViaWhatsAppCloud(message: string): Promise<NotifyResult> {
 
 async function sendViaTelegram(message: string): Promise<NotifyResult> {
   const token = process.env.TELEGRAM_BOT_TOKEN?.trim();
-  const chatId = process.env.TELEGRAM_ORDER_CHAT_ID?.trim();
-  if (!token || !chatId) {
+  const chatIdRaw = process.env.TELEGRAM_ORDER_CHAT_ID?.trim().replace(/^["']|["']$/g, "");
+  if (!token || !chatIdRaw) {
     throw new Error("Telegram is not configured.");
   }
+
+  const chatId = /^-?\d+$/.test(chatIdRaw) ? Number(chatIdRaw) : chatIdRaw;
 
   const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
@@ -92,7 +94,13 @@ async function sendViaTelegram(message: string): Promise<NotifyResult> {
 
   const data = (await response.json()) as { ok?: boolean; description?: string };
   if (!response.ok || !data.ok) {
-    throw new Error(data.description ?? "Telegram request failed.");
+    const description = data.description ?? "Telegram request failed.";
+    if (description.toLowerCase().includes("chat not found")) {
+      throw new Error(
+        "Telegram chat not found. Open @habibidanangbot, tap Start, send hello, then set TELEGRAM_ORDER_CHAT_ID to the numeric id from getUpdates (not your phone number).",
+      );
+    }
+    throw new Error(description);
   }
 
   return { channel: "telegram", instant: true };
