@@ -6,14 +6,52 @@ import {
   type PickupTime,
 } from "@/lib/order-whatsapp";
 
-/** Test inbox only — never falls back to restaurant phone from client.json */
-const ORDER_INBOX_PHONE = process.env.ORDER_WHATSAPP_TO ?? "33677231846";
-
 type OrderPayload = {
   customer?: { firstName?: string; phone?: string };
   cart?: Record<string, number>;
   pickup?: PickupTime;
 };
+
+function getOrderInboxPhone(): string {
+  const raw = process.env.ORDER_WHATSAPP_TO?.trim() || "33677231846";
+  const digits = raw.replace(/\D/g, "");
+  if (!digits) {
+    throw new Error("ORDER_WHATSAPP_TO is missing on the server.");
+  }
+  return `+${digits}`;
+}
+
+function stripHtml(html: string): string {
+  return html
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function assertCallMeBotSuccess(status: number, body: string): void {
+  const text = stripHtml(body);
+  const lower = text.toLowerCase();
+
+  if (status !== 200) {
+    throw new Error(text || `CallMeBot returned HTTP ${status}.`);
+  }
+
+  if (
+    lower.includes("invalid") ||
+    lower.includes("not allowed") ||
+    lower.includes("error") ||
+    lower.includes("apikey is")
+  ) {
+    throw new Error(text || "CallMeBot rejected the order.");
+  }
+
+  if (!lower.includes("queued") && !lower.includes("message sent")) {
+    throw new Error(
+      text ||
+        "CallMeBot did not confirm delivery. Check that CALLMEBOT_API_KEY and ORDER_WHATSAPP_TO use the same phone number you activated.",
+    );
+  }
+}
 
 function sanitizeCart(raw: Record<string, number> | undefined): Record<string, number> {
   if (!raw || typeof raw !== "object") return {};
@@ -26,28 +64,26 @@ function sanitizeCart(raw: Record<string, number> | undefined): Record<string, n
   return cart;
 }
 
-async function sendViaCallMeBot(message: string): Promise<void> {
-  const apiKey = process.env.CALLMEBOT_API_KEY;
+async function sendViaCallMeBot(message: string): Promise<string> {
+  const apiKey = process.env.CALLMEBOT_API_KEY?.trim();
   if (!apiKey) {
     throw new Error("CALLMEBOT_API_KEY is not configured on the server.");
   }
 
-  const url = new URL("https://api.callmebot.com/whatsapp.php");
-  url.searchParams.set("phone", ORDER_INBOX_PHONE);
-  url.searchParams.set("text", message);
-  url.searchParams.set("apikey", apiKey);
+  const phone = getOrderInboxPhone();
+  const params = new URLSearchParams({
+    phone,
+    text: message,
+    apikey: apiKey,
+    source: "habibi-order",
+  });
+  const url = `https://api.callmebot.com/whatsapp.php?${params.toString()}`;
 
-  const response = await fetch(url.toString(), { method: "GET", cache: "no-store" });
+  const response = await fetch(url, { method: "GET", cache: "no-store" });
   const body = (await response.text()).trim();
 
-  if (!response.ok) {
-    throw new Error(body || "CallMeBot request failed.");
-  }
-
-  const lower = body.toLowerCase();
-  if (lower.includes("error") || lower.includes("invalid") || lower.includes("not allowed")) {
-    throw new Error(body);
-  }
+  assertCallMeBotSuccess(response.status, body);
+  return stripHtml(body);
 }
 
 export async function POST(request: Request) {
@@ -79,12 +115,11 @@ export async function POST(request: Request) {
   const message = buildOrderWhatsAppMessage({ firstName, phone }, cart, pickup);
 
   try {
-    await sendViaCallMeBot(message);
+    const confirmation = await sendViaCallMeBot(message);
+    return NextResponse.json({ ok: true, confirmation });
   } catch (error) {
     const detail = error instanceof Error ? error.message : "Could not send order.";
     console.error("[send-order]", detail);
     return NextResponse.json({ error: detail }, { status: 502 });
   }
-
-  return NextResponse.json({ ok: true });
 }

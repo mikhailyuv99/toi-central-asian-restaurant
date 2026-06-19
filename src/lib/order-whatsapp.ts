@@ -38,22 +38,22 @@ export function buildOrderWhatsAppMessage(
   const itemLines = lines
     .map(
       ({ item, quantity }) =>
-        `- ${item.name} x${quantity} — ${formatOrderVnd(item.priceVnd * quantity)}`,
+        `- ${item.name} x${quantity} - ${formatOrderVnd(item.priceVnd * quantity)}`,
     )
     .join("\n");
 
   return [
-    "🧾 NEW ORDER — Habibi Direct",
+    "NEW ORDER - Habibi Direct",
     "",
-    `👤 Customer: ${customer.firstName}`,
-    `📞 Phone: ${customer.phone}`,
-    `⏱ Pickup: ${pickup}`,
+    `Customer: ${customer.firstName}`,
+    `Phone: ${customer.phone}`,
+    `Pickup: ${pickup}`,
     "",
-    "🍽 Order:",
+    "Order:",
     itemLines,
     "",
-    `💰 TOTAL: ${formatOrderVnd(total)}`,
+    `TOTAL: ${formatOrderVnd(total)}`,
     "",
-    "⚡ Sent via Habibi Direct (not Grab)",
+    "Sent via Habibi Direct (not Grab)",
   ].join("\n");
 }
