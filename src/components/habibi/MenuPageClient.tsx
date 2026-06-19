@@ -11,6 +11,8 @@ import {
 } from "react";
 import { MENU_GROUPS, MENU_CATEGORIES, type MenuCategory } from "@/data/menu-categories";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { useLenis } from "lenis/react";
+import { ScrollReveal } from "./ScrollReveal";
 
 const GROUP_LABELS: Record<string, "groupToStart" | "groupSlavic" | "groupArabic" | "groupQuick"> = {
   "To start": "groupToStart",
@@ -61,6 +63,7 @@ export function MenuSection() {
   const firstBtnRef = useRef<HTMLButtonElement>(null);
   const lastBtnRef = useRef<HTMLButtonElement>(null);
   const viewerRef = useRef<HTMLElement>(null);
+  const lenis = useLenis();
   const active = categories.find((c) => c.id === activeId) ?? categories[0];
   const activeBoards = active ? boardsFor(active) : [];
   const activeLabel = active ? t.menu[CAT_LABELS[active.id] ?? "catAppetizers"] : "";
@@ -93,10 +96,16 @@ export function MenuSection() {
 
   const scrollToViewer = useCallback(() => {
     if (typeof window === "undefined" || window.innerWidth >= 768) return;
+    const el = viewerRef.current;
+    if (!el) return;
     requestAnimationFrame(() => {
-      viewerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (lenis) {
+        lenis.scrollTo(el, { offset: -56, duration: 0.95 });
+      } else {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
-  }, []);
+  }, [lenis]);
 
   const selectCategory = useCallback(
     (id: string) => {
@@ -109,15 +118,18 @@ export function MenuSection() {
   return (
     <section className="habibi-menu-section" id="menu" aria-labelledby="menu-heading">
       <div className="habibi-page__inner habibi-page__inner--menu-wide">
-        <header className="habibi-page__header">
-          <p className="habibi-page__eyebrow">{t.menu.eyebrow}</p>
-          <h2 id="menu-heading" className="habibi-page__title">
-            {t.menu.title}
-          </h2>
-          <p className="habibi-page__lead">{t.menu.lead}</p>
-        </header>
+        <ScrollReveal>
+          <header className="habibi-page__header">
+            <p className="habibi-page__eyebrow">{t.menu.eyebrow}</p>
+            <h2 id="menu-heading" className="habibi-page__title">
+              {t.menu.title}
+            </h2>
+            <p className="habibi-page__lead">{t.menu.lead}</p>
+          </header>
+        </ScrollReveal>
 
-        <div className="habibi-menu-browser">
+        <ScrollReveal delay={60}>
+          <div className="habibi-menu-browser">
           <nav ref={catsRef} className="habibi-menu-cats" aria-label="Menu categories">
             {MENU_GROUPS.map((group) => {
               const groupKey = GROUP_LABELS[group.label];
@@ -153,7 +165,6 @@ export function MenuSection() {
             <figure
               ref={viewerRef}
               className="habibi-menu-viewer"
-              id="menu-viewer"
               aria-labelledby="menu-viewer-title"
               style={viewerLayout}
             >
@@ -182,7 +193,8 @@ export function MenuSection() {
               </div>
             </figure>
           )}
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -434,6 +434,32 @@ body {
   margin-inline: -1.25rem;
 }
 
+@media (max-width: 767px) {
+  .habibi-about-story {
+    gap: 2.85rem;
+  }
+
+  .habibi-about-story__text {
+    padding-bottom: 0.15rem;
+  }
+
+  .habibi-about-story .habibi-media-row {
+    margin-block: 0.5rem;
+  }
+
+  .habibi-about-story .habibi-media-row__track {
+    gap: 0.75rem;
+  }
+
+  .habibi-about-story .habibi-media-row__item {
+    width: clamp(11.25rem, 44vw, 13rem);
+  }
+
+  .habibi-about-story .habibi-media-row__item img {
+    height: clamp(8.75rem, 34vw, 10.5rem);
+  }
+}
+
 .habibi-about-copy p + p {
   margin-top: 1rem;
 }
@@ -647,8 +673,12 @@ body {
   .menu-enter,
   .habibi-reviews-track,
   .habibi-review-carousel__track,
-  .habibi-media-row__track {
+  .habibi-media-row__track,
+  .habibi-scroll-reveal {
     animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
@@ -1739,9 +1769,52 @@ body {
     width: 100%;
     max-width: 420px;
   }
+}
 
-  .habibi-menu-viewer {
-    scroll-margin-top: 4.5rem;
+#about,
+#menu,
+#find-us {
+  scroll-margin-top: 4.5rem;
+}
+
+.habibi-scroll-reveal {
+  opacity: 0;
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.habibi-scroll-reveal--up {
+  transform: translateY(1.35rem);
+}
+
+.habibi-scroll-reveal--left {
+  transform: translateX(-1.15rem);
+}
+
+.habibi-scroll-reveal--right {
+  transform: translateX(1.15rem);
+}
+
+.habibi-scroll-reveal--in {
+  opacity: 1;
+  transform: none;
+}
+
+.habibi-hero--classic .habibi-hero__stack {
+  animation: habibi-hero-enter 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes habibi-hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -1763,6 +1836,16 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .habibi-modal-backdrop,
   .habibi-modal {
+    animation: none;
+  }
+
+  .habibi-scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .habibi-hero--classic .habibi-hero__stack {
     animation: none;
   }
 }

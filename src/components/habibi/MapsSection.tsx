@@ -14,9 +14,7 @@ export function MapsSection() {
           directionsUrl={DIRECTIONS_URL}
           mapsQuery={MAPS_QUERY}
         />
-        <div className="habibi-maps__col habibi-maps__col--form">
-          <ContactForm />
-        </div>
+        <ContactForm />
       </div>
     </section>
   );

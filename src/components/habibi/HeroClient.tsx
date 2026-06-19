@@ -53,7 +53,7 @@ export function HeroClient() {
           >
             {t.hero.reserve}
           </a>
-          <a href="/#menu-viewer" className="habibi-hero__btn habibi-hero__btn--secondary">
+          <a href="/#menu" className="habibi-hero__btn habibi-hero__btn--secondary">
             {t.hero.menu}
           </a>
         </div>

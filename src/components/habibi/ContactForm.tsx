@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { client, phoneHref } from "@/lib/client";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { ScrollReveal } from "./ScrollReveal";
 
 export function ContactForm() {
   const { t } = useLanguage();
@@ -20,7 +21,9 @@ export function ContactForm() {
   }
 
   return (
-    <form className="habibi-maps__card habibi-contact" onSubmit={onSubmit}>
+    <ScrollReveal variant="right">
+      <div className="habibi-maps__col habibi-maps__col--form">
+        <form className="habibi-maps__card habibi-contact" onSubmit={onSubmit}>
       <h3 className="habibi-maps__heading">{t.maps.formTitle}</h3>
       <label className="habibi-contact__field">
         <span>{t.maps.name}</span>
@@ -55,6 +58,8 @@ export function ContactForm() {
       <button type="submit" className="habibi-hero__btn habibi-hero__btn--primary habibi-maps__action">
         {t.maps.send}
       </button>
-    </form>
+        </form>
+      </div>
+    </ScrollReveal>
   );
 }

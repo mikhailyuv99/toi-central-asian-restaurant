@@ -13,7 +13,7 @@ export function SiteNav() {
   const links = [
     { href: "/", label: t.nav.home, match: () => pathname === "/" },
     { href: "/#about", label: t.nav.about, match: () => pathname === "/" },
-    { href: "/#menu-viewer", label: t.nav.menu, match: () => pathname === "/" },
+    { href: "/#menu", label: t.nav.menu, match: () => pathname === "/" },
     { href: "/#find-us", label: t.nav.findUs, match: () => pathname === "/" },
   ] as const;
 

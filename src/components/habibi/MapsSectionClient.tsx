@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { ScrollReveal } from "./ScrollReveal";
 
 type Props = {
   address: string;
@@ -42,7 +43,8 @@ export function MapsSectionClient({ address, directionsUrl, mapsQuery }: Props) 
   }, [mapsQuery]);
 
   return (
-    <div className="habibi-maps__col habibi-maps__col--map">
+    <ScrollReveal variant="left">
+      <div className="habibi-maps__col habibi-maps__col--map">
       <div className="habibi-maps__card">
         <h2 id="maps-heading" className="habibi-maps__heading">
           {t.maps.title}
@@ -69,6 +71,7 @@ export function MapsSectionClient({ address, directionsUrl, mapsQuery }: Props) 
           {t.maps.gps}
         </a>
       </div>
-    </div>
+      </div>
+    </ScrollReveal>
   );
 }
