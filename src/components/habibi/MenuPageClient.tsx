@@ -14,40 +14,22 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { useLenis } from "lenis/react";
 import { ScrollReveal } from "./ScrollReveal";
 
-const GROUP_LABELS: Record<string, "groupToStart" | "groupSlavic" | "groupArabic" | "groupQuick"> = {
-  "To start": "groupToStart",
-  Slavic: "groupSlavic",
-  Arabic: "groupArabic",
-  "Quick & drinks": "groupQuick",
+const GROUP_LABELS: Record<string, "groupMains" | "groupDumplings" | "groupSoups"> = {
+  Mains: "groupMains",
+  "Dumplings & pastry": "groupDumplings",
+  "Soups & tea": "groupSoups",
 };
 
 const CAT_LABELS: Record<
   string,
-  | "catAppetizers"
-  | "catColdPlates"
-  | "catSalads"
-  | "catSoups"
-  | "catGeorgian"
-  | "catSlavicFood"
-  | "catSlavicSnacks"
-  | "catMandi"
-  | "catArabicGrill"
-  | "catKebabs"
-  | "catWraps"
-  | "catDrinks"
+  "catLaghman" | "catPlov" | "catManti" | "catSamsa" | "catShorpa" | "catBaursak"
 > = {
-  appetizers: "catAppetizers",
-  "cold-plates": "catColdPlates",
-  salads: "catSalads",
-  soups: "catSoups",
-  georgian: "catGeorgian",
-  slavic: "catSlavicFood",
-  "slavic-snacks": "catSlavicSnacks",
-  mandi: "catMandi",
-  "arabic-grill": "catArabicGrill",
-  kebabs: "catKebabs",
-  "fast-bites": "catWraps",
-  drinks: "catDrinks",
+  laghman: "catLaghman",
+  plov: "catPlov",
+  manti: "catManti",
+  samsa: "catSamsa",
+  shorpa: "catShorpa",
+  baursak: "catBaursak",
 };
 
 function boardsFor(category: MenuCategory): string[] {
@@ -57,7 +39,7 @@ function boardsFor(category: MenuCategory): string[] {
 export function MenuSection() {
   const { t, lang } = useLanguage();
   const categories = useMemo(() => MENU_CATEGORIES, []);
-  const [activeId, setActiveId] = useState(categories[0]?.id ?? "appetizers");
+  const [activeId, setActiveId] = useState(categories[0]?.id ?? "laghman");
   const [viewerLayout, setViewerLayout] = useState<CSSProperties>({});
   const catsRef = useRef<HTMLElement>(null);
   const firstBtnRef = useRef<HTMLButtonElement>(null);
@@ -66,7 +48,7 @@ export function MenuSection() {
   const lenis = useLenis();
   const active = categories.find((c) => c.id === activeId) ?? categories[0];
   const activeBoards = active ? boardsFor(active) : [];
-  const activeLabel = active ? t.menu[CAT_LABELS[active.id] ?? "catAppetizers"] : "";
+  const activeLabel = active ? t.menu[CAT_LABELS[active.id] ?? "catLaghman"] : "";
 
   const syncViewerLayout = useCallback(() => {
     if (typeof window === "undefined" || window.innerWidth < 768) {
@@ -142,7 +124,7 @@ export function MenuSection() {
                       <li key={cat.id}>
                         <CategoryButton
                           category={cat}
-                          label={t.menu[CAT_LABELS[cat.id] ?? "catAppetizers"]}
+                          label={t.menu[CAT_LABELS[cat.id] ?? "catLaghman"]}
                           active={cat.id === activeId}
                           onSelect={() => selectCategory(cat.id)}
                           buttonRef={

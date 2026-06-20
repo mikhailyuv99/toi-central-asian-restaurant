@@ -2,8 +2,8 @@
 
 .habibi-order {
   min-height: 100svh;
-  background: #fbf3e1;
-  color: #4a634d;
+  background: #f8f1e1;
+  color: #b08d44;
   font-family: system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   padding-bottom: calc(6.25rem + env(safe-area-inset-bottom, 0px));
@@ -17,7 +17,7 @@
 .habibi-order-header {
   text-align: center;
   padding: 1.1rem 1rem 0.9rem;
-  border-bottom: 1px solid rgba(74, 99, 77, 0.12);
+  border-bottom: 1px solid rgba(107, 94, 74, 0.12);
   background: #f9f4e8;
 }
 
@@ -33,14 +33,14 @@
   font-size: 1.35rem;
   font-weight: 400;
   line-height: 1.2;
-  color: #4a634d;
+  color: #b08d44;
 }
 
 .habibi-order-header__trust {
   margin: 0.4rem 0 0;
   font-size: 0.8125rem;
   line-height: 1.4;
-  color: rgba(74, 99, 77, 0.65);
+  color: rgba(107, 94, 74, 0.65);
 }
 
 .habibi-order-social {
@@ -63,7 +63,7 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  color: #4a634d;
+  color: #b08d44;
   transition: opacity 0.15s ease;
 }
 
@@ -85,7 +85,7 @@
   margin: 0.85rem 0 0;
   padding: 1rem;
   background: #f9f4e8;
-  border: 1px solid rgba(74, 99, 77, 0.12);
+  border: 1px solid rgba(107, 94, 74, 0.12);
   border-radius: 4px;
   scroll-margin-top: 0.75rem;
 }
@@ -99,7 +99,7 @@
   margin: 0 0 0.75rem;
   font-size: 0.8125rem;
   line-height: 1.45;
-  color: rgba(74, 99, 77, 0.72);
+  color: rgba(107, 94, 74, 0.72);
 }
 
 .habibi-order-ident__required strong {
@@ -116,7 +116,7 @@
   margin: 0.65rem 0 0;
   font-size: 0.8125rem;
   line-height: 1.45;
-  color: rgba(74, 99, 77, 0.6);
+  color: rgba(107, 94, 74, 0.6);
 }
 
 .habibi-order-field {
@@ -127,7 +127,7 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(74, 99, 77, 0.65);
+  color: rgba(107, 94, 74, 0.65);
 }
 
 .habibi-order-field input {
@@ -137,16 +137,16 @@
   letter-spacing: normal;
   text-transform: none;
   padding: 0.75rem 0.85rem;
-  border: 1px solid rgba(74, 99, 77, 0.22);
+  border: 1px solid rgba(107, 94, 74, 0.22);
   border-radius: 3px;
-  background: #fbf3e1;
-  color: #4a634d;
+  background: #f8f1e1;
+  color: #b08d44;
   width: 100%;
   box-sizing: border-box;
 }
 
 .habibi-order-field input:focus {
-  outline: 2px solid rgba(74, 99, 77, 0.35);
+  outline: 2px solid rgba(107, 94, 74, 0.35);
   outline-offset: 1px;
 }
 
@@ -190,7 +190,7 @@
   z-index: 5;
   margin: 0 -0.25rem;
   padding: 0.35rem 0 0.85rem;
-  background: linear-gradient(180deg, #fbf3e1 88%, rgba(251, 243, 225, 0));
+  background: linear-gradient(180deg, #f8f1e1 88%, rgba(251, 243, 225, 0));
 }
 
 .habibi-order-cats {
@@ -218,22 +218,22 @@
 .habibi-order-cats__link {
   flex-shrink: 0;
   padding: 0.55rem 0.9rem;
-  border: 1px solid rgba(74, 99, 77, 0.18);
+  border: 1px solid rgba(107, 94, 74, 0.18);
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   text-decoration: none;
-  color: rgba(74, 99, 77, 0.8);
+  color: rgba(107, 94, 74, 0.8);
   background: #f9f4e8;
   white-space: nowrap;
 }
 
 .habibi-order-cats__link--active {
-  background: #4a634d;
-  border-color: #4a634d;
-  color: #fbf3e1;
+  background: #b08d44;
+  border-color: #b08d44;
+  color: #f8f1e1;
 }
 
 /* —— Menu sections —— */
@@ -247,7 +247,7 @@
   font-family: Georgia, serif;
   font-size: 1.2rem;
   font-weight: 400;
-  color: #4a634d;
+  color: #b08d44;
 }
 
 .habibi-order-category__items {
@@ -263,7 +263,7 @@
   align-items: start;
   padding: 0.85rem;
   background: #f9f4e8;
-  border: 1px solid rgba(74, 99, 77, 0.12);
+  border: 1px solid rgba(107, 94, 74, 0.12);
   border-radius: 4px;
 }
 
@@ -272,8 +272,8 @@
   height: 5.5rem;
   overflow: hidden;
   border-radius: 4px;
-  background: rgba(74, 99, 77, 0.08);
-  border: 1px solid rgba(74, 99, 77, 0.1);
+  background: rgba(107, 94, 74, 0.08);
+  border: 1px solid rgba(107, 94, 74, 0.1);
 }
 
 .habibi-order-item__img {
@@ -303,7 +303,7 @@
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.3;
-  color: #4a634d;
+  color: #b08d44;
 }
 
 .habibi-order-item__price {
@@ -312,7 +312,7 @@
   font-size: 0.9375rem;
   font-weight: 700;
   line-height: 1.3;
-  color: #4a634d;
+  color: #b08d44;
   white-space: nowrap;
 }
 
@@ -320,7 +320,7 @@
   margin: 0;
   font-size: 0.8125rem;
   line-height: 1.45;
-  color: rgba(74, 99, 77, 0.68);
+  color: rgba(107, 94, 74, 0.68);
 }
 
 .habibi-order-item__actions {
@@ -338,16 +338,35 @@
 .habibi-order-qty__btn {
   width: 2.5rem;
   height: 2.5rem;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(74, 99, 77, 0.25);
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(107, 94, 74, 0.25);
   border-radius: 3px;
-  background: #fbf3e1;
-  color: #4a634d;
-  font-size: 1.25rem;
+  background: #f8f1e1;
+  color: #b08d44;
+  font-size: 1.375rem;
+  font-weight: 500;
   line-height: 1;
   cursor: pointer;
   touch-action: manipulation;
+}
+
+.habibi-order-qty__symbol {
+  display: block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-align: center;
+}
+
+.habibi-order-qty__symbol--minus {
+  transform: translateY(-0.06em);
 }
 
 .habibi-order-qty__btn:disabled {
@@ -391,22 +410,22 @@
 }
 
 .habibi-order-btn--primary {
-  background: #4a634d;
-  color: #fbf3e1;
-  border-color: #4a634d;
+  background: #b08d44;
+  color: #f8f1e1;
+  border-color: #b08d44;
 }
 
 .habibi-order-btn--secondary {
   background: transparent;
-  color: #4a634d;
-  border-color: rgba(74, 99, 77, 0.35);
+  color: #b08d44;
+  border-color: rgba(107, 94, 74, 0.35);
   width: 100%;
 }
 
 .habibi-order-btn--ghost {
   background: transparent;
-  color: #4a634d;
-  border-color: rgba(74, 99, 77, 0.22);
+  color: #b08d44;
+  border-color: rgba(107, 94, 74, 0.22);
 }
 
 .habibi-order-cart__cta {
@@ -425,7 +444,7 @@
   gap: 0.75rem;
   padding: 0.85rem 1rem calc(0.85rem + env(safe-area-inset-bottom, 0px));
   background: rgba(249, 244, 232, 0.98);
-  border-top: 1px solid rgba(74, 99, 77, 0.16);
+  border-top: 1px solid rgba(107, 94, 74, 0.16);
   box-shadow: 0 -8px 24px rgba(20, 16, 12, 0.08);
 }
 
@@ -441,7 +460,7 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(74, 99, 77, 0.6);
+  color: rgba(107, 94, 74, 0.6);
 }
 
 .habibi-order-cart-bar__total {
@@ -459,7 +478,7 @@
   margin: 0 1rem 0.75rem;
   padding: 1rem;
   background: #f9f4e8;
-  border: 1px solid rgba(74, 99, 77, 0.12);
+  border: 1px solid rgba(107, 94, 74, 0.12);
   border-radius: 4px;
 }
 
@@ -488,10 +507,10 @@
 
 .habibi-order-pickup__btn {
   min-height: 2.75rem;
-  border: 1px solid rgba(74, 99, 77, 0.22);
+  border: 1px solid rgba(107, 94, 74, 0.22);
   border-radius: 3px;
-  background: #fbf3e1;
-  color: #4a634d;
+  background: #f8f1e1;
+  color: #b08d44;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
@@ -499,9 +518,9 @@
 }
 
 .habibi-order-pickup__btn--active {
-  background: #4a634d;
-  border-color: #4a634d;
-  color: #fbf3e1;
+  background: #b08d44;
+  border-color: #b08d44;
+  color: #f8f1e1;
 }
 
 .habibi-order-confirm__actions {
@@ -548,7 +567,7 @@
   justify-content: space-between;
   font-size: 0.875rem;
   padding-top: 0.65rem;
-  border-top: 1px solid rgba(74, 99, 77, 0.12);
+  border-top: 1px solid rgba(107, 94, 74, 0.12);
 }
 
 .habibi-order-cart-total strong {
@@ -558,7 +577,7 @@
 .habibi-order-cart__panel {
   padding: 1rem;
   background: #f9f4e8;
-  border: 1px solid rgba(74, 99, 77, 0.14);
+  border: 1px solid rgba(107, 94, 74, 0.14);
   border-radius: 4px;
 }
 
@@ -572,7 +591,7 @@
 .habibi-order-cart__empty {
   margin: 0 0 0.75rem;
   font-size: 0.875rem;
-  color: rgba(74, 99, 77, 0.6);
+  color: rgba(107, 94, 74, 0.6);
 }
 
 /* —— Success —— */
@@ -589,7 +608,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(74, 99, 77, 0.55);
+  color: rgba(107, 94, 74, 0.55);
 }
 
 .habibi-order-success__title {
@@ -604,14 +623,14 @@
   margin: 0.75rem 0 1.25rem;
   font-size: 0.9375rem;
   line-height: 1.5;
-  color: rgba(74, 99, 77, 0.75);
+  color: rgba(107, 94, 74, 0.75);
 }
 
 .habibi-order-success__social-lead {
   margin: 0 0 1rem;
   font-size: 0.875rem;
   line-height: 1.45;
-  color: rgba(74, 99, 77, 0.7);
+  color: rgba(107, 94, 74, 0.7);
 }
 
 .habibi-order-success__actions {

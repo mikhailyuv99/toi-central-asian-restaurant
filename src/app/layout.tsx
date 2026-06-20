@@ -64,16 +64,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={fontVariables} style={themeStyle()}>
       <head>
         <link rel="stylesheet" href="/habibi.css" />
+        <link rel="stylesheet" href="/toi.css" />
         <link rel="preconnect" href="https://maps.google.com" />
         <link rel="preconnect" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://maps.google.com" />
-        <link rel="preload" as="image" href="/brand/logo.png" />
-        <link rel="preload" as="image" href="/photos/owner/khinkali.jpg" />
-        <link rel="preload" as="image" href="/photos/owner/borscht.jpg" />
-        <link rel="preload" as="image" href="/photos/owner/olivier-salad.jpg" />
+        <link rel="preload" as="image" href="/brand/logo-on-dark.png" />
+        <link rel="preload" as="image" href="/photos/maps/photo-1.jpg" />
         <LocalBusinessJsonLd />
       </head>
-      <body className="antialiased" style={{ background: "#fbf3e1" }}>
+      <body className="antialiased site-toi">
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

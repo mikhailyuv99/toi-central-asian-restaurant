@@ -1,23 +1,17 @@
-/** Dish name → photo path. Swap .svg for .jpg when real photos are in /public/photos/ */
-export const DISH_PHOTOS: Record<string, string> = {
-  "Lamb Shashlik": "/photos/photo-2.svg",
-  "Kazan Kebab": "/photos/photo-5.svg",
-  "Steamed Salmon Filled": "/photos/photo-3.svg",
-  "Stuffed Bell Pepper": "/photos/photo-4.svg",
-  Khinkali: "/photos/photo-1.svg",
-  Pelmeni: "/photos/photo-2.svg",
-  Borscht: "/photos/photo-3.svg",
-  Khachapuri: "/photos/photo-4.svg",
-  Cheburek: "/photos/photo-5.svg",
-  "Eggplant Rolls": "/photos/photo-1.svg",
-  "Chicken Kebab Platter": "/photos/photo-2.svg",
-  "Meze Platter": "/photos/photo-3.svg",
-  "Chicken Shawarma Wrap": "/photos/photo-4.svg",
-  "Mixed Grill": "/photos/photo-5.svg",
-  "Olivier Salad": "/photos/photo-1.svg",
-  "Seafood Salad": "/photos/photo-3.svg",
+const MAPS = "/photos/maps";
+
+/** Dish name → TOI Maps photo. No SVG placeholders. */
+const DISH_PHOTOS: Record<string, string> = {
+  Manti: `${MAPS}/photo-12.jpg`,
+  Samsa: `${MAPS}/photo-38.jpg`,
+  "Lamb Shashlik": `${MAPS}/photo-62.jpg`,
+  "Kazan Kebab": `${MAPS}/photo-68.jpg`,
+  Laghman: `${MAPS}/photo-5.jpg`,
+  Plov: `${MAPS}/photo-32.jpg`,
+  Shorpa: `${MAPS}/photo-42.jpg`,
+  Baursak: `${MAPS}/photo-52.jpg`,
 };
 
-export function dishPhoto(name: string, fallback?: string): string {
-  return DISH_PHOTOS[name] ?? fallback ?? "/photos/photo-1.svg";
+export function getDishPhoto(name: string, fallback?: string): string {
+  return DISH_PHOTOS[name] ?? fallback ?? `${MAPS}/photo-1.jpg`;
 }

@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --brand-cream: #fbf3e1;
-  --brand: #4a634d;
-  --wood: #14100c;
-  --cream: #f4efe6;
-  --cream-dark: #e8e0d4;
-  --ink: #0c0a09;
-  --ink-soft: #1a1614;
-  --gold: #b8956b;
-  --gold-light: #d4b896;
-  --muted: #6b635c;
-  --rule: rgba(12, 10, 9, 0.12);
+  --brand-cream: #f8f1e1;
+  --brand: #b08d44;
+  --wood: #0a0a0a;
+  --cream: #f8f1e1;
+  --cream-dark: #efe6d4;
+  --ink: #141210;
+  --ink-soft: #6b5e4a;
+  --gold: #b08d44;
+  --gold-light: #c5a059;
+  --muted: #6b5e4a;
+  --rule: rgba(20, 18, 16, 0.12);
 }
 
 @theme inline {
@@ -85,7 +85,7 @@ body {
 /* Habibi hero: plain CSS so layout survives if utilities fail */
 .habibi-hero {
   min-height: 100svh;
-  background: #fbf3e1;
+  background: #f8f1e1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,23 +130,23 @@ body {
 }
 
 .habibi-hero__btn--primary {
-  background: #4a634d;
-  color: #fbf3e1;
+  background: #b08d44;
+  color: #f8f1e1;
 }
 
 .habibi-hero__btn--primary:hover {
-  background: #3f5542;
+  background: #c5a059;
 }
 
 .habibi-hero__btn--secondary {
   background: transparent;
-  border: 1px solid rgba(74, 99, 77, 0.4);
-  color: #4a634d;
+  border: 1px solid rgba(176, 141, 68, 0.45);
+  color: #b08d44;
 }
 
 .habibi-hero__btn--secondary:hover {
-  border-color: #4a634d;
-  background: rgba(74, 99, 77, 0.05);
+  border-color: #b08d44;
+  background: rgba(176, 141, 68, 0.08);
 }
 
 .habibi-hero__social {
@@ -223,8 +223,8 @@ body {
 /* Inner pages */
 .habibi-page {
   min-height: 100svh;
-  background: #fbf3e1;
-  color: #4a634d;
+  background: #f8f1e1;
+  color: #141210;
   padding: 1.5rem 1.25rem 3rem;
 }
 
@@ -241,11 +241,11 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
-  color: rgba(74, 99, 77, 0.65);
+  color: rgba(107, 94, 74, 0.65);
 }
 
 .habibi-back:hover {
-  color: #4a634d;
+  color: #b08d44;
 }
 
 .habibi-page__header {
@@ -265,7 +265,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(74, 99, 77, 0.55);
+  color: rgba(107, 94, 74, 0.55);
 }
 
 .habibi-page__title {
@@ -280,13 +280,13 @@ body {
   margin-top: 0.75rem;
   font-size: 0.9375rem;
   line-height: 1.55;
-  color: rgba(74, 99, 77, 0.8);
+  color: rgba(107, 94, 74, 0.8);
 }
 
 .habibi-about-copy {
   font-size: 0.9375rem;
   line-height: 1.65;
-  color: rgba(74, 99, 77, 0.85);
+  color: rgba(107, 94, 74, 0.85);
 }
 
 .habibi-about-copy p + p {
@@ -298,7 +298,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(74, 99, 77, 0.6);
+  color: rgba(107, 94, 74, 0.6);
 }
 
 .habibi-section-label {
@@ -306,7 +306,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(74, 99, 77, 0.55);
+  color: rgba(107, 94, 74, 0.55);
   margin-bottom: 1rem;
 }
 
@@ -330,7 +330,7 @@ body {
   object-fit: cover;
   display: block;
   aspect-ratio: 4 / 3;
-  background: rgba(74, 99, 77, 0.06);
+  background: rgba(107, 94, 74, 0.06);
 }
 
 .habibi-gallery__hero img {
@@ -345,7 +345,7 @@ body {
 .habibi-reviews-empty {
   text-align: center;
   padding: 1.5rem;
-  border: 1px solid rgba(74, 99, 77, 0.2);
+  border: 1px solid rgba(107, 94, 74, 0.2);
 }
 
 .habibi-reviews-rating {
@@ -360,7 +360,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #4a634d;
+  color: #b08d44;
 }
 
 .habibi-reviews-track-wrap {
@@ -380,13 +380,13 @@ body {
   flex-shrink: 0;
   width: min(80vw, 18rem);
   padding: 1.25rem;
-  background: rgba(74, 99, 77, 0.06);
-  border-left: 2px solid #4a634d;
+  background: rgba(107, 94, 74, 0.06);
+  border-left: 2px solid #b08d44;
   margin: 0;
 }
 
 .habibi-review-stars {
-  color: #4a634d;
+  color: #b08d44;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
@@ -395,14 +395,14 @@ body {
 .habibi-review-text {
   font-size: 0.875rem;
   line-height: 1.55;
-  color: rgba(74, 99, 77, 0.9);
+  color: rgba(107, 94, 74, 0.9);
 }
 
 .habibi-review-author {
   margin-top: 0.75rem;
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(74, 99, 77, 0.6);
+  color: rgba(107, 94, 74, 0.6);
 }
 
 @keyframes habibi-reviews-scroll {
@@ -423,7 +423,7 @@ body {
   font-size: 1.25rem;
   font-weight: 400;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(74, 99, 77, 0.2);
+  border-bottom: 1px solid rgba(107, 94, 74, 0.2);
   margin-bottom: 1rem;
 }
 
@@ -446,7 +446,7 @@ body {
 .habibi-menu-item__photo {
   aspect-ratio: 1;
   overflow: hidden;
-  background: rgba(74, 99, 77, 0.08);
+  background: rgba(107, 94, 74, 0.08);
 }
 
 .habibi-menu-item__photo img {
@@ -480,14 +480,14 @@ body {
   margin-top: 0.35rem;
   font-size: 0.8125rem;
   line-height: 1.5;
-  color: rgba(74, 99, 77, 0.75);
+  color: rgba(107, 94, 74, 0.75);
 }
 
 .habibi-menu-item__note {
   margin-top: 0.35rem;
   font-size: 0.75rem;
   font-style: italic;
-  color: rgba(74, 99, 77, 0.55);
+  color: rgba(107, 94, 74, 0.55);
 }
 
 @media (min-width: 640px) {

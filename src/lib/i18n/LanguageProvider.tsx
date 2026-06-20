@@ -11,7 +11,7 @@ import {
 } from "react";
 import { translations, type Lang, LANGS } from "./translations";
 
-const STORAGE_KEY = "habibi-lang";
+const STORAGE_KEY = "toi-lang";
 
 type LanguageContextValue = {
   lang: Lang;

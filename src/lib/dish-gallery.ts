@@ -4,46 +4,48 @@ export type DishGalleryCell = {
   span: string;
 };
 
-/** Owner-provided dish photography — each file used once. */
+const MAPS = "/photos/maps";
+
+/** TOI Google Maps scrape — each file used once. */
 export const dishGallery: DishGalleryCell[] = [
   {
-    src: "/photos/owner/khachapuri.jpg",
-    label: "Khachapuri",
+    src: `${MAPS}/photo-5.jpg`,
+    label: "Laghman",
     span: "col-span-2 row-span-2 md:col-span-7 md:row-span-3",
   },
   {
-    src: "/photos/owner/khinkali.jpg",
-    label: "Khinkali",
+    src: `${MAPS}/photo-40.jpg`,
+    label: "Manti",
     span: "col-span-1 row-span-1 md:col-span-5 md:row-span-2",
   },
   {
-    src: "/photos/owner/meze-platter.jpg",
-    label: "Meze platter",
+    src: `${MAPS}/photo-35.jpg`,
+    label: "Samsa",
     span: "col-span-1 row-span-1 md:col-span-4 md:row-span-2",
   },
   {
-    src: "/photos/owner/chicken-kebab.jpg",
-    label: "Chicken kebab",
+    src: `${MAPS}/photo-55.jpg`,
+    label: "Plov",
     span: "col-span-2 row-span-1 md:col-span-5 md:row-span-2",
   },
   {
-    src: "/photos/owner/borscht.jpg",
-    label: "Borscht",
+    src: `${MAPS}/photo-10.jpg`,
+    label: "Shorpa",
     span: "col-span-1 row-span-1 md:col-span-4 md:row-span-2",
   },
   {
-    src: "/photos/owner/cheburek.jpg",
-    label: "Cheburek",
+    src: `${MAPS}/photo-30.jpg`,
+    label: "Baursak",
     span: "col-span-1 row-span-1 md:col-span-3 md:row-span-2",
   },
   {
-    src: "/photos/owner/pelmeni.jpg",
-    label: "Pelmeni",
+    src: `${MAPS}/photo-60.jpg`,
+    label: "Soup & bread",
     span: "col-span-1 row-span-1 md:col-span-4 md:row-span-2",
   },
   {
-    src: "/photos/owner/shawarma.jpg",
-    label: "Shawarma wrap",
+    src: `${MAPS}/photo-45.jpg`,
+    label: "Shared plates",
     span: "col-span-2 row-span-1 md:col-span-6 md:row-span-2",
   },
 ];

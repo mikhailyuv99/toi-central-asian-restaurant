@@ -4,7 +4,7 @@ import { client, phoneHref } from "./client";
 const phoneDigits = phoneHref.replace(/\D/g, "");
 
 const reservationMessage = encodeURIComponent(
-  "Hello, I would like to make a reservation at Habibi."
+  "Hello, I would like to make a reservation at TOI Central Asian Restaurant."
 );
 
 export const social = {

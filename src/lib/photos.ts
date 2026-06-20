@@ -26,7 +26,7 @@ export function getPhotoAllocation() {
   const menuPhotoIndices = new Set<number>();
 
   menuItems.forEach((item) => {
-    if (item.photo?.startsWith("/photos/photo-")) {
+    if (item.photo?.startsWith("/photos/maps/") || item.photo?.startsWith("/photos/photo-")) {
       const idx = client.photos.indexOf(item.photo);
       if (idx >= 0) menuPhotoIndices.add(idx);
     }

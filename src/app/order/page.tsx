@@ -3,9 +3,9 @@ import { OrderPageClient } from "@/components/order/OrderPageClient";
 import "./order.css";
 
 export const metadata: Metadata = {
-  title: "Order Direct | Habibi",
+  title: "Order Direct | TOI",
   description:
-    "Order pickup directly from Habibi — no app, no Grab commission. Pay on arrival.",
+    "Order pickup from TOI Central Asian Restaurant. Halal plov, laghman, manti. Pay on arrival.",
   robots: { index: false, follow: false },
 };
 

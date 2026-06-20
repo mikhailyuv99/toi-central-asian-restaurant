@@ -15,7 +15,7 @@ export function ContactForm() {
     e.preventDefault();
     const digits = phoneHref.replace(/\D/g, "");
     const body = encodeURIComponent(
-      `Hello Habibi,\n\nName: ${name || "—"}\nPhone: ${phone || "—"}\n\n${message || "I'd like to get in touch."}`
+      `Hello TOI,\n\nName: ${name || "—"}\nPhone: ${phone || "—"}\n\n${message || "I'd like to get in touch."}`
     );
     window.open(`https://wa.me/${digits}?text=${body}`, "_blank", "noopener,noreferrer");
   }

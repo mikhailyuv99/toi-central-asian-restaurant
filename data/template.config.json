@@ -9,24 +9,24 @@
     "full_menu_link": "off"
   },
   "expression": {
-    "hero_pattern": "B",
+    "hero_pattern": "A",
     "hours_in_hero": "hide",
     "menu_highlights_mode": "menu",
     "menu_highlights_max": "8",
-    "typography": { "headings": "playfair", "body": "jost" },
+    "typography": { "headings": "bodoni-moda", "body": "outfit" },
     "colors": {
-      "accent": "#b8956b",
-      "accent_bright": "#d4b896",
-      "surface": "#f4efe6",
-      "surface_muted": "#e8e0d4",
-      "text": "#0c0a09",
-      "text_soft": "#6b635c",
-      "dark": "#0c0a09"
+      "accent": "#b08d44",
+      "accent_bright": "#c5a059",
+      "surface": "#f8f1e1",
+      "surface_muted": "#efe6d4",
+      "text": "#141210",
+      "text_soft": "#6b5e4a",
+      "dark": "#0a0a0a"
     },
     "density": {
       "hero": "open",
       "menu_highlights": "medium",
-      "atmosphere": "medium",
+      "atmosphere": "open",
       "visit": "open"
     }
   }

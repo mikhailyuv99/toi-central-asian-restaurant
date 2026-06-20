@@ -36,14 +36,17 @@ export function buildOrderWhatsAppMessage(
   const total = cartSubtotal(cart);
 
   const itemLines = lines
-    .map(
-      ({ item, quantity }) =>
-        `- ${item.name} x${quantity} - ${formatOrderVnd(item.priceVnd * quantity)}`,
-    )
+    .map(({ item, quantity }) => {
+      const price =
+        item.priceVnd > 0
+          ? formatOrderVnd(item.priceVnd * quantity)
+          : "price TBD";
+      return `- ${item.name} x${quantity} - ${price}`;
+    })
     .join("\n");
 
   return [
-    "NEW ORDER - Habibi Direct",
+    "NEW ORDER - TOI Central Asian Restaurant",
     "",
     `Customer: ${customer.firstName}`,
     `Phone: ${customer.phone}`,
@@ -52,8 +55,8 @@ export function buildOrderWhatsAppMessage(
     "Order:",
     itemLines,
     "",
-    `TOTAL: ${formatOrderVnd(total)}`,
+    total > 0 ? `TOTAL: ${formatOrderVnd(total)}` : "TOTAL: please confirm on WhatsApp",
     "",
-    "Sent via Habibi Direct (not Grab)",
+    "Sent via TOI website order page",
   ].join("\n");
 }

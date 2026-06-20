@@ -59,7 +59,9 @@ function QuantityControl({
         disabled={quantity === 0}
         onClick={onDecrease}
       >
-        −
+        <span className="habibi-order-qty__symbol habibi-order-qty__symbol--minus" aria-hidden="true">
+          −
+        </span>
       </button>
       <span className="habibi-order-qty__value" aria-live="polite">
         {quantity}
@@ -70,7 +72,9 @@ function QuantityControl({
         aria-label={increaseLabel}
         onClick={onIncrease}
       >
-        +
+        <span className="habibi-order-qty__symbol" aria-hidden="true">
+          +
+        </span>
       </button>
     </div>
   );

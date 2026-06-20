@@ -1,11 +1,10 @@
-/** Only assets sharp enough to show small. No full-bleed with these files. */
+const MAPS = "/photos/maps";
 
-/** Best file size / detail — shashlik service shot */
-export const heroImage = "/photos/photo-2.jpg";
+/** TOI Google Maps scrape photos only. */
+export const heroImage = `${MAPS}/photo-2.jpg`;
 
-/** Shown at ~280px wide max in the menu row */
 export const dishThumbs = [
-  { src: "/photos/owner/khinkali.jpg", alt: "Khinkali", name: "Khinkali", price: "60,000₫ / piece" },
-  { src: "/photos/owner/meze-platter.jpg", alt: "Meze platter", name: "Meze", price: null },
-  { src: "/photos/photo-2.jpg", alt: "Lamb shashlik", name: "Lamb Shashlik", price: "280,000₫" },
+  { src: `${MAPS}/photo-12.jpg`, alt: "Manti", name: "Manti", price: "60,000₫ / piece" },
+  { src: `${MAPS}/photo-38.jpg`, alt: "Samsa", name: "Samsa", price: null },
+  { src: `${MAPS}/photo-62.jpg`, alt: "Lamb shashlik", name: "Lamb Shashlik", price: "280,000₫" },
 ] as const;

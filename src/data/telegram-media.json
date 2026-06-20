@@ -1,23 +1,16 @@
 {
-  "photos": [
-    "/photos/maps/photo-22.jpg",
-    "/photos/maps/photo-121.jpg",
-    "/photos/maps/photo-61.jpg",
-    "/photos/maps/photo-47.jpg",
-    "/photos/maps/photo-68.jpg",
-    "/photos/maps/photo-73.jpg",
-    "/photos/maps/photo-91.jpg",
-    "/photos/maps/photo-110.jpg",
-    "/photos/maps/photo-52.jpg",
-    "/photos/maps/photo-74.jpg",
-    "/photos/maps/photo-18.jpg",
-    "/photos/maps/photo-21.jpg",
-    "/photos/maps/photo-7.jpg",
-    "/photos/maps/photo-4.jpg",
-    "/photos/maps/photo-3.jpg",
-    "/photos/maps/photo-2.jpg",
-    "/photos/maps/photo-8.jpg",
-    "/photos/maps/photo-25.jpg"
-  ],
-  "videos": []
+  "carousel": [
+    "/photos/maps/photo-65.jpg",
+    "/photos/maps/photo-90.jpg",
+    "/photos/maps/photo-75.jpg",
+    "/photos/maps/photo-80.jpg",
+    "/photos/maps/photo-70.jpg",
+    "/photos/maps/photo-85.jpg",
+    "/photos/maps/photo-5.jpg",
+    "/photos/maps/photo-10.jpg",
+    "/photos/maps/photo-15.jpg",
+    "/photos/maps/photo-20.jpg",
+    "/photos/maps/photo-6.jpg",
+    "/photos/maps/photo-2.jpg"
+  ]
 }

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
-const KEY = "habibi-cookie-ok";
+const KEY = "toi-cookie-ok";
 
 export function CookieBanner() {
   const { t } = useLanguage();

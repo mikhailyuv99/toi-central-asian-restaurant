@@ -1,10 +1,10 @@
 {
-  "name": "habibi-an-thuong",
+  "name": "toi-central-asian-restaurant",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/validate-about-photos.mjs && next build",
     "start": "next start",
     "lint": "eslint",
     "import-reviews": "node scripts/import-reviews-html.mjs",

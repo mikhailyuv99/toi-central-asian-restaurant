@@ -2,8 +2,8 @@ import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
-const SLAVIC_MURAL = "/photos/photo-22.jpg";
-const ARABIC_MURAL = "/photos/photo-6.jpg";
+const SLAVIC_MURAL = "/photos/maps/photo-75.jpg";
+const ARABIC_MURAL = "/photos/maps/photo-6.jpg";
 
 export function FusionIntro() {
   return (
