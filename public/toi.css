@@ -1,24 +1,31 @@
 /**
- * TOI brand — overrides ALL Habibi green (#4a634d) leftovers.
- * Logo: transparent PNG only. Palette: cream #F8F1E1, gold #B08D44, black #0A0A0A.
+ * TOI brand — visual identity overrides (CSS only).
+ * Palette: charcoal #1a1a18, alt #222220, gold #c9a84c, text #e8e0d0, muted #9a9080.
  */
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
 :root {
-  --toi-cream: #f8f1e1;
-  --toi-cream-muted: #efe6d4;
-  --toi-gold: #b08d44;
-  --toi-gold-light: #c5a059;
-  --toi-black: #0a0a0a;
-  --toi-ink: #141210;
-  --toi-ink-soft: #6b5e4a;
+  --toi-charcoal: #1a1a18;
+  --toi-charcoal-alt: #222220;
+  --toi-gold: #c9a84c;
+  --toi-gold-light: #d4b860;
+  --toi-text: #e8e0d0;
+  --toi-muted: #9a9080;
+  /* legacy token aliases used throughout this file */
+  --toi-cream: #e8e0d0;
+  --toi-cream-muted: #222220;
+  --toi-black: #1a1a18;
+  --toi-ink: #e8e0d0;
+  --toi-ink-soft: #9a9080;
 }
 
 /* ── Global: purge Habibi sage green ── */
 
 html,
 body {
-  background: var(--toi-cream) !important;
-  color: var(--toi-ink) !important;
+  background: var(--toi-charcoal) !important;
+  color: var(--toi-text) !important;
 }
 
 body *,
@@ -37,17 +44,17 @@ body *,
 }
 
 .habibi-page__title {
-  color: var(--toi-ink) !important;
+  color: var(--toi-text) !important;
 }
 
 .habibi-page__lead,
 .habibi-about-story__text p {
-  color: var(--toi-ink-soft) !important;
+  color: var(--toi-muted) !important;
 }
 
 .habibi-about {
-  background: var(--toi-cream) !important;
-  border-color: rgba(176, 141, 68, 0.15) !important;
+  background: var(--toi-charcoal) !important;
+  border-color: rgba(201, 168, 76, 0.15) !important;
 }
 
 .habibi-about-story__text {
@@ -55,12 +62,13 @@ body *,
 }
 
 .habibi-nav {
-  background: var(--toi-black) !important;
-  border-bottom: 1px solid rgba(176, 141, 68, 0.35) !important;
+  background: var(--toi-charcoal) !important;
+  border-bottom: 1px solid var(--toi-gold) !important;
 }
 
 .habibi-nav__link {
-  color: rgba(248, 241, 225, 0.8) !important;
+  color: rgba(232, 224, 208, 0.82) !important;
+  letter-spacing: 0.04em !important;
 }
 
 .habibi-nav__link:hover,
@@ -70,40 +78,45 @@ body *,
 
 .habibi-nav__link--cta {
   background: var(--toi-gold) !important;
-  color: var(--toi-black) !important;
+  color: var(--toi-charcoal) !important;
   border-color: var(--toi-gold) !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
 }
 
 /* Language toggle — dark nav, readable control */
 .habibi-lang__trigger {
-  color: var(--toi-black) !important;
+  color: var(--toi-charcoal) !important;
   background: var(--toi-gold) !important;
   border: 1px solid var(--toi-gold-light) !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
 }
 
 .habibi-lang__chev {
-  color: var(--toi-black) !important;
+  color: var(--toi-charcoal) !important;
   opacity: 0.7 !important;
 }
 
 .habibi-lang__menu {
-  background: var(--toi-black) !important;
-  border: 1px solid rgba(176, 141, 68, 0.45) !important;
+  background: var(--toi-charcoal-alt) !important;
+  border: 1px solid rgba(201, 168, 76, 0.45) !important;
+  border-radius: 2px !important;
 }
 
 .habibi-lang__option {
-  color: var(--toi-cream) !important;
+  color: var(--toi-text) !important;
 }
 
 .habibi-lang__option:hover,
 .habibi-lang__option--active {
-  background: rgba(176, 141, 68, 0.25) !important;
+  background: rgba(201, 168, 76, 0.2) !important;
   color: var(--toi-gold-light) !important;
 }
 
 .habibi-footer {
-  background: var(--toi-black) !important;
-  color: rgba(248, 241, 225, 0.75) !important;
+  background: var(--toi-charcoal-alt) !important;
+  color: rgba(232, 224, 208, 0.72) !important;
   border-top: 3px solid var(--toi-gold) !important;
 }
 
@@ -112,24 +125,28 @@ body *,
 }
 
 .habibi-maps {
-  background: var(--toi-cream-muted) !important;
+  background: var(--toi-charcoal-alt) !important;
 }
 
 .habibi-maps__btn,
 .habibi-contact__submit,
 .habibi-hero__btn--primary {
   background: var(--toi-gold) !important;
-  color: var(--toi-black) !important;
+  color: var(--toi-charcoal) !important;
   border-color: var(--toi-gold) !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
 }
 
 .habibi-cookie {
-  background: var(--toi-black) !important;
+  background: var(--toi-charcoal-alt) !important;
 }
 
 .habibi-cookie__btn {
   background: var(--toi-gold) !important;
-  color: var(--toi-black) !important;
+  color: var(--toi-charcoal) !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
 }
 
 .habibi-menu-cats__btn--active,
@@ -137,7 +154,8 @@ body *,
 .habibi-order-category__btn--active {
   background: var(--toi-gold) !important;
   border-color: var(--toi-gold) !important;
-  color: var(--toi-black) !important;
+  color: var(--toi-charcoal) !important;
+  border-radius: 2px !important;
 }
 
 .habibi-order-item__price {
@@ -145,12 +163,19 @@ body *,
 }
 
 .habibi-order-header {
-  background: var(--toi-black) !important;
+  background: var(--toi-charcoal) !important;
 }
 
 .habibi-order-cart-bar {
-  background: var(--toi-black) !important;
+  background: var(--toi-charcoal) !important;
   border-top: 2px solid var(--toi-gold) !important;
+}
+
+.habibi-order-btn--primary {
+  background: var(--toi-gold) !important;
+  color: var(--toi-charcoal) !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
 }
 
 /* Hide Habibi tab menu if any legacy mount */
@@ -167,7 +192,7 @@ body *,
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #0a0a0a;
+  background: var(--toi-charcoal);
 }
 
 .toi-hero__facade-img {
@@ -186,10 +211,10 @@ body *,
   z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(to right, #0a0a0a 0%, #0a0a0a 3%, rgba(10, 10, 10, 0.98) 10%, rgba(10, 10, 10, 0.82) 20%, rgba(10, 10, 10, 0.35) 38%, transparent 58%),
-    linear-gradient(to left, #0a0a0a 0%, #0a0a0a 3%, rgba(10, 10, 10, 0.98) 10%, rgba(10, 10, 10, 0.82) 20%, rgba(10, 10, 10, 0.35) 38%, transparent 58%),
-    linear-gradient(to bottom, #0a0a0a 0%, #0a0a0a 4%, rgba(10, 10, 10, 0.98) 12%, rgba(10, 10, 10, 0.85) 24%, rgba(10, 10, 10, 0.45) 42%, transparent 62%),
-    linear-gradient(to top, #0a0a0a 0%, #0a0a0a 2%, rgba(10, 10, 10, 0.96) 9%, rgba(10, 10, 10, 0.72) 20%, rgba(10, 10, 10, 0.28) 38%, transparent 55%);
+    linear-gradient(to right, #1a1a18 0%, #1a1a18 3%, rgba(26, 26, 24, 0.98) 10%, rgba(26, 26, 24, 0.82) 20%, rgba(26, 26, 24, 0.35) 38%, transparent 58%),
+    linear-gradient(to left, #1a1a18 0%, #1a1a18 3%, rgba(26, 26, 24, 0.98) 10%, rgba(26, 26, 24, 0.82) 20%, rgba(26, 26, 24, 0.35) 38%, transparent 58%),
+    linear-gradient(to bottom, #1a1a18 0%, #1a1a18 4%, rgba(26, 26, 24, 0.98) 12%, rgba(26, 26, 24, 0.85) 24%, rgba(26, 26, 24, 0.45) 42%, transparent 62%),
+    linear-gradient(to top, #1a1a18 0%, #1a1a18 2%, rgba(26, 26, 24, 0.96) 9%, rgba(26, 26, 24, 0.72) 20%, rgba(26, 26, 24, 0.28) 38%, transparent 55%);
 }
 
 .toi-hero__content {
@@ -199,7 +224,7 @@ body *,
   max-width: 40rem;
   margin: 0 auto;
   padding: 2rem 1.5rem 2.75rem;
-  color: var(--toi-cream);
+  color: var(--toi-text);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -231,17 +256,17 @@ body *,
 
 .toi-hero__headline {
   margin: 0.65rem 0 0;
-  font-family: var(--font-heading), Georgia, serif;
+  font-family: "Playfair Display", var(--font-heading), Georgia, serif;
   font-size: clamp(1.25rem, 3.2vw, 1.65rem);
   font-weight: 400;
   line-height: 1.4;
-  color: rgba(248, 241, 225, 0.95);
+  color: rgba(232, 224, 208, 0.95);
 }
 
 .toi-hero__meta {
   margin: 0.75rem 0 0;
   font-size: 0.8125rem;
-  color: rgba(248, 241, 225, 0.7);
+  color: rgba(232, 224, 208, 0.7);
 }
 
 .toi-hero__stars {
@@ -253,7 +278,7 @@ body *,
   margin: 0.5rem 0 0;
   font-size: 0.75rem;
   line-height: 1.55;
-  color: rgba(248, 241, 225, 0.55);
+  color: rgba(232, 224, 208, 0.55);
 }
 
 .toi-hero__actions {
@@ -271,7 +296,7 @@ body *,
   min-height: 2.75rem;
   padding: 0 1.35rem;
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
@@ -281,7 +306,8 @@ body *,
 
 .toi-btn--gold {
   background: var(--toi-gold);
-  color: var(--toi-black);
+  color: var(--toi-charcoal);
+  font-weight: 600;
 }
 
 .toi-btn--gold:hover {
@@ -289,9 +315,10 @@ body *,
 }
 
 .toi-btn--ghost {
-  border-color: rgba(248, 241, 225, 0.45);
-  color: var(--toi-cream);
+  border-color: rgba(232, 224, 208, 0.45);
+  color: var(--toi-text);
   background: transparent;
+  border-radius: 2px;
 }
 
 .toi-btn--ghost:hover {
@@ -320,13 +347,13 @@ body *,
 }
 
 .toi-hero__social a:hover {
-  color: var(--toi-cream);
+  color: var(--toi-text);
 }
 
 /* ── Menu: typography board (no menu photos) ── */
 
 .toi-menu {
-  background: var(--toi-black);
+  background: var(--toi-charcoal-alt);
   padding: 3.5rem 1.25rem 4.5rem;
   border-top: 3px solid var(--toi-gold);
 }
@@ -347,18 +374,18 @@ body *,
 .toi-menu__eyebrow {
   margin: 0;
   font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--toi-gold-light);
 }
 
 .toi-menu__title {
   margin: 0.5rem 0 0;
-  font-family: var(--font-heading), Georgia, serif;
+  font-family: "Playfair Display", var(--font-heading), Georgia, serif;
   font-size: clamp(2.25rem, 6vw, 3rem);
   font-weight: 400;
-  color: var(--toi-cream);
+  color: var(--toi-text);
   line-height: 1.05;
 }
 
@@ -366,7 +393,7 @@ body *,
   margin: 0.85rem 0 0;
   font-size: 0.9375rem;
   line-height: 1.6;
-  color: rgba(248, 241, 225, 0.62);
+  color: rgba(232, 224, 208, 0.62);
 }
 
 .toi-menu__nav {
@@ -376,18 +403,18 @@ body *,
   justify-content: center;
   margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(176, 141, 68, 0.25);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.25);
 }
 
 .toi-menu__nav-btn {
   padding: 0.45rem 0.85rem;
   font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(248, 241, 225, 0.65);
+  color: rgba(232, 224, 208, 0.65);
   background: transparent;
-  border: 1px solid rgba(176, 141, 68, 0.3);
+  border: 1px solid rgba(201, 168, 76, 0.3);
   border-radius: 2px;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
@@ -396,7 +423,7 @@ body *,
 .toi-menu__nav-btn:hover,
 .toi-menu__nav-btn--active {
   background: var(--toi-gold);
-  color: var(--toi-black);
+  color: var(--toi-charcoal);
   border-color: var(--toi-gold);
 }
 
@@ -411,23 +438,23 @@ body *,
   gap: 0.75rem;
   margin-bottom: 1.15rem;
   padding-bottom: 0.65rem;
-  border-bottom: 1px solid rgba(176, 141, 68, 0.35);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.35);
 }
 
 .toi-menu__category-title {
   margin: 0;
-  font-family: var(--font-heading), Georgia, serif;
+  font-family: "Playfair Display", var(--font-heading), Georgia, serif;
   font-size: clamp(1.35rem, 3vw, 1.65rem);
   font-weight: 400;
-  color: var(--toi-cream);
+  color: var(--toi-text);
 }
 
 .toi-menu__category-count {
   font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(176, 141, 68, 0.75);
+  color: rgba(201, 168, 76, 0.75);
 }
 
 .toi-menu__list {
@@ -445,7 +472,7 @@ body *,
   gap: 0.35rem 1.25rem;
   align-items: baseline;
   padding: 0.85rem 0;
-  border-bottom: 1px solid rgba(248, 241, 225, 0.07);
+  border-bottom: 1px solid rgba(232, 224, 208, 0.07);
 }
 
 .toi-menu__row:last-child {
@@ -460,7 +487,7 @@ body *,
   margin: 0;
   font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--toi-cream);
+  color: var(--toi-text);
   line-height: 1.35;
 }
 
@@ -477,14 +504,14 @@ body *,
   margin: 0.2rem 0 0;
   font-size: 0.75rem;
   line-height: 1.45;
-  color: rgba(248, 241, 225, 0.45);
+  color: rgba(232, 224, 208, 0.45);
 }
 
 .toi-menu__item-desc {
   margin: 0.25rem 0 0;
   font-size: 0.8125rem;
   line-height: 1.5;
-  color: rgba(248, 241, 225, 0.55);
+  color: rgba(232, 224, 208, 0.55);
 }
 
 .toi-menu__item-price {
@@ -498,7 +525,7 @@ body *,
 .toi-menu__footer {
   margin-top: 2.5rem;
   padding-top: 1.75rem;
-  border-top: 1px solid rgba(176, 141, 68, 0.25);
+  border-top: 1px solid rgba(201, 168, 76, 0.25);
   text-align: center;
 }
 
@@ -509,12 +536,12 @@ body *,
   min-height: 2.75rem;
   padding: 0 1.5rem;
   font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   text-decoration: none;
   background: var(--toi-gold);
-  color: var(--toi-black);
+  color: var(--toi-charcoal);
   border-radius: 2px;
 }
 
@@ -525,7 +552,7 @@ body *,
 .toi-menu__note {
   margin: 0.85rem 0 0;
   font-size: 0.75rem;
-  color: rgba(248, 241, 225, 0.4);
+  color: rgba(232, 224, 208, 0.4);
 }
 
 /* Legacy card grid — hidden */
@@ -535,7 +562,7 @@ body *,
   display: none !important;
 }
 
-/* About carousels: edge fade into cream */
+/* About carousels: edge fade into section background */
 .toi-about-carousel {
   mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
@@ -543,9 +570,134 @@ body *,
 
 .toi-about .habibi-about-story__text,
 .toi-about .habibi-about-story__text p {
-  color: var(--toi-ink-soft) !important;
+  color: var(--toi-muted) !important;
 }
 
 .toi-about .habibi-about-hours {
   color: var(--toi-gold) !important;
+}
+
+/* ── Restyle layer: typography, buttons, decorative (CSS only) ── */
+
+.site-toi {
+  font-family: "Inter", var(--font-body), system-ui, sans-serif;
+}
+
+.site-toi h1,
+.site-toi h2,
+.site-toi h3,
+.site-toi .habibi-page__title,
+.site-toi .toi-menu__title,
+.site-toi .toi-menu__category-title,
+.site-toi .toi-hero__headline,
+.site-toi .font-serif {
+  font-family: "Playfair Display", var(--font-heading), Georgia, serif !important;
+}
+
+.site-toi .habibi-nav__link,
+.site-toi .habibi-page__eyebrow,
+.site-toi .habibi-section-label,
+.site-toi .toi-menu__eyebrow,
+.site-toi .toi-menu__category-count,
+.site-toi .toi-menu__nav-btn {
+  letter-spacing: 0.04em !important;
+}
+
+.site-toi .habibi-nav__link--cta,
+.site-toi .habibi-hero__btn--primary,
+.site-toi .toi-btn--gold,
+.site-toi .habibi-maps__btn,
+.site-toi .habibi-contact__submit,
+.site-toi .habibi-cookie__btn,
+.site-toi .toi-menu__order-link,
+.site-toi .habibi-order-btn--primary {
+  background: #c9a84c !important;
+  color: #1a1a18 !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
+}
+
+.site-toi button,
+.site-toi .habibi-order-btn,
+.site-toi .toi-btn,
+.site-toi .habibi-lang__trigger,
+.site-toi .toi-menu__nav-btn,
+.site-toi .habibi-maps__btn,
+.site-toi .habibi-contact__submit,
+.site-toi .habibi-cookie__btn,
+.site-toi .habibi-nav__link--cta,
+.site-toi a.toi-menu__order-link {
+  border-radius: 2px !important;
+}
+
+.site-toi .habibi-nav {
+  border-bottom: 1px solid #c9a84c !important;
+}
+
+.site-toi blockquote,
+.site-toi .habibi-review-carousel__card,
+.site-toi .habibi-review-card,
+.site-toi .habibi-review-grid__card {
+  border-left: 3px solid #c9a84c !important;
+}
+
+.site-toi .habibi-page__eyebrow,
+.site-toi .habibi-section-label {
+  color: var(--toi-gold) !important;
+}
+
+.site-toi .habibi-maps__title,
+.site-toi .habibi-contact__title,
+.site-toi .habibi-footer__name {
+  color: var(--toi-text) !important;
+}
+
+.site-toi .habibi-maps__lead,
+.site-toi .habibi-contact__lead,
+.site-toi .habibi-footer__addr {
+  color: var(--toi-muted) !important;
+}
+
+/* Order page — match charcoal palette without touching order.css structure */
+.site-toi .habibi-order {
+  background: var(--toi-charcoal) !important;
+  color: var(--toi-text) !important;
+  font-family: "Inter", var(--font-body), system-ui, sans-serif !important;
+}
+
+.site-toi .habibi-order-header {
+  background: var(--toi-charcoal-alt) !important;
+  border-bottom-color: rgba(201, 168, 76, 0.2) !important;
+}
+
+.site-toi .habibi-order-header__tagline {
+  font-family: "Playfair Display", Georgia, serif !important;
+  color: var(--toi-gold) !important;
+}
+
+.site-toi .habibi-order-header__trust,
+.site-toi .habibi-order-item__desc,
+.site-toi .habibi-order-ident__hint,
+.site-toi .habibi-order-cart__empty {
+  color: var(--toi-muted) !important;
+}
+
+.site-toi .habibi-order-item__name,
+.site-toi .habibi-order-category__title,
+.site-toi .habibi-order-panel__title,
+.site-toi .habibi-order-cart__title {
+  color: var(--toi-text) !important;
+  font-family: "Playfair Display", Georgia, serif !important;
+}
+
+.site-toi .habibi-order-cats__link {
+  letter-spacing: 0.04em !important;
+}
+
+.site-toi .habibi-order-panel,
+.site-toi .habibi-order-cart__panel,
+.site-toi .habibi-order-ident {
+  background: var(--toi-charcoal-alt) !important;
+  border-color: rgba(201, 168, 76, 0.2) !important;
+  border-radius: 2px !important;
 }
