@@ -37,6 +37,21 @@ function cartLinesFromMenu(cart: Record<string, number>, menuById: Map<string, O
     .filter((line): line is CartLine => line !== null);
 }
 
+function QtyIcon({ kind }: { kind: "plus" | "minus" }) {
+  return (
+    <svg className="habibi-order-qty__icon" viewBox="0 0 16 16" aria-hidden="true">
+      {kind === "minus" ? (
+        <path d="M3.5 8h9" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+      ) : (
+        <>
+          <path d="M8 3.5v9" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+          <path d="M3.5 8h9" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+        </>
+      )}
+    </svg>
+  );
+}
+
 function QuantityControl({
   quantity,
   onIncrease,
@@ -59,9 +74,7 @@ function QuantityControl({
         disabled={quantity === 0}
         onClick={onDecrease}
       >
-        <span className="habibi-order-qty__symbol habibi-order-qty__symbol--minus" aria-hidden="true">
-          −
-        </span>
+        <QtyIcon kind="minus" />
       </button>
       <span className="habibi-order-qty__value" aria-live="polite">
         {quantity}
@@ -72,9 +85,7 @@ function QuantityControl({
         aria-label={increaseLabel}
         onClick={onIncrease}
       >
-        <span className="habibi-order-qty__symbol" aria-hidden="true">
-          +
-        </span>
+        <QtyIcon kind="plus" />
       </button>
     </div>
   );
