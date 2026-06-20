@@ -1,779 +1,685 @@
 /**
- * TOI Central Asian Restaurant — complete standalone stylesheet.
- * Loaded after habibi.css; every visible rule is overridden here.
- * Site should look correct even if habibi.css were removed.
+ * TOI brand — visual identity overrides (CSS only).
+ * Palette: charcoal #1a1a18, alt #222220, gold #c9a84c, text #e8e0d0, muted #9a9080.
  */
 
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
 
-/* ── Design tokens ── */
-
-:root,
-.site-toi {
-  --toi-bg: #0f0b08;
-  --toi-bg-alt: #1a1108;
-  --toi-accent: #c4622d;
-  --toi-accent-dark: #9a4a22;
-  --toi-text: #e8dcc8;
-  --toi-soft: #8a7a68;
-  --toi-rule: #2a1a0e;
-  --toi-btn-text: #0f0b08;
-  --habibi-green: #c4622d;
+:root {
+  --toi-charcoal: #1a1a18;
+  --toi-charcoal-alt: #222220;
+  --toi-gold: #c9a84c;
+  --toi-gold-light: #d4b860;
+  --toi-text: #e8e0d0;
+  --toi-muted: #9a9080;
+  /* legacy token aliases used throughout this file */
+  --toi-cream: #e8e0d0;
+  --toi-cream-muted: #222220;
+  --toi-black: #1a1a18;
+  --toi-ink: #e8e0d0;
+  --toi-ink-soft: #9a9080;
 }
 
-/* ── Global foundation ── */
+/* ── Global: purge Habibi sage green ── */
 
-html {
-  background: var(--toi-bg) !important;
-  scroll-behavior: smooth;
-}
-
-body.site-toi,
-.site-toi {
-  margin: 0;
-  background: var(--toi-bg) !important;
+html,
+body {
+  background: var(--toi-charcoal) !important;
   color: var(--toi-text) !important;
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
-  font-size: 1rem;
-  line-height: 1.7 !important;
-  -webkit-font-smoothing: antialiased;
+}
+
+body *,
+.habibi-about,
+.habibi-page__header,
+.habibi-about-story__text,
+.habibi-maps,
+.habibi-contact,
+.habibi-nav__inner {
+  --habibi-green: var(--toi-gold);
+}
+
+.habibi-page__eyebrow,
+.habibi-section-label {
+  color: var(--toi-gold) !important;
+}
+
+.habibi-page__title {
+  color: var(--toi-text) !important;
+}
+
+.habibi-page__lead,
+.habibi-about-story__text p {
+  color: var(--toi-muted) !important;
+}
+
+.habibi-about {
+  background: var(--toi-charcoal) !important;
+  border-color: rgba(201, 168, 76, 0.15) !important;
+}
+
+.habibi-about-story__text {
+  border-left-color: var(--toi-gold) !important;
+}
+
+.habibi-nav {
+  background: var(--toi-charcoal) !important;
+  border-bottom: 1px solid var(--toi-gold) !important;
+}
+
+.habibi-nav__link {
+  color: rgba(232, 224, 208, 0.82) !important;
+  letter-spacing: 0.04em !important;
+}
+
+.habibi-nav__link:hover,
+.habibi-nav__link--active {
+  color: var(--toi-gold-light) !important;
+}
+
+.habibi-nav__link--cta {
+  background: var(--toi-gold) !important;
+  color: var(--toi-charcoal) !important;
+  border-color: var(--toi-gold) !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
+}
+
+/* Language toggle — dark nav, readable control */
+.habibi-lang__trigger {
+  color: var(--toi-charcoal) !important;
+  background: var(--toi-gold) !important;
+  border: 1px solid var(--toi-gold-light) !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
+}
+
+.habibi-lang__chev {
+  color: var(--toi-charcoal) !important;
+  opacity: 0.7 !important;
+}
+
+.habibi-lang__menu {
+  background: var(--toi-charcoal-alt) !important;
+  border: 1px solid rgba(201, 168, 76, 0.45) !important;
+  border-radius: 2px !important;
+}
+
+.habibi-lang__option {
+  color: var(--toi-text) !important;
+}
+
+.habibi-lang__option:hover,
+.habibi-lang__option--active {
+  background: rgba(201, 168, 76, 0.2) !important;
+  color: var(--toi-gold-light) !important;
+}
+
+.habibi-footer {
+  background: var(--toi-charcoal-alt) !important;
+  color: rgba(232, 224, 208, 0.72) !important;
+  border-top: 3px solid var(--toi-gold) !important;
+}
+
+.habibi-footer__credit a {
+  color: var(--toi-gold-light) !important;
+}
+
+.habibi-maps {
+  background: var(--toi-charcoal-alt) !important;
+}
+
+.habibi-maps__btn,
+.habibi-contact__submit,
+.habibi-hero__btn--primary {
+  background: var(--toi-gold) !important;
+  color: var(--toi-charcoal) !important;
+  border-color: var(--toi-gold) !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
+}
+
+.habibi-cookie {
+  background: var(--toi-charcoal-alt) !important;
+}
+
+.habibi-cookie__btn {
+  background: var(--toi-gold) !important;
+  color: var(--toi-charcoal) !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
+}
+
+.habibi-menu-cats__btn--active,
+.habibi-order-qty__btn,
+.habibi-order-category__btn--active {
+  background: var(--toi-gold) !important;
+  border-color: var(--toi-gold) !important;
+  color: var(--toi-charcoal) !important;
+  border-radius: 2px !important;
+}
+
+.habibi-order-item__price {
+  color: var(--toi-gold) !important;
+}
+
+.habibi-order-header {
+  background: var(--toi-charcoal) !important;
+}
+
+.habibi-order-cart-bar {
+  background: var(--toi-charcoal) !important;
+  border-top: 2px solid var(--toi-gold) !important;
+}
+
+.habibi-order-btn--primary {
+  background: var(--toi-gold) !important;
+  color: var(--toi-charcoal) !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
+}
+
+/* Hide Habibi tab menu if any legacy mount */
+.habibi-menu-section:not(.toi-menu) {
+  display: none !important;
+}
+
+/* ── Hero: full-bleed storefront ── */
+
+.toi-hero--facade {
   position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--toi-charcoal);
 }
 
-/* Warm paper grain — subtle, not decorative */
-.site-toi::before {
-  content: "";
-  position: fixed;
+.toi-hero__facade-img {
+  object-fit: cover;
+  object-position: center 18%;
+  transform: scale(0.86);
+  transform-origin: center 22%;
+  mask-image: radial-gradient(ellipse 70% 62% at 50% 36%, #000 35%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 62% at 50% 36%, #000 35%, transparent 100%);
+}
+
+/* Heavy edge fade: photo melts into black on all sides */
+.toi-hero__vignette {
+  position: absolute;
   inset: 0;
-  z-index: 9998;
+  z-index: 1;
   pointer-events: none;
-  opacity: 0.045;
-  mix-blend-mode: soft-light;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
+  background:
+    linear-gradient(to right, #1a1a18 0%, #1a1a18 3%, rgba(26, 26, 24, 0.98) 10%, rgba(26, 26, 24, 0.82) 20%, rgba(26, 26, 24, 0.35) 38%, transparent 58%),
+    linear-gradient(to left, #1a1a18 0%, #1a1a18 3%, rgba(26, 26, 24, 0.98) 10%, rgba(26, 26, 24, 0.82) 20%, rgba(26, 26, 24, 0.35) 38%, transparent 58%),
+    linear-gradient(to bottom, #1a1a18 0%, #1a1a18 4%, rgba(26, 26, 24, 0.98) 12%, rgba(26, 26, 24, 0.85) 24%, rgba(26, 26, 24, 0.45) 42%, transparent 62%),
+    linear-gradient(to top, #1a1a18 0%, #1a1a18 2%, rgba(26, 26, 24, 0.96) 9%, rgba(26, 26, 24, 0.72) 20%, rgba(26, 26, 24, 0.28) 38%, transparent 55%);
 }
 
-.site-toi *,
-.site-toi *::before,
-.site-toi *::after {
-  border-radius: 0 !important;
+.toi-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 2.75rem;
+  color: var(--toi-text);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .toi-hero__content {
+    padding: 3rem 2.5rem 3.5rem;
+  }
+}
+
+.toi-hero__logo {
+  width: min(13rem, 72vw);
+  height: auto;
+  display: block;
+  margin: 0 auto 0.25rem;
+  background: transparent;
+}
+
+.toi-hero__kicker {
+  margin: 0.75rem 0 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--toi-gold-light);
+}
+
+.toi-hero__headline {
+  margin: 0.65rem 0 0;
+  font-family: "Playfair Display", var(--font-heading), Georgia, serif;
+  font-size: clamp(1.25rem, 3.2vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(232, 224, 208, 0.95);
+}
+
+.toi-hero__meta {
+  margin: 0.75rem 0 0;
+  font-size: 0.8125rem;
+  color: rgba(232, 224, 208, 0.7);
+}
+
+.toi-hero__stars {
+  color: var(--toi-gold);
+  margin-right: 0.35rem;
+}
+
+.toi-hero__address {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: rgba(232, 224, 208, 0.55);
+}
+
+.toi-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  justify-content: center;
+}
+
+.toi-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0 1.35rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid transparent;
+}
+
+.toi-btn--gold {
+  background: var(--toi-gold);
+  color: var(--toi-charcoal);
+  font-weight: 600;
+}
+
+.toi-btn--gold:hover {
+  background: var(--toi-gold-light);
+}
+
+.toi-btn--ghost {
+  border-color: rgba(232, 224, 208, 0.45);
+  color: var(--toi-text);
+  background: transparent;
+  border-radius: 2px;
+}
+
+.toi-btn--ghost:hover {
+  border-color: var(--toi-gold);
+  color: var(--toi-gold-light);
+}
+
+.toi-hero__review-link {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-size: 0.6875rem;
+  color: var(--toi-gold-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.toi-hero__social {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.toi-hero__social a {
+  color: var(--toi-gold-light);
+}
+
+.toi-hero__social a:hover {
+  color: var(--toi-text);
+}
+
+/* ── Menu: typography board (no menu photos) ── */
+
+.toi-menu {
+  background: var(--toi-charcoal-alt);
+  padding: 3.5rem 1.25rem 4.5rem;
+  border-top: 3px solid var(--toi-gold);
+}
+
+.toi-menu__inner {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.toi-menu__header {
+  margin-bottom: 2.75rem;
+  text-align: center;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.toi-menu__eyebrow {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--toi-gold-light);
+}
+
+.toi-menu__title {
+  margin: 0.5rem 0 0;
+  font-family: "Playfair Display", var(--font-heading), Georgia, serif;
+  font-size: clamp(2.25rem, 6vw, 3rem);
+  font-weight: 400;
+  color: var(--toi-text);
+  line-height: 1.05;
+}
+
+.toi-menu__lead {
+  margin: 0.85rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgba(232, 224, 208, 0.62);
+}
+
+.toi-menu__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+}
+
+.toi-menu__nav-btn {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(232, 224, 208, 0.65);
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.toi-menu__nav-btn:hover,
+.toi-menu__nav-btn--active {
+  background: var(--toi-gold);
+  color: var(--toi-charcoal);
+  border-color: var(--toi-gold);
+}
+
+.toi-menu__category {
+  scroll-margin-top: 5rem;
+  margin-bottom: 2.75rem;
+}
+
+.toi-menu__category-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.35);
+}
+
+.toi-menu__category-title {
+  margin: 0;
+  font-family: "Playfair Display", var(--font-heading), Georgia, serif;
+  font-size: clamp(1.35rem, 3vw, 1.65rem);
+  font-weight: 400;
+  color: var(--toi-text);
+}
+
+.toi-menu__category-count {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(201, 168, 76, 0.75);
+}
+
+.toi-menu__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.toi-menu__row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem 1.25rem;
+  align-items: baseline;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(232, 224, 208, 0.07);
+}
+
+.toi-menu__row:last-child {
+  border-bottom: none;
+}
+
+.toi-menu__item-main {
+  min-width: 0;
+}
+
+.toi-menu__item-name {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--toi-text);
+  line-height: 1.35;
+}
+
+.toi-menu__item-name--popular::after {
+  content: " · popular";
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--toi-gold-light);
+}
+
+.toi-menu__item-alt {
+  margin: 0.2rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: rgba(232, 224, 208, 0.45);
+}
+
+.toi-menu__item-desc {
+  margin: 0.25rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgba(232, 224, 208, 0.55);
+}
+
+.toi-menu__item-price {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--toi-gold-light);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.toi-menu__footer {
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(201, 168, 76, 0.25);
+  text-align: center;
+}
+
+.toi-menu__order-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0 1.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--toi-gold);
+  color: var(--toi-charcoal);
+  border-radius: 2px;
+}
+
+.toi-menu__order-link:hover {
+  background: var(--toi-gold-light);
+}
+
+.toi-menu__note {
+  margin: 0.85rem 0 0;
+  font-size: 0.75rem;
+  color: rgba(232, 224, 208, 0.4);
+}
+
+/* Legacy card grid — hidden */
+.toi-menu__grid,
+.toi-menu__group,
+.toi-menu__lightbox {
+  display: none !important;
+}
+
+/* About carousels: edge fade into section background */
+.toi-about-carousel {
+  mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+}
+
+.toi-about .habibi-about-story__text,
+.toi-about .habibi-about-story__text p {
+  color: var(--toi-muted) !important;
+}
+
+.toi-about .habibi-about-hours {
+  color: var(--toi-gold) !important;
+}
+
+/* ── Restyle layer: typography, buttons, decorative (CSS only) ── */
+
+.site-toi {
+  font-family: "Inter", var(--font-body), system-ui, sans-serif;
 }
 
 .site-toi h1,
 .site-toi h2,
 .site-toi h3,
-.site-toi .toi-hero__headline,
-.site-toi .toi-menu__category-title,
-.site-toi .toi-menu__title,
 .site-toi .habibi-page__title,
-.site-toi .habibi-maps__heading,
-.site-toi .habibi-footer__name,
-.site-toi .habibi-review-carousel__stat,
-.site-toi .habibi-order-header__tagline,
-.site-toi .habibi-order-item__name,
-.site-toi .habibi-order-category__title,
+.site-toi .toi-menu__title,
+.site-toi .toi-menu__category-title,
+.site-toi .toi-hero__headline,
 .site-toi .font-serif {
-  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif !important;
+  font-family: "Playfair Display", var(--font-heading), Georgia, serif !important;
+}
+
+.site-toi .habibi-nav__link,
+.site-toi .habibi-page__eyebrow,
+.site-toi .habibi-section-label,
+.site-toi .toi-menu__eyebrow,
+.site-toi .toi-menu__category-count,
+.site-toi .toi-menu__nav-btn {
   letter-spacing: 0.04em !important;
-  font-weight: 600 !important;
 }
 
-.site-toi p,
-.site-toi li,
-.site-toi label,
-.site-toi input,
-.site-toi textarea,
-.site-toi button,
-.site-toi a {
-  line-height: 1.7;
-}
-
-/* ── Shared buttons ── */
-
-.site-toi .toi-btn--gold,
+.site-toi .habibi-nav__link--cta,
 .site-toi .habibi-hero__btn--primary,
+.site-toi .toi-btn--gold,
 .site-toi .habibi-maps__btn,
 .site-toi .habibi-contact__submit,
 .site-toi .habibi-cookie__btn,
 .site-toi .toi-menu__order-link,
-.site-toi .habibi-order-btn--primary,
-.site-toi .habibi-nav__link--cta {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: var(--toi-accent) !important;
-  color: var(--toi-btn-text) !important;
-  border: 1px solid var(--toi-accent) !important;
-  font-weight: 700 !important;
-  text-decoration: none !important;
-  cursor: pointer;
+.site-toi .habibi-order-btn--primary {
+  background: #c9a84c !important;
+  color: #1a1a18 !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
 }
 
-.site-toi .toi-btn--ghost,
-.site-toi .habibi-hero__btn--secondary {
-  background: transparent !important;
-  color: var(--toi-accent) !important;
-  border: 1px solid var(--toi-accent) !important;
-  font-weight: 700 !important;
+.site-toi button,
+.site-toi .habibi-order-btn,
+.site-toi .toi-btn,
+.site-toi .habibi-lang__trigger,
+.site-toi .toi-menu__nav-btn,
+.site-toi .habibi-maps__btn,
+.site-toi .habibi-contact__submit,
+.site-toi .habibi-cookie__btn,
+.site-toi .habibi-nav__link--cta,
+.site-toi a.toi-menu__order-link {
+  border-radius: 2px !important;
 }
-
-.site-toi .habibi-nav__link--cta {
-  padding: 0.5rem 1.25rem !important;
-}
-
-/* ── Navigation ── */
 
 .site-toi .habibi-nav {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 50 !important;
-  background: var(--toi-bg) !important;
-  backdrop-filter: none !important;
-  border-bottom: 1px solid var(--toi-accent) !important;
+  border-bottom: 1px solid #c9a84c !important;
 }
 
-.site-toi .habibi-nav__inner {
-  max-width: 56rem !important;
-  margin: 0 auto !important;
-  padding: 0.85rem 1.25rem !important;
-}
-
-.site-toi .habibi-nav__link {
-  font-size: 0.75rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  color: var(--toi-soft) !important;
-  text-decoration: none !important;
-  opacity: 1 !important;
-}
-
-.site-toi .habibi-nav__link:hover,
-.site-toi .habibi-nav__link--active {
-  color: var(--toi-text) !important;
-  text-decoration: none !important;
-  opacity: 1 !important;
-}
-
-/* ── Hero (TOI facade) ── */
-
-.site-toi .toi-hero--facade {
-  position: relative !important;
-  min-height: 100svh !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  overflow: hidden !important;
-  background: var(--toi-bg) !important;
-}
-
-.site-toi .toi-hero__facade-img {
-  object-fit: cover !important;
-  object-position: center 22% !important;
-  transform: scale(0.92) !important;
-  transform-origin: center 28% !important;
-  mask-image: radial-gradient(ellipse 72% 58% at 50% 38%, #000 30%, transparent 100%) !important;
-  -webkit-mask-image: radial-gradient(ellipse 72% 58% at 50% 38%, #000 30%, transparent 100%) !important;
-}
-
-.site-toi .toi-hero__vignette {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 1 !important;
-  pointer-events: none !important;
-  background:
-    linear-gradient(to right, rgba(15, 11, 8, 0.92) 0%, rgba(15, 11, 8, 0.55) 18%, rgba(15, 11, 8, 0.25) 40%, transparent 58%),
-    linear-gradient(to left, rgba(15, 11, 8, 0.92) 0%, rgba(15, 11, 8, 0.55) 18%, rgba(15, 11, 8, 0.25) 40%, transparent 58%),
-    linear-gradient(to bottom, rgba(15, 11, 8, 0.88) 0%, rgba(15, 11, 8, 0.62) 22%, rgba(15, 11, 8, 0.35) 45%, transparent 65%),
-    linear-gradient(to top, rgba(15, 11, 8, 0.95) 0%, rgba(15, 11, 8, 0.72) 18%, rgba(15, 11, 8, 0.4) 38%, transparent 58%) !important;
-}
-
-.site-toi .toi-hero--facade::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: rgba(15, 11, 8, 0.62);
-}
-
-.site-toi .toi-hero__content {
-  position: relative !important;
-  z-index: 2 !important;
-  width: 100% !important;
-  max-width: 38rem !important;
-  margin: 0 auto !important;
-  padding: 2.5rem 1.5rem 3rem !important;
-  color: var(--toi-text) !important;
-  text-align: center !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 0 !important;
-}
-
-.site-toi .toi-hero__logo {
-  width: min(12rem, 68vw) !important;
-  height: auto !important;
-  margin: 0 auto 1rem !important;
-  background: transparent !important;
-}
-
-.site-toi .toi-hero__kicker {
-  margin: 0 0 0.85rem !important;
-  font-family: "Inter", system-ui, sans-serif !important;
-  font-size: 0.6875rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.18em !important;
-  text-transform: uppercase !important;
-  color: var(--toi-accent) !important;
-  line-height: 1.5 !important;
-}
-
-.site-toi .toi-hero__headline {
-  margin: 0 0 0.85rem !important;
-  font-size: clamp(1.35rem, 3.5vw, 1.85rem) !important;
-  line-height: 1.25 !important;
-  color: var(--toi-text) !important;
-  font-weight: 600 !important;
-}
-
-.site-toi .toi-hero__meta {
-  margin: 0 0 0.65rem !important;
-  font-size: 0.8125rem !important;
-  color: var(--toi-soft) !important;
-  line-height: 1.5 !important;
-}
-
-.site-toi .toi-hero__stars,
-.site-toi .habibi-review-stars,
-.site-toi .habibi-reviews-rating {
-  color: var(--toi-accent) !important;
-}
-
-.site-toi .toi-hero__address {
-  margin: 0 0 1.25rem !important;
-  font-size: 0.75rem !important;
-  line-height: 1.6 !important;
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .toi-hero__actions {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 0.75rem !important;
-  margin: 0 0 1rem !important;
-  justify-content: center !important;
-}
-
-.site-toi .toi-btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: 2.75rem !important;
-  padding: 0 1.35rem !important;
-  font-family: "Inter", system-ui, sans-serif !important;
-  font-size: 0.6875rem !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  text-decoration: none !important;
-}
-
-.site-toi .toi-btn--gold:hover,
-.site-toi .habibi-nav__link--cta:hover,
-.site-toi .toi-menu__order-link:hover {
-  background: var(--toi-accent-dark) !important;
-  border-color: var(--toi-accent-dark) !important;
-}
-
-.site-toi .toi-btn--ghost:hover {
-  background: rgba(196, 98, 45, 0.08) !important;
-  color: var(--toi-text) !important;
-}
-
-.site-toi .toi-hero__review-link {
-  margin: 0 0 1rem !important;
-  font-size: 0.6875rem !important;
-  color: var(--toi-soft) !important;
-  text-decoration: underline !important;
-  text-underline-offset: 3px !important;
-}
-
-.site-toi .toi-hero__review-link:hover {
-  color: var(--toi-accent) !important;
-}
-
-.site-toi .toi-hero__social {
-  display: flex !important;
-  gap: 0.75rem !important;
-  margin: 0 !important;
-  justify-content: center !important;
-}
-
-.site-toi .toi-hero__social a {
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .toi-hero__social a:hover {
-  color: var(--toi-accent) !important;
-}
-
-/* Hide legacy Habibi hero if mounted */
-.site-toi .habibi-hero:not(.toi-hero) {
-  display: none !important;
-}
-
-/* ── About ── */
-
-.site-toi .habibi-about,
-.site-toi .toi-about {
-  padding: 3.5rem 1.25rem 3rem !important;
-  background: var(--toi-bg) !important;
-  border-top: 1px solid var(--toi-rule) !important;
-  color: var(--toi-text) !important;
-}
-
-.site-toi .habibi-about__inner {
-  max-width: 52rem !important;
-  margin: 0 auto !important;
-}
-
-.site-toi .habibi-page__header {
-  text-align: center !important;
-  margin-bottom: 2.5rem !important;
+.site-toi blockquote,
+.site-toi .habibi-review-carousel__card,
+.site-toi .habibi-review-card,
+.site-toi .habibi-review-grid__card {
+  border-left: 3px solid #c9a84c !important;
 }
 
 .site-toi .habibi-page__eyebrow,
 .site-toi .habibi-section-label {
-  font-family: "Inter", system-ui, sans-serif !important;
-  font-size: 0.6875rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.14em !important;
-  text-transform: uppercase !important;
-  color: var(--toi-accent) !important;
-  margin-bottom: 0.75rem !important;
+  color: var(--toi-gold) !important;
 }
 
-.site-toi .habibi-page__title {
-  margin-top: 0 !important;
-  font-size: clamp(2rem, 5vw, 2.75rem) !important;
-  line-height: 1.1 !important;
-  color: var(--toi-text) !important;
-}
-
-.site-toi .habibi-page__lead {
-  margin-top: 0.85rem !important;
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .habibi-about-story {
-  gap: 2rem !important;
-}
-
-.site-toi .habibi-about-story__text {
-  max-width: 40rem !important;
-  margin-inline: auto !important;
-  padding-left: 1rem !important;
-  border-left: 3px solid var(--toi-accent) !important;
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .habibi-about-story__text p {
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .habibi-about-hours {
-  color: var(--toi-accent) !important;
-  letter-spacing: 0.1em !important;
-}
-
-.site-toi .toi-about-carousel,
-.site-toi .habibi-about-story .habibi-media-row {
-  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%) !important;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%) !important;
-}
-
-.site-toi .habibi-about-story .habibi-media-row__item {
-  border: 1px solid var(--toi-rule) !important;
-}
-
-/* ── Reviews ── */
-
-.site-toi .habibi-reviews-section {
-  margin-top: 2.5rem !important;
-  padding-top: 2rem !important;
-  border-top: 1px solid var(--toi-rule) !important;
-}
-
-.site-toi .habibi-review-carousel__stat {
-  color: var(--toi-text) !important;
-}
-
-.site-toi .habibi-review-carousel__card,
-.site-toi .habibi-review-card,
-.site-toi .habibi-review-grid__card {
-  background: var(--toi-bg-alt) !important;
-  border: 1px solid var(--toi-rule) !important;
-  border-left: 3px solid var(--toi-accent) !important;
-  color: var(--toi-text) !important;
-}
-
-.site-toi .habibi-review-text,
-.site-toi blockquote {
-  color: var(--toi-text) !important;
-  border-left: 3px solid var(--toi-accent) !important;
-}
-
-.site-toi .habibi-review-author {
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .habibi-reviews-maps-link {
-  color: var(--toi-accent) !important;
-}
-
-/* ── Menu (typography board) ── */
-
-.site-toi .habibi-menu-section:not(.toi-menu) {
-  display: none !important;
-}
-
-.site-toi .toi-menu {
-  background: var(--toi-bg-alt) !important;
-  padding: 3.5rem 1.25rem 4.5rem !important;
-  border-top: 1px solid var(--toi-rule) !important;
-}
-
-.site-toi .toi-menu__inner {
-  max-width: 52rem !important;
-  margin: 0 auto !important;
-}
-
-.site-toi .toi-menu__header {
-  margin-bottom: 2.5rem !important;
-  text-align: center !important;
-}
-
-.site-toi .toi-menu__eyebrow {
-  font-family: "Inter", system-ui, sans-serif !important;
-  font-size: 0.6875rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.14em !important;
-  text-transform: uppercase !important;
-  color: var(--toi-accent) !important;
-}
-
-.site-toi .toi-menu__title {
-  margin-top: 0.65rem !important;
-  font-size: clamp(2.25rem, 6vw, 3.25rem) !important;
-  line-height: 1.05 !important;
-  color: var(--toi-text) !important;
-}
-
-.site-toi .toi-menu__lead {
-  margin-top: 0.85rem !important;
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .toi-menu__nav {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 0.5rem !important;
-  justify-content: center !important;
-  margin-bottom: 2.5rem !important;
-  padding-bottom: 1.5rem !important;
-  border-bottom: 1px solid var(--toi-rule) !important;
-}
-
-.site-toi .toi-menu__nav-btn {
-  padding: 0.5rem 0.9rem !important;
-  font-family: "Inter", system-ui, sans-serif !important;
-  font-size: 0.625rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.1em !important;
-  text-transform: uppercase !important;
-  color: var(--toi-soft) !important;
-  background: transparent !important;
-  border: 1px solid var(--toi-rule) !important;
-  cursor: pointer !important;
-}
-
-.site-toi .toi-menu__nav-btn:hover,
-.site-toi .toi-menu__nav-btn--active {
-  background: var(--toi-accent) !important;
-  color: var(--toi-btn-text) !important;
-  border-color: var(--toi-accent) !important;
-}
-
-.site-toi .toi-menu__category {
-  scroll-margin-top: 5rem !important;
-  margin-bottom: 2.75rem !important;
-}
-
-.site-toi .toi-menu__category-head {
-  margin-bottom: 1rem !important;
-  padding-bottom: 0.75rem !important;
-  border-bottom: 1px solid var(--toi-rule) !important;
-}
-
-.site-toi .toi-menu__category-title {
-  font-size: clamp(1.4rem, 3vw, 1.75rem) !important;
-  color: var(--toi-text) !important;
-}
-
-.site-toi .toi-menu__category-count {
-  font-family: "Inter", system-ui, sans-serif !important;
-  font-size: 0.6875rem !important;
-  letter-spacing: 0.1em !important;
-  text-transform: uppercase !important;
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .toi-menu__row {
-  padding: 0.9rem 0 !important;
-  border-bottom: 1px solid var(--toi-rule) !important;
-}
-
-.site-toi .toi-menu__row:last-child {
-  border-bottom: none !important;
-}
-
-.site-toi .toi-menu__item-name {
-  font-family: "Inter", system-ui, sans-serif !important;
-  font-size: 0.9375rem !important;
-  font-weight: 600 !important;
-  color: var(--toi-text) !important;
-}
-
-.site-toi .toi-menu__item-name--popular::after {
-  content: none !important;
-}
-
-.site-toi .toi-menu__item-name--popular::before {
-  content: "";
-  display: inline-block;
-  width: 0.4rem;
-  height: 0.4rem;
-  margin-right: 0.55rem;
-  vertical-align: 0.15em;
-  background: var(--toi-accent);
-  border-radius: 50% !important;
-}
-
-.site-toi .toi-menu__item-alt,
-.site-toi .toi-menu__item-desc {
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .toi-menu__item-price {
-  font-family: "Inter", system-ui, sans-serif !important;
-  font-weight: 700 !important;
-  color: var(--toi-accent) !important;
-}
-
-.site-toi .toi-menu__footer {
-  margin-top: 2.5rem !important;
-  padding-top: 1.75rem !important;
-  border-top: 1px solid var(--toi-rule) !important;
-  text-align: center !important;
-}
-
-.site-toi .toi-menu__order-link {
-  min-height: 2.75rem !important;
-  padding: 0 1.5rem !important;
-  font-size: 0.6875rem !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-}
-
-.site-toi .toi-menu__note {
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .toi-menu__grid,
-.site-toi .toi-menu__group,
-.site-toi .toi-menu__lightbox {
-  display: none !important;
-}
-
-/* ── Maps & contact ── */
-
-.site-toi .habibi-maps {
-  padding: 3rem 1.25rem 2.5rem !important;
-  background: var(--toi-bg) !important;
-  border-top: 1px solid var(--toi-rule) !important;
-}
-
-.site-toi .habibi-maps__card {
-  background: var(--toi-bg-alt) !important;
-  border: 1px solid var(--toi-rule) !important;
-  padding: 1.5rem !important;
-}
-
-.site-toi .habibi-maps__heading {
-  color: var(--toi-text) !important;
-  font-size: 1.25rem !important;
-}
-
-.site-toi .habibi-maps__address {
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .habibi-maps__embed,
-.site-toi .habibi-maps__embed-placeholder {
-  background: var(--toi-bg) !important;
-  border: 1px solid var(--toi-rule) !important;
-}
-
-.site-toi .habibi-contact__field {
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .habibi-contact__field input,
-.site-toi .habibi-contact__field textarea {
-  background: var(--toi-bg) !important;
-  border: 1px solid var(--toi-rule) !important;
-  color: var(--toi-text) !important;
-}
-
-.site-toi .habibi-contact__field input:focus,
-.site-toi .habibi-contact__field textarea:focus {
-  outline: 2px solid rgba(196, 98, 45, 0.45) !important;
-  outline-offset: 1px !important;
-}
-
-.site-toi .habibi-contact__note {
-  color: var(--toi-soft) !important;
-}
-
-/* ── Language toggle ── */
-
-.site-toi .habibi-lang__trigger {
-  background: var(--toi-bg-alt) !important;
-  border: 1px solid var(--toi-rule) !important;
-  color: var(--toi-text) !important;
-  font-weight: 600 !important;
-}
-
-.site-toi .habibi-lang__chev {
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .habibi-lang__menu {
-  background: var(--toi-bg-alt) !important;
-  border: 1px solid var(--toi-rule) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45) !important;
-}
-
-.site-toi .habibi-lang__option {
-  color: var(--toi-text) !important;
-}
-
-.site-toi .habibi-lang__option:hover,
-.site-toi .habibi-lang__option--active {
-  background: rgba(196, 98, 45, 0.15) !important;
-  color: var(--toi-accent) !important;
-}
-
-/* ── Footer ── */
-
-.site-toi .habibi-footer {
-  padding: 2.5rem 1.25rem 5rem !important;
-  background: var(--toi-bg) !important;
-  color: var(--toi-soft) !important;
-  border-top: 1px solid var(--toi-rule) !important;
-}
-
+.site-toi .habibi-maps__title,
+.site-toi .habibi-contact__title,
 .site-toi .habibi-footer__name {
   color: var(--toi-text) !important;
 }
 
-.site-toi .habibi-footer__address,
-.site-toi .habibi-footer__legal {
-  color: var(--toi-soft) !important;
+.site-toi .habibi-maps__lead,
+.site-toi .habibi-contact__lead,
+.site-toi .habibi-footer__addr {
+  color: var(--toi-muted) !important;
 }
 
-.site-toi .habibi-footer__legal a,
-.site-toi .habibi-footer__credit a {
-  color: var(--toi-accent) !important;
-}
-
-/* ── Cookie banner ── */
-
-.site-toi .habibi-cookie {
-  background: var(--toi-bg-alt) !important;
-  color: var(--toi-text) !important;
-  border-top: 1px solid var(--toi-rule) !important;
-}
-
-.site-toi .habibi-cookie__text {
-  color: var(--toi-soft) !important;
-}
-
-/* ── Modals ── */
-
-.site-toi .habibi-modal-backdrop {
-  background: rgba(15, 11, 8, 0.82) !important;
-}
-
-.site-toi .habibi-modal {
-  background: var(--toi-bg-alt) !important;
-  color: var(--toi-text) !important;
-  border: 1px solid var(--toi-rule) !important;
-}
-
-.site-toi .habibi-modal__title {
-  font-family: "Cormorant Garamond", Georgia, serif !important;
-  color: var(--toi-text) !important;
-}
-
-.site-toi .habibi-modal__address {
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .habibi-modal__close {
-  color: var(--toi-soft) !important;
-}
-
-/* ── Inner pages ── */
-
-.site-toi .habibi-page {
-  min-height: 100svh !important;
-  background: var(--toi-bg) !important;
-  color: var(--toi-text) !important;
-  padding: 1.5rem 1.25rem 3rem !important;
-}
-
-.site-toi .habibi-back {
-  color: var(--toi-soft) !important;
-}
-
-.site-toi .habibi-back:hover {
-  color: var(--toi-accent) !important;
-}
-
-/* ── Order page (override habibi + order.css colors only) ── */
-
+/* Order page — match charcoal palette without touching order.css structure */
 .site-toi .habibi-order {
-  background: var(--toi-bg) !important;
+  background: var(--toi-charcoal) !important;
   color: var(--toi-text) !important;
-  font-family: "Inter", system-ui, sans-serif !important;
+  font-family: "Inter", var(--font-body), system-ui, sans-serif !important;
 }
 
 .site-toi .habibi-order-header {
-  background: var(--toi-bg-alt) !important;
-  border-bottom: 1px solid var(--toi-rule) !important;
+  background: var(--toi-charcoal-alt) !important;
+  border-bottom-color: rgba(201, 168, 76, 0.2) !important;
 }
 
 .site-toi .habibi-order-header__tagline {
-  color: var(--toi-accent) !important;
+  font-family: "Playfair Display", Georgia, serif !important;
+  color: var(--toi-gold) !important;
 }
 
 .site-toi .habibi-order-header__trust,
 .site-toi .habibi-order-item__desc,
 .site-toi .habibi-order-ident__hint,
 .site-toi .habibi-order-cart__empty {
-  color: var(--toi-soft) !important;
+  color: var(--toi-muted) !important;
 }
 
 .site-toi .habibi-order-item__name,
@@ -781,58 +687,17 @@ body.site-toi,
 .site-toi .habibi-order-panel__title,
 .site-toi .habibi-order-cart__title {
   color: var(--toi-text) !important;
-}
-
-.site-toi .habibi-order-item__price {
-  color: var(--toi-accent) !important;
+  font-family: "Playfair Display", Georgia, serif !important;
 }
 
 .site-toi .habibi-order-cats__link {
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  font-size: 0.75rem !important;
+  letter-spacing: 0.04em !important;
 }
 
 .site-toi .habibi-order-panel,
 .site-toi .habibi-order-cart__panel,
 .site-toi .habibi-order-ident {
-  background: var(--toi-bg-alt) !important;
-  border: 1px solid var(--toi-rule) !important;
-}
-
-.site-toi .habibi-order-cart-bar {
-  background: var(--toi-bg-alt) !important;
-  border-top: 1px solid var(--toi-rule) !important;
-}
-
-.site-toi .habibi-menu-cats__btn--active,
-.site-toi .habibi-order-category__btn--active,
-.site-toi .habibi-order-qty__btn {
-  background: var(--toi-accent) !important;
-  border-color: var(--toi-accent) !important;
-  color: var(--toi-btn-text) !important;
-}
-
-.site-toi .habibi-order-btn--secondary {
-  background: transparent !important;
-  border: 1px solid var(--toi-accent) !important;
-  color: var(--toi-accent) !important;
-}
-
-/* ── Misc Habibi remnants ── */
-
-.site-toi .habibi-gallery__grid img {
-  border: 1px solid var(--toi-rule) !important;
-  background: var(--toi-bg-alt) !important;
-}
-
-.site-toi .habibi-reviews-empty {
-  background: var(--toi-bg-alt) !important;
-  border: 1px solid var(--toi-rule) !important;
-  color: var(--toi-soft) !important;
-}
-
-.site-toi ::selection {
-  background: rgba(196, 98, 45, 0.35) !important;
-  color: var(--toi-text) !important;
+  background: var(--toi-charcoal-alt) !important;
+  border-color: rgba(201, 168, 76, 0.2) !important;
+  border-radius: 2px !important;
 }
