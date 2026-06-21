@@ -16,11 +16,13 @@ export function AboutSection() {
       <div className="habibi-about__inner">
         <ScrollReveal>
           <header className="habibi-page__header">
-            <p className="habibi-page__eyebrow">{t.about.eyebrow}</p>
+            {t.about.eyebrow ? (
+              <p className="habibi-page__eyebrow">{t.about.eyebrow}</p>
+            ) : null}
             <h2 id="about-heading" className="habibi-page__title">
               {t.about.title}
             </h2>
-            <p className="habibi-page__lead">{t.about.lead}</p>
+            {t.about.lead ? <p className="habibi-page__lead">{t.about.lead}</p> : null}
           </header>
         </ScrollReveal>
 
@@ -55,11 +57,6 @@ export function AboutSection() {
           <ScrollReveal>
             <div className="habibi-about-story__text habibi-about-story__text--closing">
               <p>{t.about.p4}</p>
-              {client.hours?.[0] && (
-                <p className="habibi-about-hours">
-                  {client.hours[0]} · {client.phone}
-                </p>
-              )}
             </div>
           </ScrollReveal>
         </div>
@@ -67,6 +64,14 @@ export function AboutSection() {
         <ScrollReveal>
           <div className="habibi-reviews-section">
             <h3 className="habibi-section-label">{t.about.reviews}</h3>
+            {client.rating != null && client.review_count != null && (
+              <p className="habibi-reviews-subline">
+                {t.about.reviewsSubline(
+                  client.rating.toFixed(1),
+                  client.review_count.toLocaleString()
+                )}
+              </p>
+            )}
             <ReviewCarouselRows />
           </div>
         </ScrollReveal>

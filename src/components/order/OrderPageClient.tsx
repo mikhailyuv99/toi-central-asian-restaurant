@@ -106,9 +106,11 @@ function MenuItemCard({
   decreaseLabel: string;
   increaseLabel: string;
 }) {
+  const hasImage = Boolean(item.image);
+
   return (
-    <article className="habibi-order-item">
-      {item.image ? (
+    <article className={`habibi-order-item${hasImage ? "" : " habibi-order-item--text-only"}`}>
+      {hasImage ? (
         <div className="habibi-order-item__media">
           <Image
             src={item.image}

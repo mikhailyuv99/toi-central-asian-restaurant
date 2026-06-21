@@ -690,14 +690,93 @@ body *,
   font-family: "Playfair Display", Georgia, serif !important;
 }
 
-.site-toi .habibi-order-cats__link {
-  letter-spacing: 0.04em !important;
-}
-
 .site-toi .habibi-order-panel,
 .site-toi .habibi-order-cart__panel,
 .site-toi .habibi-order-ident {
   background: var(--toi-charcoal-alt) !important;
   border-color: rgba(201, 168, 76, 0.2) !important;
   border-radius: 2px !important;
+}
+
+/* Order page — category nav: no cream sticky bar */
+.site-toi .habibi-order-cats-wrap {
+  background: transparent !important;
+  margin-inline: -1rem;
+}
+
+@media (min-width: 900px) {
+  .site-toi .habibi-order-cats-wrap {
+    margin-inline: 0 !important;
+  }
+}
+
+.site-toi .habibi-order-cats__link {
+  letter-spacing: 0.04em !important;
+  background: var(--toi-charcoal-alt) !important;
+  border-color: rgba(201, 168, 76, 0.28) !important;
+  color: var(--toi-text) !important;
+}
+
+.site-toi .habibi-order-cats__link--active {
+  background: var(--toi-gold) !important;
+  border-color: var(--toi-gold) !important;
+  color: var(--toi-charcoal) !important;
+}
+
+/* Order page — menu item cards match dark theme */
+.site-toi .habibi-order-item {
+  background: var(--toi-charcoal-alt) !important;
+  border-color: rgba(201, 168, 76, 0.2) !important;
+}
+
+.site-toi .habibi-order-item__name,
+.site-toi .habibi-order-qty__value {
+  color: var(--toi-text) !important;
+  opacity: 1 !important;
+}
+
+.site-toi .habibi-order-item__price {
+  color: var(--toi-gold-light) !important;
+  opacity: 1 !important;
+}
+
+.site-toi .habibi-order-qty__btn {
+  background: var(--toi-charcoal) !important;
+  border-color: rgba(201, 168, 76, 0.35) !important;
+  color: var(--toi-gold) !important;
+}
+
+.site-toi .habibi-order-qty__btn:not(:disabled):hover {
+  border-color: var(--toi-gold) !important;
+  color: var(--toi-gold-light) !important;
+}
+
+/* Copy rewrite — reviews subline, maps notes */
+.site-toi .habibi-reviews-subline {
+  margin: 0.35rem 0 1.25rem;
+  font-size: 0.875rem;
+  color: var(--toi-muted);
+}
+
+.site-toi .habibi-review-carousel__stat {
+  display: none;
+}
+
+.site-toi .habibi-maps__subline,
+.site-toi .habibi-maps__hours {
+  margin: 0.35rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--toi-muted);
+}
+
+.site-toi .habibi-maps__hours {
+  margin-bottom: 1rem;
+  color: rgba(232, 224, 208, 0.72);
+}
+
+.site-toi .habibi-maps__address {
+  min-height: 0;
+  color: var(--toi-text);
+  font-weight: 500;
 }

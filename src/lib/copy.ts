@@ -15,10 +15,12 @@ export function headline(): string {
   return client.headline ?? client.name;
 }
 
+export function metaTitle(): string {
+  return "TOI — Halal Central Asian Restaurant in Đà Nẵng";
+}
+
 export function metaDescription(): string {
-  const selling = client.owner_provided_notes?.trim();
-  if (selling) return `${client.name}. ${selling}`.slice(0, 160);
-  return `${client.name} in ${locationShort()}`.slice(0, 160);
+  return "Plov, laghman, manti, and shorpa. Halal-certified Central Asian cooking on Bà Huyện Thanh Quan, a few blocks from Mỹ An beach. Arman and his family cook like it's for their own table.";
 }
 
 export function hoursToday(): string {

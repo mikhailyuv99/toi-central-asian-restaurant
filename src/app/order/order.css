@@ -177,6 +177,7 @@
 .habibi-order-layout {
   display: grid;
   gap: 0.85rem;
+  margin-top: 1.75rem;
 }
 
 .habibi-order-menu {
@@ -188,9 +189,10 @@
   position: sticky;
   top: 0;
   z-index: 5;
-  margin: 0 -0.25rem;
+  margin-inline: -1rem;
   padding: 0.35rem 0 0.85rem;
   background: linear-gradient(180deg, #f8f1e1 88%, rgba(251, 243, 225, 0));
+  overflow: visible;
 }
 
 .habibi-order-cats {
@@ -199,16 +201,16 @@
   gap: 0.5rem;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0 1.25rem 0 0.25rem;
+  padding-inline: 1rem;
   margin: 0;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
-  scroll-padding-inline-end: 1.25rem;
+  scroll-padding-inline: 1rem;
 }
 
 .habibi-order-cats::after {
   content: "";
-  flex: 0 0 0.25rem;
+  flex: 0 0 1rem;
 }
 
 .habibi-order-cats::-webkit-scrollbar {
@@ -265,6 +267,31 @@
   background: #f9f4e8;
   border: 1px solid rgba(107, 94, 74, 0.12);
   border-radius: 4px;
+}
+
+.habibi-order-item--text-only {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.habibi-order-item--text-only .habibi-order-item__content {
+  width: 100%;
+}
+
+.habibi-order-item--text-only .habibi-order-item__head {
+  align-items: baseline;
+}
+
+.habibi-order-item--text-only .habibi-order-item__name {
+  font-size: 1.0625rem;
+}
+
+.habibi-order-item--text-only .habibi-order-item__desc {
+  max-width: none;
+}
+
+.habibi-order-item--text-only .habibi-order-item__actions {
+  justify-content: flex-end;
+  padding-top: 0.35rem;
 }
 
 .habibi-order-item__media {
@@ -666,7 +693,7 @@
     padding: 0 1.5rem 1.5rem;
     display: grid;
     grid-template-columns: minmax(0, 1fr) 19.5rem;
-    gap: 1.5rem 2rem;
+    gap: 2.25rem 2rem;
     align-items: start;
   }
 
@@ -679,6 +706,7 @@
 
   .habibi-order-layout {
     display: contents;
+    margin-top: 0;
   }
 
   .habibi-order-menu {
@@ -706,7 +734,12 @@
   }
 
   .habibi-order-cats {
-    padding-inline-end: 1.5rem;
+    padding-inline: 0 1.5rem;
+    scroll-padding-inline-end: 1.5rem;
+  }
+
+  .habibi-order-cats::after {
+    flex: 0 0 1.5rem;
   }
 
   .habibi-order-cart-bar {

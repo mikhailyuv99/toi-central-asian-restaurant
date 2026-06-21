@@ -5,7 +5,6 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ScrollReveal } from "./ScrollReveal";
 
 type Props = {
-  address: string;
   directionsUrl: string;
   mapsQuery: string;
 };
@@ -13,7 +12,7 @@ type Props = {
 const EMBED_SRC = (query: string) =>
   `https://maps.google.com/maps?q=${query}&z=16&output=embed`;
 
-export function MapsSectionClient({ address, directionsUrl, mapsQuery }: Props) {
+export function MapsSectionClient({ directionsUrl, mapsQuery }: Props) {
   const { t } = useLanguage();
   const hostRef = useRef<HTMLDivElement>(null);
   const [embedSrc, setEmbedSrc] = useState<string | null>(null);
@@ -49,11 +48,13 @@ export function MapsSectionClient({ address, directionsUrl, mapsQuery }: Props) 
         <h2 id="maps-heading" className="habibi-maps__heading">
           {t.maps.title}
         </h2>
-        <p className="habibi-maps__address">{address}</p>
+        <p className="habibi-maps__address">{t.maps.addressLine}</p>
+        <p className="habibi-maps__subline">{t.maps.subline}</p>
+        <p className="habibi-maps__hours">{t.maps.hoursNote}</p>
         <div ref={hostRef} className="habibi-maps__embed">
           {embedSrc ? (
             <iframe
-              title="Habibi on Google Maps"
+              title="TOI on Google Maps"
               src={embedSrc}
               loading="eager"
               referrerPolicy="no-referrer-when-downgrade"

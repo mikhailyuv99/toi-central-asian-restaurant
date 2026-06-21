@@ -1,6 +1,5 @@
 "use client";
 
-import { client } from "@/lib/client";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 const CREDIT_URL = "https://www.instagram.com/mikhailyuv/";
@@ -12,11 +11,8 @@ export function Footer() {
   return (
     <footer className="habibi-footer">
       <div className="habibi-footer__inner">
-        <p className="habibi-footer__name">{client.name}</p>
-        <p className="habibi-footer__address">{client.address}</p>
-        <p className="habibi-footer__legal">
-          {t.footer.legalPrices(year, client.name, client.phone)}
-        </p>
+        <p className="habibi-footer__legal">{t.footer.copyright(year)}</p>
+        <p className="habibi-footer__legal">{t.footer.disclaimer}</p>
         <p className="habibi-footer__legal">{t.footer.legalCookies}</p>
         <p className="habibi-footer__credit">
           {t.footer.credit}{" "}

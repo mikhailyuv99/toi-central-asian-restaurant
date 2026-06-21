@@ -10,7 +10,6 @@ export function MapsSection() {
     <section className="habibi-maps" id="find-us" aria-labelledby="maps-heading">
       <div className="habibi-maps__inner">
         <MapsSectionClient
-          address={client.address}
           directionsUrl={DIRECTIONS_URL}
           mapsQuery={MAPS_QUERY}
         />

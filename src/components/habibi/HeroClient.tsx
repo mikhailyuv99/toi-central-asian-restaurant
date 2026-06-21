@@ -39,8 +39,9 @@ export function HeroClient() {
         />
         <p className="toi-hero__kicker">{t.hero.kicker}</p>
         <h1 id="toi-hero-heading" className="toi-hero__headline">
-          {client.headline}
+          {t.hero.headline}
         </h1>
+        <p className="toi-hero__address">{t.hero.subline}</p>
         {rating != null && reviewCount != null && (
           <p className="toi-hero__meta">
             <span className="toi-hero__stars" aria-hidden>
@@ -49,7 +50,6 @@ export function HeroClient() {
             {t.hero.meta(rating.toFixed(1), reviewCount.toLocaleString())}
           </p>
         )}
-        <p className="toi-hero__address">{client.address}</p>
         <div className="toi-hero__actions">
           <a href={social.reserve} target="_blank" rel="noopener noreferrer" className="toi-btn toi-btn--gold">
             {t.hero.reserve}

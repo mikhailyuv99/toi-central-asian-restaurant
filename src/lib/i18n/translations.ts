@@ -13,7 +13,9 @@ export const translations = {
       reserve: "Reserve",
     },
     hero: {
-      kicker: "Halal Central Asian Cuisine",
+      kicker: "Halal · Central Asian · Đà Nẵng",
+      headline: "The plov, laghman, and manti you've been missing.",
+      subline: "A family kitchen from Kazakhstan, open on Bà Huyện Thanh Quan.",
       title: "TOI",
       meta: (rating: string, reviews: string) =>
         `${rating} on Google · ${reviews} reviews · Halal`,
@@ -24,19 +26,21 @@ export const translations = {
       findUs: "Find us",
     },
     about: {
-      eyebrow: "Bà Huyện Thanh Quan · Đà Nẵng",
+      eyebrow: "",
       title: "About TOI",
-      lead: "Halal Central Asian cooking on Bà Huyện Thanh Quan, a few blocks from Mỹ An beach.",
-      p1: "TOI is a small dining room: dark stone walls, woven pendant lamps, a wood counter, staff in black caps. The gold sign outside and the Kazakhstan flag in the window tell you what you are walking into before you order.",
-      p2: "The same plates show up in every guest photo. Plov with shredded carrot and lamb. Laghman with hand-pulled noodles, beef, and peppers. Steamed manti with sour cream. Shorpa in a deep bowl. Samsa with sesame on top. Most tables also get achichuk and lepyoshka still warm from the oven.",
-      p3: "The printed menu runs Russian on one side and Vietnamese on the other. If you have been looking for halal Central Asian food in Đà Nẵng, this is the name people give you.",
-      p4: "Open 1 to 9 PM, closed Tuesday. Call or message ahead if you are planning lunch.",
-      reviews: "What guests say",
+      lead: "",
+      p1: "TOI is Arman's place. He opened it with his family — his daughter works the floor, his kitchen runs on recipes from home — and you can feel that the moment you walk in.",
+      p2: "The room is small and dark, with stone walls, woven pendant lamps, and a wood counter. A Kazakhstan flag sits in the window. The gold sign outside doesn't oversell it. It's exactly what it looks like: a Central Asian kitchen that ended up in Đà Nẵng and decided to stay.",
+      p3: "The menu is printed in Russian on one side, Vietnamese on the other, and covers the full spread of what people actually miss when they're far from home. Plov with lamb and carrot. Hand-pulled laghman in two styles. Steamed manti with a pour of sour cream. Shorpa that smells like someone's grandmother's kitchen. Samsa from the oven, sesame-topped, still warm. Baursak to pull apart over tea.",
+      p4: "Most tables end up ordering more than they planned. People who grew up eating this food come here and say it tastes right. People who've never tried it come once and come back. The owner will tell you about Kazakhstan if you ask — he usually doesn't wait to be asked. Open Monday and Wednesday through Sunday, 1 to 9 PM. Closed Tuesday. Worth calling ahead if you're coming for lunch.",
+      reviews: "What people say",
+      reviewsSubline: (rating: string, reviews: string) =>
+        `${rating} on Google · ${reviews} reviews`,
     },
     menu: {
       eyebrow: "Halal · Central Asian",
       title: "Menu",
-      lead: "Full list from the printed boards. Salads through tea. Prices in Vietnamese đồng.",
+      lead: "Everything on the printed board. Prices in Vietnamese đồng.",
       itemSingular: "dish",
       itemPlural: "dishes",
       orderCta: "Order for pickup",
@@ -63,6 +67,9 @@ export const translations = {
     },
     maps: {
       title: "Find us",
+      addressLine: "157 Bà Huyện Thanh Quan, Mỹ An, Ngũ Hành Sơn, Đà Nẵng",
+      subline: "A few blocks from Mỹ An beach. Look for the gold sign and the Kazakhstan flag.",
+      hoursNote: "Open daily 1–9 PM, closed Tuesday. Call or WhatsApp ahead for groups.",
       gps: "Open in GPS",
       formTitle: "Send a message",
       name: "Your name",
@@ -71,8 +78,9 @@ export const translations = {
       send: "Send via WhatsApp",
     },
     footer: {
-      legalPrices: (year: number, name: string, phone: string) =>
-        `© ${year} ${name}. Menu prices and hours may change. Call ${phone} to confirm.`,
+      copyright: (year: number) =>
+        `© ${year} TOI Central Asian Restaurant — 157 Bà Huyện Thanh Quan, Đà Nẵng · +84 816 890 593`,
+      disclaimer: "Menu prices and hours may change. Call to confirm before a large order.",
       legalCookies:
         "This site uses cookies for basic preferences. By continuing, you accept our use of cookies.",
       credit: "Website by",
@@ -129,6 +137,8 @@ export const translations = {
     },
     hero: {
       kicker: "Halal · Центральноазиатская кухня",
+      headline: "Плов, лагман и манты, которых вам не хватало.",
+      subline: "Семейная кухня из Казахстана на Bà Huyện Thanh Quan.",
       title: "TOI",
       meta: (rating: string, reviews: string) =>
         `${rating} в Google · ${reviews} отзывов · Halal`,
@@ -147,6 +157,8 @@ export const translations = {
       p3: "Меню напечатано на русском и вьетнамском. Если вы искали halal центральноазиатскую кухню в Дананге, вам называют именно TOI.",
       p4: "Открыты с 13:00 до 21:00, по вторникам закрыты. Позвоните или напишите, если планируете обед.",
       reviews: "Отзывы гостей",
+      reviewsSubline: (rating: string, reviews: string) =>
+        `${rating} в Google · ${reviews} отзывов`,
     },
     menu: {
       eyebrow: "Halal · Центральноазиатская",
@@ -178,6 +190,9 @@ export const translations = {
     },
     maps: {
       title: "Как добраться",
+      addressLine: "157 Bà Huyện Thanh Quan, Mỹ An, Ngũ Hành Sơn, Đà Nẵng",
+      subline: "Недалеко от пляжа Mỹ An. Ищите золотую вывеску и флаг Казахстана.",
+      hoursNote: "Открыты ежедневно 13:00–21:00, по вторникам закрыты. Позвоните или напишите в WhatsApp для большой компании.",
       gps: "Открыть в навигаторе",
       formTitle: "Написать нам",
       name: "Ваше имя",
@@ -186,8 +201,9 @@ export const translations = {
       send: "Отправить в WhatsApp",
     },
     footer: {
-      legalPrices: (year: number, name: string, phone: string) =>
-        `© ${year} ${name}. Цены и часы могут меняться. Уточняйте по телефону ${phone}.`,
+      copyright: (year: number) =>
+        `© ${year} TOI Central Asian Restaurant — 157 Bà Huyện Thanh Quan, Đà Nẵng · +84 816 890 593`,
+      disclaimer: "Цены и часы могут меняться. Позвоните перед большим заказом.",
       legalCookies:
         "Сайт использует cookies для сохранения настроек. Продолжая, вы соглашаетесь с этим.",
       credit: "Сайт:",
@@ -244,6 +260,8 @@ export const translations = {
     },
     hero: {
       kicker: "Ẩm thực Trung Á · Halal",
+      headline: "Plov, laghman và manti mà bạn đang tìm.",
+      subline: "Nhà bếp gia đình từ Kazakhstan, trên Bà Huyện Thanh Quan.",
       title: "TOI",
       meta: (rating: string, reviews: string) =>
         `${rating} trên Google · ${reviews} đánh giá · Halal`,
@@ -262,6 +280,8 @@ export const translations = {
       p3: "Menu in song ngữ Nga và Việt. Nếu bạn tìm đồ Trung Á halal ở Đà Nẵng, người ta hay nhắc TOI.",
       p4: "Mở 13:00 đến 21:00, đóng cửa thứ Ba. Gọi hoặc nhắn tin trước nếu bạn đến buổi trưa.",
       reviews: "Khách nói gì",
+      reviewsSubline: (rating: string, reviews: string) =>
+        `${rating} trên Google · ${reviews} đánh giá`,
     },
     menu: {
       eyebrow: "Halal · Trung Á",
@@ -293,6 +313,9 @@ export const translations = {
     },
     maps: {
       title: "Chỉ đường",
+      addressLine: "157 Bà Huyện Thanh Quan, Mỹ An, Ngũ Hành Sơn, Đà Nẵng",
+      subline: "Cách bãi Mỹ An vài dãy nhà. Tìm biển hiệu vàng và cờ Kazakhstan.",
+      hoursNote: "Mở hàng ngày 13:00–21:00, đóng cửa thứ Ba. Gọi hoặc nhắn WhatsApp trước nếu đi đông người.",
       gps: "Mở GPS",
       formTitle: "Gửi tin nhắn",
       name: "Tên của bạn",
@@ -301,8 +324,9 @@ export const translations = {
       send: "Gửi qua WhatsApp",
     },
     footer: {
-      legalPrices: (year: number, name: string, phone: string) =>
-        `© ${year} ${name}. Giá và giờ mở cửa có thể thay đổi. Gọi ${phone} để xác nhận.`,
+      copyright: (year: number) =>
+        `© ${year} TOI Central Asian Restaurant — 157 Bà Huyện Thanh Quan, Đà Nẵng · +84 816 890 593`,
+      disclaimer: "Giá và giờ mở cửa có thể thay đổi. Gọi trước khi đặt số lượng lớn.",
       legalCookies:
         "Trang web dùng cookies để lưu tùy chọn. Tiếp tục nghĩa là bạn đồng ý.",
       credit: "Website bởi",
@@ -359,6 +383,8 @@ export const translations = {
     },
     hero: {
       kicker: "Cuisine d'Asie centrale · Halal",
+      headline: "Le plov, laghman et manti qui vous manquaient.",
+      subline: "Une cuisine familiale du Kazakhstan, sur Bà Huyện Thanh Quan.",
       title: "TOI",
       meta: (rating: string, reviews: string) =>
         `${rating} sur Google · ${reviews} avis · Halal`,
@@ -377,6 +403,8 @@ export const translations = {
       p3: "La carte est en russe et en vietnamien. Si vous cherchez de l'Asie centrale halal à Da Nang, on vous envoie ici.",
       p4: "Ouvert de 13h à 21h, fermé le mardi. Appelez ou écrivez avant si vous venez déjeuner.",
       reviews: "Ce que disent les clients",
+      reviewsSubline: (rating: string, reviews: string) =>
+        `${rating} sur Google · ${reviews} avis`,
     },
     menu: {
       eyebrow: "Halal · Asie centrale",
@@ -408,6 +436,9 @@ export const translations = {
     },
     maps: {
       title: "Nous trouver",
+      addressLine: "157 Bà Huyện Thanh Quan, Mỹ An, Ngũ Hành Sơn, Đà Nẵng",
+      subline: "À quelques rues de la plage de Mỹ An. Cherchez l'enseigne dorée et le drapeau du Kazakhstan.",
+      hoursNote: "Ouvert tous les jours 13h–21h, fermé le mardi. Appelez ou écrivez sur WhatsApp pour un groupe.",
       gps: "Ouvrir le GPS",
       formTitle: "Envoyer un message",
       name: "Votre nom",
@@ -416,8 +447,9 @@ export const translations = {
       send: "Envoyer via WhatsApp",
     },
     footer: {
-      legalPrices: (year: number, name: string, phone: string) =>
-        `© ${year} ${name}. Prix et horaires susceptibles de changer. Appelez le ${phone} pour confirmer.`,
+      copyright: (year: number) =>
+        `© ${year} TOI Central Asian Restaurant — 157 Bà Huyện Thanh Quan, Đà Nẵng · +84 816 890 593`,
+      disclaimer: "Les prix et horaires peuvent changer. Appelez avant une grande commande.",
       legalCookies:
         "Ce site utilise des cookies pour vos préférences. En continuant, vous acceptez.",
       credit: "Site par",

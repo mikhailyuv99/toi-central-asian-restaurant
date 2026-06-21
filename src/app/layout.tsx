@@ -2,13 +2,13 @@ import { SiteShell } from "@/components/habibi/SiteShell";
 import { HERO_IMAGE } from "@/components/habibi/Hero";
 import type { Metadata } from "next";
 import { client, phoneHref } from "@/lib/client";
-import { cityForTitle, metaDescription } from "@/lib/copy";
+import { metaDescription, metaTitle } from "@/lib/copy";
 import { fontVariables, themeStyle } from "@/lib/theme";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${client.slug}.vercel.app`),
-  title: `${client.name} | ${cityForTitle()}`,
+  title: metaTitle(),
   description: metaDescription(),
   icons: {
     icon: [
@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: client.name,
+    title: metaTitle(),
     description: metaDescription(),
     images: [{ url: HERO_IMAGE, width: 1200, height: 630, alt: client.name }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: client.name,
+    title: metaTitle(),
     description: metaDescription(),
     images: [HERO_IMAGE],
   },
