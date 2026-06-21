@@ -1,5 +1,6 @@
 import type { Lang } from "@/lib/i18n/translations";
 import { TOI_MENU } from "@/data/toi-menu";
+import { localizedMenuDescription, localizedMenuName } from "@/lib/menu-localized";
 import {
   ORDER_MENU_RAW,
   type OrderMenuCategory,
@@ -46,9 +47,7 @@ function localizedName(
   lang: Lang,
   item: (typeof TOI_MENU)[number]["items"][number],
 ): string {
-  if (lang === "ru" && item.nameRu) return item.nameRu;
-  if (lang === "vi" && item.nameVi) return item.nameVi;
-  return item.nameEn;
+  return localizedMenuName(lang, item);
 }
 
 function localizedCategoryTitle(
@@ -74,7 +73,9 @@ export function getLocalizedOrderMenu(lang: Lang, t: MenuLabels): OrderMenuCateg
         return {
           id: item.id,
           name: sourceItem ? localizedName(lang, sourceItem) : item.name,
-          description: item.description,
+          description: sourceItem
+            ? localizedMenuDescription(lang, sourceItem)
+            : item.description,
           priceVnd: item.priceVnd,
           image: getOrderItemImage(item.id) ?? "",
           popular: item.popular,

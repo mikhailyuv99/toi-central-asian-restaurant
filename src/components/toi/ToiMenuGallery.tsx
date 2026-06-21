@@ -3,18 +3,14 @@
 import { useMemo, useState } from "react";
 import { TOI_MENU } from "@/data/toi-menu";
 import { formatOrderPriceDisplay } from "@/data/order-menu";
+import {
+  localizedMenuAltNames,
+  localizedMenuDescription,
+  localizedMenuName,
+} from "@/lib/menu-localized";
 import type { Lang } from "@/lib/i18n/translations";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ScrollReveal } from "@/components/habibi/ScrollReveal";
-
-function itemName(
-  lang: Lang,
-  item: (typeof TOI_MENU)[number]["items"][number],
-): string {
-  if (lang === "ru" && item.nameRu) return item.nameRu;
-  if (lang === "vi" && item.nameVi) return item.nameVi;
-  return item.nameEn;
-}
 
 function categoryTitle(
   lang: Lang,
@@ -36,7 +32,9 @@ export function ToiMenuGallery() {
         title: categoryTitle(lang, cat),
         items: cat.items.map((item) => ({
           ...item,
-          displayName: itemName(lang, item),
+          displayName: localizedMenuName(lang, item),
+          displayDescription: localizedMenuDescription(lang, item),
+          displayAlt: localizedMenuAltNames(lang, item),
         })),
       })),
     [lang],
@@ -91,13 +89,11 @@ export function ToiMenuGallery() {
                       >
                         {item.displayName}
                       </p>
-                      {lang === "en" && (item.nameRu || item.nameVi) && (
-                        <p className="toi-menu__item-alt">
-                          {[item.nameRu, item.nameVi].filter(Boolean).join(" · ")}
-                        </p>
+                      {item.displayAlt && (
+                        <p className="toi-menu__item-alt">{item.displayAlt}</p>
                       )}
-                      {item.description && (
-                        <p className="toi-menu__item-desc">{item.description}</p>
+                      {item.displayDescription && (
+                        <p className="toi-menu__item-desc">{item.displayDescription}</p>
                       )}
                     </div>
                     <span className="toi-menu__item-price">{formatOrderPriceDisplay(item.priceVnd)}</span>

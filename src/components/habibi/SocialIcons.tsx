@@ -67,13 +67,7 @@ type SocialLinkProps = {
 };
 
 export function SocialLink({ href, label, children }: SocialLinkProps) {
-  if (!href) {
-    return (
-      <span className="habibi-hero__social-disabled" aria-label={`${label}, link not set yet`}>
-        {children}
-      </span>
-    );
-  }
+  if (!href) return null;
 
   return (
     <a

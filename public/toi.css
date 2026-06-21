@@ -652,10 +652,53 @@ body *,
   color: var(--toi-text) !important;
 }
 
+/* Maps / contact cards — dark surface so body copy reads at full contrast */
+.site-toi .habibi-maps__card,
+.site-toi .habibi-contact {
+  background: var(--toi-charcoal) !important;
+  border-color: rgba(201, 168, 76, 0.22) !important;
+}
+
+.site-toi .habibi-maps__heading,
+.site-toi .habibi-contact__title {
+  color: var(--toi-gold) !important;
+}
+
 .site-toi .habibi-maps__lead,
 .site-toi .habibi-contact__lead,
 .site-toi .habibi-footer__addr {
   color: var(--toi-muted) !important;
+}
+
+.site-toi .habibi-maps__address,
+.site-toi .habibi-maps__subline,
+.site-toi .habibi-maps__hours {
+  margin: 0.35rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--toi-text) !important;
+  opacity: 1 !important;
+}
+
+.site-toi .habibi-maps__address {
+  margin-top: 0;
+  min-height: 0;
+  font-weight: 500;
+}
+
+.site-toi .habibi-maps__hours {
+  margin-bottom: 1rem;
+}
+
+.site-toi .habibi-contact__field {
+  color: var(--toi-muted) !important;
+}
+
+.site-toi .habibi-contact__field input,
+.site-toi .habibi-contact__field textarea {
+  background: var(--toi-charcoal-alt) !important;
+  border-color: rgba(201, 168, 76, 0.28) !important;
+  color: var(--toi-text) !important;
 }
 
 /* Order page — match charcoal palette without touching order.css structure */
@@ -760,23 +803,4 @@ body *,
 
 .site-toi .habibi-review-carousel__stat {
   display: none;
-}
-
-.site-toi .habibi-maps__subline,
-.site-toi .habibi-maps__hours {
-  margin: 0.35rem 0 0;
-  font-size: 0.8125rem;
-  line-height: 1.55;
-  color: var(--toi-muted);
-}
-
-.site-toi .habibi-maps__hours {
-  margin-bottom: 1rem;
-  color: rgba(232, 224, 208, 0.72);
-}
-
-.site-toi .habibi-maps__address {
-  min-height: 0;
-  color: var(--toi-text);
-  font-weight: 500;
 }

@@ -3,10 +3,14 @@ import {
   InstagramIcon,
   SocialLink,
   TikTokIcon,
+  WhatsAppIcon,
+  ZaloIcon,
 } from "@/components/habibi/SocialIcons";
 import { social } from "@/lib/social";
 
 const ORDER_SOCIAL = [
+  { href: social.whatsapp, label: "WhatsApp", Icon: WhatsAppIcon },
+  { href: social.zalo, label: "Zalo", Icon: ZaloIcon },
   { href: social.instagram, label: "Instagram", Icon: InstagramIcon },
   { href: social.facebook, label: "Facebook", Icon: FacebookIcon },
   { href: social.tiktok, label: "TikTok", Icon: TikTokIcon },
